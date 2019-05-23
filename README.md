@@ -1,4 +1,7 @@
-# The University Experience Vision Statement
+## A Note for the Marker Regarding Iteration 0:
+Please note that the issues section of this repo contains _all_ of the user stories for this project. The ones to be implementated in iteration 1 are labelled with the tag `Iteration-1`. All others are works in progress that will be revisited  following iteration 1.
+
+## The University Experience Vision Statement
 
 Spanning only 30 in-game days, The University Experience is a short, simulation-RPG hybrid videogame in which players are fast-tracked through a single school term that demands them to manage their time, character health, studies and other factors in order to pass their exams. The weeks leading up to each exam period will present the player with a large degree of freedom and should be used to prepare for exams by engaging in character-developing activities. When it is time to write an exam, the player enters a turn-based style combat scenario, similar to _Pokemon_ or _Final Fantasy_. A well-prepared player, who's improved their *skills* by studying the course material, and has maintained their character's happiness, sleep, and hunger values will have an easier "combat encounter" with the exam, most likely receiving a higher grade.
 
