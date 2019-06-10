@@ -7,7 +7,7 @@
     tools:context=".Presentation.CoursesToStudyActivity" >
 
     <ImageView
-        android:id="@+id/course2Image3"
+        android:id="@+id/course3Image"
         android:layout_width="101dp"
         android:layout_height="86dp"
         android:layout_marginStart="16dp"
@@ -37,13 +37,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="332dp"
         android:layout_marginEnd="8dp"
         android:text="Study"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.938"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="332dp" />
 
     <TextView
         android:id="@+id/textView25"
@@ -72,7 +71,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/studyCourse"
+        android:id="@+id/studyCourse2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -85,7 +84,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/course2Image2"
+        android:id="@+id/course2Image"
         android:layout_width="101dp"
         android:layout_height="86dp"
         android:layout_marginStart="16dp"
@@ -176,7 +175,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/course2Image"
+        android:id="@+id/course4Image"
         android:layout_width="101dp"
         android:layout_height="86dp"
         android:layout_marginStart="16dp"
@@ -189,7 +188,7 @@
         app:srcCompat="@drawable/paris" />
 
     <ImageView
-        android:id="@+id/course2Image4"
+        android:id="@+id/course5Image"
         android:layout_width="101dp"
         android:layout_height="86dp"
         android:layout_marginStart="16dp"
@@ -253,19 +252,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/studyCourse2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="572dp"
-        android:layout_marginEnd="8dp"
-        android:text="Study"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.938"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/tile"
         android:layout_width="wrap_content"
@@ -275,6 +261,19 @@
         android:layout_marginEnd="8dp"
         android:text="Select a Course to Study"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/studyCourse5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="572dp"
+        android:layout_marginEnd="8dp"
+        android:text="Study"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.938"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
