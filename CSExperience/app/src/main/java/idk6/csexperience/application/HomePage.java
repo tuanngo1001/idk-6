@@ -34,7 +34,7 @@ public class HomePage extends AppCompatActivity {
         advanceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                adjustGame.nextPeriod();
+                adjustGame.advanceTime();
                 updateText(ourGame);
             }
         });
