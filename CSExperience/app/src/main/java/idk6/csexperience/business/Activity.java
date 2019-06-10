@@ -62,7 +62,7 @@ public class Activity {
     // Hunger += 5
     public void eat(){
         int currentHunger = player.getStats().getHunger();
-        player.getStat().setHunger(currentHunger + 5);
+        player.getStats().setHunger(currentHunger + 5);
         advanceTime();
     }
 

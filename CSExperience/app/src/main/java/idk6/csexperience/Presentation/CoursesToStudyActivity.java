@@ -3,18 +3,24 @@ package idk6.csexperience.Presentation;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.Button;
-
 import idk6.csexperience.R;
+import idk6.csexperience.business.AdjustGame;
+import idk6.csexperience.objects.Game;
 
 public class CoursesToStudyActivity extends AppCompatActivity implements View.OnClickListener{
 
-    //private Player player
+    private Game game;
+    private AdjustGame adjuster;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses_to_study);
+
+        // game = how do we do this??
+        adjuster = new AdjustGame(game);
 
         // Create listeners for each button
         Button studyCourse1 = (Button) findViewById(R.id.studyCourse1);
@@ -32,35 +38,23 @@ public class CoursesToStudyActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View v) {
         // Study a course
-        int courseToStudy;
         switch (v.getId()){
             case R.id.studyCourse1:
-                courseToStudy = 1;
+                adjuster.study(0);
                 break;
             case R.id.studyCourse2:
-                courseToStudy = 2;
+                adjuster.study(1)
                 break;
             case R.id.studyCourse3:
-                courseToStudy = 3;
+                adjuster.study(2);
                 break;
             case R.id.studyCourse4:
-                courseToStudy = 4;
+                adjuster.study(3);
                 break;
             case R.id.studyCourse5:
-                courseToStudy = 5;
+                adjuster.study(4);
                 break;
         } // end switch
 
-        // TODO:
-
-        // Study
-        // int newEnergy = player.getStats().getEnergy -1; // not a good way of doings this
-        // player.getStats().setEnergy(newEnergy);
-
-        // int newHappiness = player.getStats().getHappiness -1;
-        // player.getStats().setHappiness(newHappiness);
-
-        // player.rankUpKnowledge( courseToStudy ); // Add this method to the player
-                                                    // It would be better if it modified stats too.
     }
 }

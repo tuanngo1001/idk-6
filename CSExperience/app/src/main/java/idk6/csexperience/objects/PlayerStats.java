@@ -5,22 +5,19 @@ public class PlayerStats {
     private int hunger;
     private int happiness;
 
-    private int class1_skill;
-    private int class2_skill;
-    private int class3_skill;
-    private int class4_skill;
-    private int class5_skill;
+    private int[] classKnowledge = new int[5];
+
 
     public PlayerStats(int num_classes) {
-        energy = 100;
-        hunger = 0;
-        happiness = 100;
+        energy = 10;
+        hunger = 10;
+        happiness = 10;
 
-        class1_skill = 0;
-        class2_skill = 0;
-        class3_skill = 0;
-        class4_skill = 0;
-        class5_skill = 0;
+        classKnowledge[0] = 1;
+        classKnowledge[1] = 1;
+        classKnowledge[2] = 1;
+        classKnowledge[3] = 1;
+        classKnowledge[4] = 1;
     }
 
     public int getHappiness() {
@@ -45,5 +42,15 @@ public class PlayerStats {
 
     public void setHunger(int newHunger) {
         hunger = newHunger;
+    }
+
+    public int getCourseKnowledge(int courseId){
+        assert(courseId >= 0 && courseId <= 4);
+        return classKnowledge[courseId];
+    }
+
+    public void setCourseKnowledge(int courseId, int value){
+        assert(courseId >= 0 && courseId <= 4);
+        classKnowledge[courseId] = value;
     }
 }
