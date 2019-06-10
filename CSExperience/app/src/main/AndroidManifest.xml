@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Presentation.CoursesToStudyActivity"></activity>
+        <activity android:name=".Presentation.GameActivitySelect"></activity>
+        <activity android:name=".Presentation.CoursesToStudyActivity" />
         <activity android:name=".application.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
