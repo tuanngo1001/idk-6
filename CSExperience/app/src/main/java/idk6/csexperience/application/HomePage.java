@@ -34,7 +34,7 @@ public class HomePage extends AppCompatActivity {
         advanceButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                adjustGame.nextPeriod();
+                adjustGame.advanceTime();
                 updateText(ourGame);
             }
         });
@@ -43,7 +43,7 @@ public class HomePage extends AppCompatActivity {
         eatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                adjustGame.eat(1, 5);
+                adjustGame.eat();
                 updateText(ourGame);
             }
         });

@@ -8,19 +8,12 @@ public class PlayerStats implements Parcelable {
     private int hunger;
     private int happiness;
 
-    private int[] classKnowledge = new int[5];
-
 
     public PlayerStats(int num_classes) {
         energy = 10;
         hunger = 10;
         happiness = 10;
 
-        classKnowledge[0] = 1;
-        classKnowledge[1] = 1;
-        classKnowledge[2] = 1;
-        classKnowledge[3] = 1;
-        classKnowledge[4] = 1;
     }
 
     public int getHappiness() {
