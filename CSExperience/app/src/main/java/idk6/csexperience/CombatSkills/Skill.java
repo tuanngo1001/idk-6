@@ -1,6 +1,7 @@
 package idk6.csexperience.CombatSkills;
 
 public class Skill {
+    private String id;
     private String description;
     private int stat;
 
@@ -8,6 +9,8 @@ public class Skill {
         description = des;
         this.stat = stat;
     }
+
+    public String getID(){ return id; }
 
     public int getStat(){
         return stat;

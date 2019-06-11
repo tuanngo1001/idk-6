@@ -5,19 +5,15 @@ import java.util.ArrayList;
 import idk6.csexperience.objects.*;
 
 public class CombatSkills {
-    private Player user;
     private ArrayList<Skill> skillsList;
     //private SkillLevel level;
 
-    public CombatSkills(Player user){
-        this.user = user;
+    public CombatSkills(){
         skillsList = new ArrayList<Skill>();
         //level = new SkillLevel();
     }
 
-    public void setUser(Player newUser){
-        user = newUser;
-    }
+    public ArrayList getSkillsList(){ return skillsList; }
 
     public void addSkill(Skill newSkill){
         skillsList.add(newSkill);
@@ -29,4 +25,12 @@ public class CombatSkills {
     }
 
     public void statEffect(){}
+
+    public Skill getSkill(String sID){
+        for (Skill s : skillsList){
+            if (s.getID().equals(sID))
+                return s;
+        }
+        return null;
+    }
 }
