@@ -43,7 +43,7 @@ public class CoursesToStudyActivity extends AppCompatActivity implements View.On
                 adjuster.study(0);
                 break;
             case R.id.studyCourse2:
-                adjuster.study(1)
+                adjuster.study(1);
                 break;
             case R.id.studyCourse3:
                 adjuster.study(2);
