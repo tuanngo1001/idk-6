@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/app_bar_nav" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="225sp">
+
+        <Button
+            android:id="@+id/buttonStudy"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="150dp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="Study"
+            android:textSize="24sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="300sp">
+
+        <Button
+            android:id="@+id/buttonSleep"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="150dp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="Sleep"
+            android:textSize="24sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="375sp">
+
+        <Button
+            android:id="@+id/buttonEat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="150dp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="Eat"
+            android:textSize="24sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="450sp">
+
+        <Button
+            android:id="@+id/buttonGame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="150dp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="Game"
+            android:textSize="24sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="525sp">
+
+        <Button
+            android:id="@+id/buttonGroceryHaul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="150dp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="Grocery Haul"
+            android:textSize="24sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="600sp">
+
+        <Button
+            android:id="@+id/buttonNightOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="150dp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="Night Out"
+            android:textSize="24sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="675sp">
+
+        <Button
+            android:id="@+id/buttonSuperSleep"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="150dp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="Super Sleep"
+            android:textSize="24sp"/>
+    </LinearLayout>
+
+</RelativeLayout>
