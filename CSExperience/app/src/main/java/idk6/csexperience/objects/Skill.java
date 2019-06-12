@@ -1,16 +1,23 @@
-package idk6.csexperience.CombatSkills;
+package idk6.csexperience.objects;
 
 public class Skill {
-    private String id;
+    private int cID;
+    private int id;
     private String description;
     private int stat;
 
-    public Skill(String des,int stat){
+    public Skill(int cID, int sID,String des,int stat){
         description = des;
+        this.cID = cID;
+        id = sID;
         this.stat = stat;
     }
 
-    public String getID(){ return id; }
+    public int getCourseID(){ return cID; }
+
+    public void setCourseID(int cID){ this.cID = cID; }
+
+    public int getID(){ return id; }
 
     public int getStat(){
         return stat;

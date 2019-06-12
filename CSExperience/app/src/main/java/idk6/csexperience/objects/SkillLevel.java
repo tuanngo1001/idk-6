@@ -1,4 +1,4 @@
-package idk6.csexperience.CombatSkills;
+package idk6.csexperience.objects;
 
 public class SkillLevel {
     private int level;
@@ -9,19 +9,22 @@ public class SkillLevel {
 
     // Should we include the skill acquired here?
     public void levelUp(){
-        if (level <= 10) {
+        if (level <= 10)
             level++;
-            if (level == 5)
-                System.out.println("Acquire skill no 1.");
-
-            else if (level == 10)
-                System.out.println("Acquire skill no 2.");
-        }
         else
             System.out.println("Player have reached maximum skill Level!");
+    }
+
+    public void levelDown(){
+        if (level > 0)
+            level--;
+        else
+            System.out.println("Cannot level down since player is in level 0!");
     }
 
     public final int getLevel(){
         return level;
     }
+
+    public void setLevel(int newLevel){ level = newLevel; }
 }
