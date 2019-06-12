@@ -44,8 +44,7 @@
                 android:layout_width="86dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pixellari"
-
-                android:text="5"
+                android:text=" "
                 android:textColor="@color/colorAccent"
                 android:textSize="50sp" />
         </LinearLayout>
@@ -122,8 +121,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:max="100"
-                android:padding="10sp"
-                android:progress="50" />
+                android:padding="10sp"/>
 
         </LinearLayout>
 
@@ -160,12 +158,12 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/hungerText"
+                android:id="@+id/foodText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pixellari"
                 android:padding="10sp"
-                android:text="Hunger"
+                android:text="Food"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="36sp" />
 
