@@ -82,9 +82,6 @@ public class NavActivity extends AppCompatActivity
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new CalendarFragment()).commit();
                 break;
-            case R.id.nav_store:
-                Toast.makeText(this, "Store Coming Soon!", Toast.LENGTH_LONG).show();
-                break;
         }
         drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
