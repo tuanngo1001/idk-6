@@ -1,9 +1,19 @@
 package idk6.csexperience.objects;
 
+import java.util.ArrayList;
+
+import idk6.csexperience.CombatSkills.*;
+
 public class PlayerStats {
     private int energy;
     private int hunger;
     private int happiness;
+
+
+    private CombatSkills skills;
+
+    //all of the skills that a player can acquire
+    //private CombatSkills allSkill;
 
     private int[] classKnowledge = new int[5];
 
@@ -13,12 +23,16 @@ public class PlayerStats {
         hunger = 10;
         happiness = 10;
 
-        classKnowledge[0] = 1;
-        classKnowledge[1] = 1;
-        classKnowledge[2] = 1;
-        classKnowledge[3] = 1;
-        classKnowledge[4] = 1;
+        skills = new CombatSkills();
     }
+
+    public ArrayList getSkillsList(){ return skills.getSkillsList(); }
+
+    public void addSkill(Skill newSkill){
+        skills.addSkill(newSkill);
+    }
+
+    public Skill getSkill(String id){ return skills.getSkill(id); }
 
     public int getHappiness() {
         return happiness;
