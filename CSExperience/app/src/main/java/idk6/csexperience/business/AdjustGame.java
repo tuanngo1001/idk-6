@@ -86,6 +86,9 @@ public class AdjustGame {
     public void study(int courseId) {
         if (courseId >= 0 && courseId < 5) {
             //do shit
+            adjustStats.study(courseId);
+
+            advanceTime();
         }
     }
 

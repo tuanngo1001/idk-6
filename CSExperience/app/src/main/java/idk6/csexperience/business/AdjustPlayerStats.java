@@ -114,4 +114,52 @@ public class AdjustPlayerStats {
         }
     }
 
+    // how many study section will levelUp its skill level?
+    public void study(int cID){
+        levelUp(cID);
+    }
+
+
+    private boolean checkForNewSkill(int cID,int level){
+        if (level == 5)
+            stats.getSkillsList().addSkill(stats.getNewSkill(cID,0));
+        else if (level == 10)
+            stats.getSkillsList().addSkill(stats.getNewSkill(cID,1));
+        else
+            return false;
+        return true;
+    }
+
+    private void levelUp(int courseID) {
+        stats.getSkillLevel(courseID).levelUp();
+        if (checkForNewSkill(courseID,stats.getSkillLevel(courseID).getLevel())) {
+            System.out.println("Acquired new Skill: " +
+                    stats.getSkillsList().getLastSkill().getDescription());
+        }
+    }
+
+    public void nightOut() {
+        happiness += 8;
+        if(happiness > 100) {
+            happiness = 100;
+        }
+        energy -= 3;
+        if(energy < 0) {
+            energy = 0;
+        }
+        stats.setHappiness(happiness);
+        stats.setEnergy(energy);
+    }
+
+    public void groceryHaul() {
+        hunger -= 8;
+        if(hunger < 0) {
+            hunger = 0;
+        }
+        energy -= 3;
+        if(energy < 0) {
+            energy = 0;
+        }
+    }
+
 }
