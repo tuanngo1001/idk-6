@@ -4,22 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".application.NavActivity">
+    tools:context=".presentation.NavActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="50sp"
-        android:layout_height="50sp"
-        android:background="@color/colorPrimary">
+
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/home_main" />
-
-
+    <include layout="@layout/base_layout" />
 
 </android.support.design.widget.CoordinatorLayout>
