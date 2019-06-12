@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".application.NavActivity">
+    tools:context=".presentation.NavActivity">
 
     <include
         android:id="@+id/include"
@@ -43,7 +43,7 @@
         android:text="PLAY"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="30dp"
-        android:onClick="onClickPlay"
+        android:onClick="buttonPlayClick"
         app:layout_constraintBottom_toBottomOf="@+id/include"
         app:layout_constraintEnd_toEndOf="@+id/include"
         app:layout_constraintStart_toStartOf="@+id/include"

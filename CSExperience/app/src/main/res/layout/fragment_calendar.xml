@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/app_bar_nav" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="225sp"
+            android:fontFamily="@font/pixellari"
+            android:text="Month"
+            android:textColor="@color/colorBlack"
+            android:textSize="48sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingLeft="200sp"
+        android:paddingTop="350sp">
+
+        <Button
+            android:id="@+id/day1"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/day2"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/day3"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="3" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="400sp">
+
+        <Button
+            android:id="@+id/day4"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/day5"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="5" />
+
+        <Button
+            android:id="@+id/day6"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="6" />
+
+        <Button
+            android:id="@+id/day7"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="7" />
+
+        <Button
+            android:id="@+id/day8"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="8" />
+
+        <Button
+            android:id="@+id/day9"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="9" />
+
+        <Button
+            android:id="@+id/day10"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="10" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="450sp">
+
+        <Button
+            android:id="@+id/day11"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="11" />
+
+        <Button
+            android:id="@+id/day12"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="12" />
+
+        <Button
+            android:id="@+id/day13"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="13" />
+
+        <Button
+            android:id="@+id/day14"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="14" />
+
+        <Button
+            android:id="@+id/day15"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="15" />
+
+        <Button
+            android:id="@+id/day16"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="16" />
+
+        <Button
+            android:id="@+id/day17"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="17" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="500sp">
+
+        <Button
+            android:id="@+id/day18"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="18" />
+
+        <Button
+            android:id="@+id/day19"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="19" />
+
+        <Button
+            android:id="@+id/day20"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="20" />
+
+        <Button
+            android:id="@+id/day21"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="21" />
+
+        <Button
+            android:id="@+id/day22"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="22" />
+
+        <Button
+            android:id="@+id/day23"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="23" />
+
+        <Button
+            android:id="@+id/day24"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="24" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="550sp"
+        android:paddingRight="50sp">
+
+        <Button
+            android:id="@+id/day25"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="25" />
+
+        <Button
+            android:id="@+id/day26"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="26" />
+
+        <Button
+            android:id="@+id/day27"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="27" />
+
+        <Button
+            android:id="@+id/day28"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="28" />
+
+        <Button
+            android:id="@+id/day29"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="29" />
+
+        <Button
+            android:id="@+id/day30"
+            android:layout_width="40dp"
+            android:layout_height="42dp"
+            android:layout_margin="5sp"
+            android:background="@drawable/button_background"
+            android:fontFamily="@font/pixellari"
+            android:text="30" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
