@@ -10,9 +10,9 @@ public class PlayerStats implements Parcelable {
 
 
     public PlayerStats(int num_classes) {
-        energy = 10;
-        hunger = 10;
-        happiness = 10;
+        energy = 100;
+        hunger = 100;
+        happiness = 100;
 
     }
 
@@ -42,12 +42,12 @@ public class PlayerStats implements Parcelable {
 
     public int getCourseKnowledge(int courseId){
         assert(courseId >= 0 && courseId <= 4);
-        return classKnowledge[courseId];
+        return 0;// classKnowledge[courseId];
     }
 
     public void setCourseKnowledge(int courseId, int value){
         assert(courseId >= 0 && courseId <= 4);
-        classKnowledge[courseId] = value;
+        //classKnowledge[courseId] = value;
     }
 
     protected PlayerStats(Parcel in) {
