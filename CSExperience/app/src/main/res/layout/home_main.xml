@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <include
+        android:id="@+id/include4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/base_layout" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center|top"
+        android:orientation="horizontal"
+        android:paddingTop="175sp">
+
+        <TextView
+            android:id="@+id/dayVies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pixellari"
+            android:text="Day"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="50sp" />
+
+        <EditText
+            android:id="@+id/dayField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30sp"
+            android:ems="3"
+            android:gravity="left"
+            android:inputType="number" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center|top"
+        android:orientation="horizontal"
+        android:paddingTop="250sp">
+
+        <TextView
+            android:id="@+id/periodView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pixellari"
+            android:text="Period"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="50sp" />
+
+        <EditText
+            android:id="@+id/periodEvent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30sp"
+            android:ems="3"
+            android:gravity="left"
+            android:inputType="textShortMessage" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|top"
+        android:paddingTop="500sp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/energyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixellari"
+                android:padding="10sp"
+                android:text="Energy"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="25sp" />
+
+            <ProgressBar
+                android:id="@+id/progressBarEnergy"
+                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+                android:layout_width="80sp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:max="100"
+                android:padding="10sp"
+                android:progress="50" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/happinessText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixellari"
+                android:padding="10sp"
+                android:text="Happiness"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="25sp" />
+
+            <ProgressBar
+                android:id="@+id/progressBarHappiness"
+                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+                android:layout_width="80sp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:max="100"
+                android:padding="10sp"
+                android:progress="80" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/hungerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixellari"
+                android:padding="10sp"
+                android:text="Hunger"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="25sp" />
+
+            <ProgressBar
+                android:id="@+id/progressBarHunger"
+                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+                android:layout_width="80sp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:max="100"
+                android:padding="10sp"
+                android:progress="20" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</android.support.v4.widget.DrawerLayout>
