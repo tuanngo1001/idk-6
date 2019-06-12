@@ -1,9 +1,8 @@
-package idk6.csexperience.Presentation;
+package idk6.csexperience.presentation;
 
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
 
 import idk6.csexperience.R;
 import idk6.csexperience.business.AdjustGame;
