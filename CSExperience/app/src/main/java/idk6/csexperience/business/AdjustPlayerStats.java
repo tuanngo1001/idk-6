@@ -137,4 +137,29 @@ public class AdjustPlayerStats {
                     stats.getSkillsList().getLastSkill().getDescription());
         }
     }
+
+    public void nightOut() {
+        happiness += 8;
+        if(happiness > 100) {
+            happiness = 100;
+        }
+        energy -= 3;
+        if(energy < 0) {
+            energy = 0;
+        }
+        stats.setHappiness(happiness);
+        stats.setEnergy(energy);
+    }
+
+    public void groceryHaul() {
+        hunger -= 8;
+        if(hunger < 0) {
+            hunger = 0;
+        }
+        energy -= 3;
+        if(energy < 0) {
+            energy = 0;
+        }
+    }
+
 }

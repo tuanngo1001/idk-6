@@ -1,6 +1,9 @@
 package idk6.csexperience.objects;
 
-public class PlayerStats {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class PlayerStats implements Parcelable {
     private int energy;
     private int hunger;
     private int happiness;
@@ -85,21 +88,35 @@ public class PlayerStats {
         assert(courseId >= 0 && courseId <= 4);
         classKnowledge[courseId] = value;
     }
-//
-//    public boolean checkForNewSkill(int cID,int level){
-//        if (level == 5)
-//            skills.addSkill(allSkill[cID][0]);
-//        else if (level == 10)
-//            skills.addSkill(allSkill[cID][1]);
-//        else
-//            return false;
-//        return true;
-//    }
-//
-//    public void levelUp(int courseID) {
-//        levels[courseID].levelUp();
-//        if (checkForNewSkill(courseID,levels[courseID].getLevel())) {
-//            System.out.println("Acquired new Skill: " + skills.getLastSkill().getDescription());
-//        }
-//    }
+
+    protected PlayerStats(Parcel in) {
+        energy = in.readInt();
+        hunger = in.readInt();
+        happiness = in.readInt();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(energy);
+        dest.writeInt(hunger);
+        dest.writeInt(happiness);
+    }
+
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<PlayerStats> CREATOR = new Parcelable.Creator<PlayerStats>() {
+        @Override
+        public PlayerStats createFromParcel(Parcel in) {
+            return new PlayerStats(in);
+        }
+
+        @Override
+        public PlayerStats[] newArray(int size) {
+            return new PlayerStats[size];
+        }
+    };
 }
