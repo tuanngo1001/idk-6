@@ -12,7 +12,7 @@ public class Player implements Parcelable {
     public Player(String name, int difficulty) {
         this.name = name;
         difficulty = difficulty;
-        stats = new PlayerStats(difficulty);
+        stats = new PlayerStats();
     }
 
     public PlayerStats getStats() {

@@ -4,11 +4,11 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Game implements Parcelable {
-    private Time time;
+    private Calendar calendar;
     private Player player;
 
     public Game(String name) {
-        time = new Time();
+        calendar = new Calendar();
         player = new Player(name, 3);
     }
 
@@ -16,12 +16,10 @@ public class Game implements Parcelable {
         return player;
     }
 
-    public Time getTime() {
-        return time;
-    }
+    public Calendar getCalendar() { return calendar; }
 
     protected Game(Parcel in) {
-        time = (Time) in.readValue(Time.class.getClassLoader());
+        calendar = (Calendar) in.readValue(Calendar.class.getClassLoader());
         player = (Player) in.readValue(Player.class.getClassLoader());
     }
 
@@ -32,7 +30,7 @@ public class Game implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeValue(time);
+        dest.writeValue(calendar);
         dest.writeValue(player);
     }
 

@@ -8,10 +8,10 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home_black_24dp"
             android:title="Home"/>
-        <item
+ <!--       <item
             android:id="@+id/nav_char"
             android:icon="@drawable/ic_person_black_24dp"
-            android:title="Character"/>
+            android:title="Character"/> -->
         <item
             android:id="@+id/nav_activities"
             android:icon="@drawable/ic_view_list_black_24dp"
@@ -20,10 +20,10 @@
             android:id="@+id/nav_calendar"
             android:icon="@drawable/ic_apps_black_24dp"
             android:title="Calendar"/>
-        <item
+ <!--       <item
             android:id="@+id/nav_store"
             android:icon="@drawable/ic_shopping_cart_black_24dp"
-            android:title="Store"/>
+            android:title="Store"/> -->
     </group>
 
 </menu>

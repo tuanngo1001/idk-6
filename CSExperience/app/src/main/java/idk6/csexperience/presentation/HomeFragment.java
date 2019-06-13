@@ -8,20 +8,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.util.Timer;
-import java.util.TimerTask;
 
 import idk6.csexperience.R;
-import idk6.csexperience.business.AdjustGame;
 import idk6.csexperience.objects.Game;
 
 public class HomeFragment extends Fragment {
     private Game game;
-    private AdjustGame adjuster;
 
     @Nullable
     @Override
@@ -32,7 +27,7 @@ public class HomeFragment extends Fragment {
 
         energyBar(view);
         happinessBar(view);
-        hungerBar(view);
+        foodBar(view);
 
         changeDay(view);
         changeProgress(view);
@@ -42,18 +37,17 @@ public class HomeFragment extends Fragment {
 
     private void changeDay(View view){
         TextView day = (TextView) view.findViewById(R.id.dayViewCounter);
-        day.setText(game.getTime().getDay()+"");
+        day.setText(game.getCalendar().getDay()+"");
+
     }
 
     private void changeProgress(View view){
         TextView progress = (TextView) view.findViewById(R.id.periodViewCounter);
         int checkProgress;
 
-        checkProgress = game.getTime().getPeriod();
+        checkProgress = game.getCalendar().getPeriod();
 
         if(checkProgress == 1){
-            progress.setText("Morning");
-        }else if(checkProgress == 2){
             progress.setText("Afternoon");
         }else {
             progress.setText("Evening");
@@ -67,13 +61,11 @@ public class HomeFragment extends Fragment {
 
     private void happinessBar(View view){
         ProgressBar progressEnergy = (ProgressBar) view.findViewById(R.id.progressBarHappiness);
-        progressEnergy.setProgress(game.getPlayer().getStats().getEnergy());
+        progressEnergy.setProgress(game.getPlayer().getStats().getHappiness());
     }
 
-    private void hungerBar(View view){
-        ProgressBar progressEnergy = (ProgressBar) view.findViewById(R.id.progressBarHunger);
-        progressEnergy.setProgress(game.getPlayer().getStats().getEnergy());
+    private void foodBar(View view){
+        ProgressBar progressEnergy = (ProgressBar) view.findViewById(R.id.progressBarfood);
+        progressEnergy.setProgress(game.getPlayer().getStats().getFood());
     }
-
-
 }

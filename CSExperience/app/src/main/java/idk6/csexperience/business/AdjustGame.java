@@ -1,38 +1,35 @@
 package idk6.csexperience.business;
 
+import idk6.csexperience.objects.Calendar;
 import idk6.csexperience.objects.Player;
-import idk6.csexperience.objects.Time;
 import idk6.csexperience.objects.Game;
 
 public class AdjustGame {
     private Game game;
-    private Time time;
+    private Calendar calendar;
     private Player player;
     private AdjustPlayerStats adjustStats;
-    private AdjustTime adjustTime;
+    private AdjustCalendar adjustCalendar;
 
     public AdjustGame(Game ourGame) {
         game = ourGame;
-        this.time = ourGame.getTime();
+        this.calendar = ourGame.getCalendar();
         this.player = ourGame.getPlayer();
         adjustStats = new AdjustPlayerStats(ourGame);
-        adjustTime = new AdjustTime(ourGame);
-    }
-
-    private void overnight() {
-        adjustTime.overnight();
-        adjustStats.sleep();
+        adjustCalendar = new AdjustCalendar(ourGame);
     }
 
     // Advance time by one time slot (and roll over into the next day if need be)
     // Note that time period is either 1 or 2.
+    // Advance time by one time slot (and roll over into the next day if need be)
+    // Note that time period is either 1 or 2.
     public void advanceTime() {
-        if(time.getPeriod() == 2) {
-            adjustTime.nextPeriod();
-            this.overnight();
+        if(calendar.getPeriod() == 2) {
+            adjustCalendar.nextPeriod();
+            adjustStats.sleep();
         }
         else {
-            adjustTime.nextPeriod();
+            adjustCalendar.nextPeriod();
         }
     }
 
@@ -42,7 +39,7 @@ public class AdjustGame {
 
     // The player goes to sleep
     // Stat affects:
-    // Energy += 5
+    // Energy += 50
     public void sleep(){
         adjustStats.sleep();
         this.advanceTime();
@@ -50,15 +47,15 @@ public class AdjustGame {
 
     // The player eats something tasty
     // Stat affects:
-    // Hunger += 5
+    // Food += 50
     public void eat(){
-        adjustStats.eat(5, 5);
+        adjustStats.eat();
         advanceTime();
     }
 
     // The player takes a night to play video-games (how meta)
     // Stat affects:
-    // Happiness += 5
+    // Happiness += 50
     public void gameItUp() {
         adjustStats.play();
         advanceTime();
@@ -66,8 +63,8 @@ public class AdjustGame {
 
     // The player goes out for the night of moloko with his droogs (Reference: Clockwork Orange)
     // Stat affects:
-    // Happiness += 8
-    // Energy -= 3       (Booze always cost more than just money anyway, right?)
+    // Happiness += 80
+    // Energy -= 30       (Booze always cost more than just money anyway, right?)
     public void nightOut() {
         adjustStats.nightOut();
         advanceTime();
@@ -75,22 +72,35 @@ public class AdjustGame {
 
     // The player decides convenience store subs aren't cutting it anymore and wants real food.
     // Stat affects:
-    // Hunger += 8
-    // Energy -= 3
+    // Food += 80
+    // Energy -= 30
     public void groceryHaul() {
         adjustStats.groceryHaul();
-
         advanceTime();
     }
 
-    public void study(int courseId) {
-        if (courseId >= 0 && courseId < 5) {
-            //do shit
-            adjustStats.study(courseId);
-
-            advanceTime();
-        }
+    // The player takes the biggest nap of their life but loses an extra time slot
+    // Stat affectsL
+    // Energy += 100
+    // Food -= 30
+    public void superSleep() {
+        adjustStats.superSleep();
+        advanceTime();
+        advanceTime();
     }
 
+    public void studyDB() {
+        adjustStats.studyDatabases();
+        advanceTime();
+    }
 
+    public void studyAI() {
+        adjustStats.studyAi();
+        advanceTime();
+    }
+
+    public void studyGraphics() {
+        adjustStats.studyGraphics();
+        advanceTime();
+    }
 }

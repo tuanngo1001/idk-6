@@ -56,6 +56,5 @@ public class AdjustCalendarTest {
 
         System.out.println("\nEnding test AdjustCalendar");
 
-
     }
 }

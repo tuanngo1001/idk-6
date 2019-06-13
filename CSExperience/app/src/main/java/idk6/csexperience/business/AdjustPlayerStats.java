@@ -4,85 +4,60 @@ import idk6.csexperience.objects.Game;
 import idk6.csexperience.objects.Player;
 import idk6.csexperience.objects.PlayerStats;
 
+
+// This class is used to adjusted to health-related stats and course knowledge of the player
+
 public class AdjustPlayerStats {
     private PlayerStats stats;
-    private int energy;
-    private int hunger;
+
+    private int energy;     // Health stats
+    private int food;
     private int happiness;
+
+    int databasesKnowledge; // Course stats
+    int aiKnowledge;
+    int graphicsKnowledge;
+
 
     public AdjustPlayerStats(Game ourGame) {
         stats = ourGame.getPlayer().getStats();
         energy = stats.getEnergy();
-        hunger = stats.getHunger();
+        food = stats.getFood();
         happiness = stats.getHappiness();
+
+        databasesKnowledge = stats.getDatabasesKnowledge();
+        aiKnowledge = stats.getAiKnowledge();
+        graphicsKnowledge = stats.getGraphicsKnowledge();
     }
 
-    //drinking increases happiness, hunger, decreases energy
-    public void drink(int quantity) {
-        int DRINK_MODIFIER = 10; //this subject to change, will adjust game difficulty
 
-        happiness += DRINK_MODIFIER * quantity;
-        if(happiness > 100)
-            happiness =100;
-        hunger += DRINK_MODIFIER/2 * quantity;
-        if(hunger > 100)
-            hunger = 100;
-        energy -= DRINK_MODIFIER/2 * quantity;
-        if(energy < 0)
-            energy = 0;
+    // ------------------------------------------------------
+    // HEALTH STATS MODIFIERS
+    // ------------------------------------------------------
 
-        stats.setEnergy(energy);
-        stats.setHunger(hunger);
-        stats.setHappiness(happiness);
+    public void eat() {
+        food += 50;
+
+        if(food > 100)
+            food = 100;
+
+        stats.setFood(food);
     }
 
-    // eating decreases hunger at a steady rate, increases energy. Low quality food will lower happiness
-    // food quality is from 1-10
-    public void eat(int quantity, int quality) {
-        int FOOD_MODIFIER = 10; //subject to change, will adjust difficulty of game
-
-        hunger = hunger - (FOOD_MODIFIER * quantity);
-        energy += FOOD_MODIFIER/4 * quality;
-        if(hunger < 0)
-            hunger = 0;
-        if(energy > 100)
-            energy = 100;
-
-        if(quality >= 6){
-            //no happiness penalty
-        }
-        else if(quality < 6 && quality >= 3) {
-            happiness -= quantity * 3;
-        }
-        else {
-            happiness -= quantity * 5;
-        }
-
-        if(happiness < 0)
-            happiness = 0;
-
-        stats.setHappiness(happiness);
-        stats.setHunger(hunger);
-        stats.setEnergy(energy);
-    }
-
-    // a general method to adjust energy levels. This will be called every night and if a player decides
-    // to nap instead of studying or doing some other activity.
-    // quantity will normally be just 1
     public void sleep() {
-        energy += 5;
-        hunger += 25;
-        if(hunger > 100)
-            hunger =100;
+        energy += 50;
+        food -= 20;
+        if(food < 0)
+            food = 0;
         if (energy > 100)
             energy = 100;
 
         stats.setEnergy(energy);
-        stats.setHunger(hunger);
+        stats.setFood(food);
     }
 
     public void play() {
-        happiness += 5;
+        happiness += 50;
         if(happiness > 100) {
             happiness = 100;
         }
@@ -91,11 +66,11 @@ public class AdjustPlayerStats {
     }
 
     public void nightOut() {
-        happiness += 8;
+        happiness += 80;
         if(happiness > 100) {
             happiness = 100;
         }
-        energy -= 3;
+        energy -= 30;
         if(energy < 0) {
             energy = 0;
         }
@@ -104,39 +79,88 @@ public class AdjustPlayerStats {
     }
 
     public void groceryHaul() {
-        hunger -= 8;
-        if(hunger < 0) {
-            hunger = 0;
+        food += 80;
+        if(food > 100) {
+            food = 100;
         }
-        energy -= 3;
+        energy -= 30;
         if(energy < 0) {
             energy = 0;
         }
+        stats.setFood(food);
+        stats.setEnergy(energy);
     }
 
-    // how many study section will levelUp its skill level?
-    public void study(int cID){
-        levelUp(cID);
-    }
-
-
-    private boolean checkForNewSkill(int cID,int level){
-        if (level == 5)
-            stats.getSkillsList().addSkill(stats.getNewSkill(cID,0));
-        else if (level == 10)
-            stats.getSkillsList().addSkill(stats.getNewSkill(cID,1));
-        else
-            return false;
-        return true;
-    }
-
-    private void levelUp(int courseID) {
-        stats.getSkillLevel(courseID).levelUp();
-        if (checkForNewSkill(courseID,stats.getSkillLevel(courseID).getLevel())) {
-            System.out.println("Acquired new Skill: " +
-                    stats.getSkillsList().getLastSkill().getDescription());
+    public void superSleep() {
+        energy += 100;
+        if(energy > 100) {
+            energy = 100;
         }
+
+        food -= 30;
+        if(food < 0) {
+            food = 0;
+        }
+
+        stats.setFood(food);
+        stats.setEnergy(energy);
     }
 
 
-}
+    // ------------------------------------------------------
+    // COURSE KNOWLEDGE MODIFIERS
+    // ------------------------------------------------------
+
+    public void studyDatabases(){
+        databasesKnowledge++;
+        if(databasesKnowledge > 10)
+            databasesKnowledge = 10;
+
+        studyHealthCost();
+
+        stats.setDatabasesKnowledge(databasesKnowledge);
+    }
+
+    public void studyAi(){
+        aiKnowledge++;
+        if(aiKnowledge > 10)
+            aiKnowledge = 10;
+
+        studyHealthCost();
+
+        stats.setAiKnowledge(aiKnowledge);
+    }
+
+    public void studyGraphics(){
+        graphicsKnowledge++;
+        if(graphicsKnowledge > 10)
+            graphicsKnowledge = 10;
+
+        studyHealthCost();
+
+        stats.setGraphicsKnowledge(graphicsKnowledge);
+    }
+
+
+    private void studyHealthCost(){
+        // Study isn't free...
+
+        happiness -= 20;
+        if(happiness < 0)
+            happiness = 0;
+
+        energy -= 15;
+        if(energy < 0)
+            energy = 0;
+
+        food -= 8;
+        if(food < 0 )
+            food = 0;
+
+        stats.setHappiness(happiness);
+        stats.setEnergy(energy);
+        stats.setFood(food);
+    }
+
+} // end AdjustPlayerStats
+

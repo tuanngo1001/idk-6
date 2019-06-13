@@ -44,7 +44,7 @@
                 android:layout_width="86dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pixellari"
-                android:text=" "
+                android:text="12"
                 android:textColor="@color/colorAccent"
                 android:textSize="50sp" />
         </LinearLayout>
@@ -109,7 +109,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pixellari"
-                android:padding="10sp"
+                android:padding="20sp"
                 android:text="Energy"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="36sp" />
@@ -135,7 +135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pixellari"
-                android:padding="10sp"
+                android:padding="20sp"
                 android:text="Happiness"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="36sp" />
@@ -162,13 +162,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pixellari"
-                android:padding="10sp"
+                android:padding="20sp"
                 android:text="Food"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="36sp" />
 
             <ProgressBar
-                android:id="@+id/progressBarHunger"
+                android:id="@+id/progressBarfood"
                 style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
                 android:layout_width="80sp"
                 android:layout_height="match_parent"

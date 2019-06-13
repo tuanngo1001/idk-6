@@ -8,7 +8,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.Toast;
+import android.view.View;
 
 import idk6.csexperience.R;
 import idk6.csexperience.objects.Game;
@@ -18,18 +18,27 @@ public class NavActivity extends AppCompatActivity
     private DrawerLayout drawer;
     private Game game;
 
-//    protected void onStart(){
-//        super.onStart();
-//        setContentView(R.layout.start_main);
-//    }
-//
-//    protected void buttonStartClick(View view){
-//        setContentView(R.layout.name_main);
-//    }
+    protected void onStart(){
+        super.onStart();
+        setContentView(R.layout.start_main);
+    }
 
+    protected void onStartClick(View view){
+        setContentView(R.layout.name_main);
+    }
 
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onPlayClick(View view){
+        reloadActivity.onClick(view);
+
+    }
+
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        loadActivity();
+    }
+
+    private void loadActivity() {
         setContentView(R.layout.activity_nav);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -41,16 +50,49 @@ public class NavActivity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
-        game = new Game("Aaaa");
+        game = new Game("Name");
         getIntent().putExtra("coreGame",game);
 
-
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
-        }
+
     }
+
+    private View.OnClickListener reloadActivity = new View.OnClickListener() {
+        public void onClick(View v) {
+            loadActivity();
+        }
+    };
+
+    /*
+      IF THE CODE BRAKES, THIS IS PLAN B
+     */
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_nav);
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        drawer = findViewById(R.id.drawer_layout);
+//        NavigationView navigationView = findViewById(R.id.nav_view);
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//        drawer.addDrawerListener(toggle);
+//        toggle.syncState();
+//        navigationView.setNavigationItemSelectedListener(this);
+//
+//
+//
+//        game = new Game("Name");
+//        getIntent().putExtra("coreGame",game);
+//
+//
+//        if (savedInstanceState == null) {
+//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+//                    new HomeFragment()).commit();
+//            navigationView.setCheckedItem(R.id.nav_home);
+//        }
+//    }
 
     @Override
     public void onBackPressed() {
@@ -81,9 +123,6 @@ public class NavActivity extends AppCompatActivity
             case R.id.nav_calendar:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new CalendarFragment()).commit();
-                break;
-            case R.id.nav_store:
-                Toast.makeText(this, "Store Coming Soon!", Toast.LENGTH_LONG).show();
                 break;
         }
         drawer = findViewById(R.id.drawer_layout);

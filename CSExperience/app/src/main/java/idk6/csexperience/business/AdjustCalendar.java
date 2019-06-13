@@ -1,19 +1,19 @@
 package idk6.csexperience.business;
 
 import idk6.csexperience.objects.Calendar;
+import idk6.csexperience.objects.Game;
 
 public class AdjustCalendar {
-    private int MORNING = 1;
-    private int AFTERNOON = 2;
-    private int EVENING = 3;
+    private int AFTERNOON = 1;
+    private int EVENING = 2;
 
     private int day;
     private int period;
     private String event;
     private Calendar calendar;
 
-    public AdjustCalendar(Calendar calendar){
-        this.calendar = calendar;
+    public AdjustCalendar(Game ourGame){
+        this.calendar = ourGame.getCalendar();
         this.day = calendar.getDay();
         this.period = calendar.getPeriod();
         this.event = calendar.getEvent();
@@ -32,7 +32,7 @@ public class AdjustCalendar {
     public void nextPeriod(){
         if(period == EVENING){
             nextDay();
-            period = MORNING;
+            period = AFTERNOON;
             //transition to next day
         }else if(period == AFTERNOON){
             period = EVENING;
