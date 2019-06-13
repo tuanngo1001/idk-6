@@ -54,8 +54,7 @@ public class AdjustCalendarTest {
         adjustCalendar.addImportantEvent(dateForTest, impEventForTest);
         assertEquals(impEventForTest, adjustCalendar.getEvent(dateForTest));
 
-
-
+        System.out.println("\nEnding test AdjustCalendar");
 
 
     }

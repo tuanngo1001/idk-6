@@ -24,4 +24,7 @@ public class AdjustGameTest {
         assertNotNull("Game should not be Null", testGame);
         assertNotNull("AdjustGame should not be Null", adjustGame);
 
+        System.out.println("\nEnding test AdjustGame");
+
     }
+}
