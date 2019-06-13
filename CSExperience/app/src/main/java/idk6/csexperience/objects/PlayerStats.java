@@ -8,12 +8,21 @@ public class PlayerStats implements Parcelable {
     private int food;
     private int happiness;
 
+    // Class knowledge
+    // Right now there are only 3 courses. When we add difficulty there will be 5.
+    private int databasesKnowledge;
+    private int aiKnowledge;
+    private int graphicsKnowledge;
+
 
     public PlayerStats(int num_classes) {
         energy = 50;
         food = 50;
         happiness = 50;
 
+        databasesKnowledge = 1;
+        aiKnowledge = 1;
+        graphicsKnowledge = 1;
     }
 
     public int getHappiness() {
@@ -32,7 +41,7 @@ public class PlayerStats implements Parcelable {
         energy = newEnergy;
     }
 
-    public int getfood() {
+    public int getFood() {
         return food;
     }
 
@@ -40,14 +49,28 @@ public class PlayerStats implements Parcelable {
         food = newFood;
     }
 
-    public int getCourseKnowledge(int courseId){
-        assert(courseId >= 0 && courseId <= 4);
-        return 0;// classKnowledge[courseId];
+    public int getDatabasesKnowledge() {
+        return databasesKnowledge;
     }
 
-    public void setCourseKnowledge(int courseId, int value){
-        assert(courseId >= 0 && courseId <= 4);
-        //classKnowledge[courseId] = value;
+    public int getAiKnowledge() {
+        return aiKnowledge;
+    }
+
+    public int getGraphicsKnowledge() {
+        return graphicsKnowledge;
+    }
+
+    public void setDatabasesKnowledge(int databasesKnowledge) {
+        this.databasesKnowledge = databasesKnowledge;
+    }
+
+    public void setAiKnowledge(int aiKnowledge) {
+        this.aiKnowledge = aiKnowledge;
+    }
+
+    public void setGraphicsKnowledge(int graphicsKnowledge) {
+        this.graphicsKnowledge = graphicsKnowledge;
     }
 
     protected PlayerStats(Parcel in) {
