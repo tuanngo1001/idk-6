@@ -8,20 +8,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.util.Timer;
-import java.util.TimerTask;
 
 import idk6.csexperience.R;
-import idk6.csexperience.business.AdjustGame;
 import idk6.csexperience.objects.Game;
 
 public class HomeFragment extends Fragment {
     private Game game;
-    private AdjustGame adjuster;
 
     @Nullable
     @Override
@@ -43,6 +38,7 @@ public class HomeFragment extends Fragment {
     private void changeDay(View view){
         TextView day = (TextView) view.findViewById(R.id.dayViewCounter);
         day.setText(game.getTime().getDay()+"");
+
     }
 
     private void changeProgress(View view){
@@ -74,6 +70,4 @@ public class HomeFragment extends Fragment {
         ProgressBar progressEnergy = (ProgressBar) view.findViewById(R.id.progressBarHunger);
         progressEnergy.setProgress(game.getPlayer().getStats().getEnergy());
     }
-
-
 }
