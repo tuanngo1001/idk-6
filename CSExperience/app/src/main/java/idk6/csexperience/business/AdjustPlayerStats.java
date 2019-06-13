@@ -141,6 +141,7 @@ public class AdjustPlayerStats {
         stats.setGraphicsKnowledge(graphicsKnowledge);
     }
 
+
     private void studyHealthCost(){
         // Study isn't free...
 
@@ -182,3 +183,4 @@ public class AdjustPlayerStats {
         graphicsKnowledge = 0;
     }
 } // end AdjustPlayerStats
+
