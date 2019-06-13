@@ -6,6 +6,8 @@ As a group we have decided upon a simple object structure to facilitate our game
 
 ## Structure Diagram
 ![Structure](structure.png)
+
+
 This diagram illustrates the flow of information and alterations from the UI down. Each UI element contains a game object and this object is used to instantiate an adjustGame object. Methods are called on user input and these methods go on to adjust the game objects themselves. This updated game state is then dispalyed back onto the UI.
 
 ## The _Objects_ Package
