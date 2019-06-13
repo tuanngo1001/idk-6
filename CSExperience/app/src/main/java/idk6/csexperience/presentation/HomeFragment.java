@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
         TextView day = (TextView) view.findViewById(R.id.dayViewCounter);
         day.setText(game.getCalendar().getDay()+"");
 
-        if(game.getCalendar().getDay() >= 30){
+        if(game.getCalendar().getDay() > 30){
             EndGameFragment nextFrag = new EndGameFragment();
             getActivity().getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, nextFrag, "EndGameFragment")
