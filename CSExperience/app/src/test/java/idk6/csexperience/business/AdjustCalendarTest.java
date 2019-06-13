@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import idk6.csexperience.objects.Calendar;
 import idk6.csexperience.business.AdjustCalendar;
+import idk6.csexperience.objects.Game;
 
 
 public class AdjustCalendarTest {
@@ -13,10 +14,9 @@ public class AdjustCalendarTest {
     public void testPlayer1(){
 
         //TESTING FOR CREATION OF AdjustCalendar
-        Calendar testCalendar;
+        Game testGame = new Game("testUser");
         AdjustCalendar adjustCalendar;
-        System.out.println("\nStarting test AdjustCalendar");
-        testCalendar = new Calendar();
+        System.out.println("Starting test AdjustCalendar");
         //IMPLEMENTING the testCalendar with
         // event "testEvent"
         String nameForTest = "testEvent";
@@ -24,12 +24,12 @@ public class AdjustCalendarTest {
         int dayForTest = 3;
         // period 1
         int periodForTest = 1;
-        testCalendar.setEvent(nameForTest);
-        testCalendar.setDay(dayForTest);
-        testCalendar.setPeriod(periodForTest);
+        testGame.getCalendar().setEvent(nameForTest);
+        testGame.getCalendar().setDay(dayForTest);
+        testGame.getCalendar().setPeriod(periodForTest);
 
-        adjustCalendar = new AdjustCalendar(testCalendar);
-        assertNotNull("Calendar should not be Null", testCalendar);
+        adjustCalendar = new AdjustCalendar(testGame);
+        assertNotNull("Game should not be Null", testGame);
         assertNotNull("AdjustCalendar should not be Null", adjustCalendar);
 
         //TESTING FOR nextDay()
@@ -54,7 +54,7 @@ public class AdjustCalendarTest {
         adjustCalendar.addImportantEvent(dateForTest, impEventForTest);
         assertEquals(impEventForTest, adjustCalendar.getEvent(dateForTest));
 
-        System.out.println("\nEnding test AdjustCalendar");
+        System.out.println("Finished test AdjustCalendar\n");
 
     }
 }

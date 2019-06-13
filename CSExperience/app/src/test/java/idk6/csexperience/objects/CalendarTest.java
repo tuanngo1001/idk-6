@@ -13,7 +13,7 @@ public class CalendarTest {
 
         //TESTING FOR CREATION OF PLAYER
         Calendar testCalendar;
-        System.out.println("\nStarting testCalendar");
+        System.out.println("Starting testCalendar");
         testCalendar = new Calendar();
         assertNotNull("Should not be Null", testCalendar);
 
@@ -28,6 +28,8 @@ public class CalendarTest {
         //TESTING FOR setEvent() & getEvent()
         testCalendar.setEvent("testEvent");
         assertEquals("testEvent",testCalendar.getEvent());
+
+        System.out.println("Finished testCalendar\n");
 
     }
 }

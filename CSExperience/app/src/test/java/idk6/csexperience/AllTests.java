@@ -20,7 +20,6 @@ import idk6.csexperience.objects.CalendarTest;
         AdjustGameTest.class,
         AdjustPlayerStatsTest.class,
         AdjustCalendarTest.class,
-        AdjustTimeTest.class,
 
         GameTest.class,
         PlayerTest.class,

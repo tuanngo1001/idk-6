@@ -13,17 +13,18 @@ public class PlayerTest {
 
         //TESTING FOR CREATION OF PLAYER
         Player playRole;
-        System.out.println("\nStarting testPlayer");
+        System.out.println("Starting testPlayer");
         playRole = new Player("playerName", 1);
         assertNotNull("Should not be Null", playRole);
 
         //TESTING FOR getDifficulty()
-        assertTrue(playRole.getDifficulty() == 1);
+        assertEquals("Should be equal",1,playRole.getDifficulty());
 
         //TESTING FOR getName()
         assertEquals("playerName",playRole.getName());
 
         //TESTING FOR getStats()
 
+        System.out.println("Finished testPlayer\n");
     }
 }
