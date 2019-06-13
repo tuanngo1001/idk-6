@@ -22,16 +22,16 @@ import idk6.csexperience.objects.CombatSkillsTest;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-//        AdjustGameTest.class,
+        AdjustGameTest.class,
         AdjustPlayerStatsTest.class,
-//        AdjustCalendarTest.class,
-//        AdjustTimeTest.class,
+        AdjustCalendarTest.class,
+        AdjustTimeTest.class,
 
-//        GameTest.class,
-//        PlayerTest.class,
+        GameTest.class,
+        PlayerTest.class,
         PlayerStatsTest.class,
-//        CalendarTest.class,
-//        TimeTest.class,
+        CalendarTest.class,
+        TimeTest.class,
         SkillTest.class,
         SkillLevelTest.class,
         CombatSkillsTest.class
