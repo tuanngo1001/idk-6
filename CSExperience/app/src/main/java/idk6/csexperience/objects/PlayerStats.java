@@ -36,7 +36,7 @@ public class PlayerStats implements Parcelable {
         return food;
     }
 
-    public void setfood(int newFood) {
+    public void setFood(int newFood) {
         food = newFood;
     }
 

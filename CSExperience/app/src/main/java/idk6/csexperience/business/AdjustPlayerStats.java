@@ -17,45 +17,25 @@ public class AdjustPlayerStats {
         happiness = stats.getHappiness();
     }
 
-    //drinking increases happiness, food, decreases energy
-    public void drink(int quantity) {
-        int DRINK_MODIFIER = 10; //this subject to change, will adjust game difficulty
-
-        happiness += DRINK_MODIFIER * quantity;
-        if(happiness > 100)
-            happiness = 100;
-        food += DRINK_MODIFIER/2 * quantity;
-        if(food > 100)
-            food = 100;
-        energy -= DRINK_MODIFIER/2 * quantity;
-        if(energy < 0)
-            energy = 0;
-
-        stats.setEnergy(energy);
-        stats.setfood(food);
-        stats.setHappiness(happiness);
-    }
-
-
     public void eat() {
         food += 50;
 
         if(food > 100)
             food = 100;
 
-        stats.setfood(food);
+        stats.setFood(food);
     }
 
     public void sleep() {
         energy += 50;
-        food -= 20;         
+        food -= 20;
         if(food < 0)
             food = 0;
         if (energy > 100)
             energy = 100;
 
         stats.setEnergy(energy);
-        stats.setfood(food);
+        stats.setFood(food);
     }
 
     public void play() {
@@ -81,14 +61,31 @@ public class AdjustPlayerStats {
     }
 
     public void groceryHaul() {
-        food -= 80;
-        if(food < 0) {
-            food = 0;
+        food += 80;
+        if(food > 100) {
+            food = 100;
         }
         energy -= 30;
         if(energy < 0) {
             energy = 0;
         }
+        stats.setFood(food);
+        stats.setEnergy(energy);
+    }
+
+    public void superSleep() {
+        energy += 100;
+        if(energy > 100) {
+            energy = 100;
+        }
+
+        food -= 30;
+        if(food < 0) {
+            food = 0;
+        }
+
+        stats.setFood(food);
+        stats.setEnergy(energy);
     }
 
 }

@@ -21,7 +21,6 @@ public class AdjustGame {
 
     private void overnight() {
         adjustTime.overnight();
-        adjustStats.sleep();
     }
 
     // Advance time by one time slot (and roll over into the next day if need be)
@@ -79,7 +78,15 @@ public class AdjustGame {
     // Energy -= 30
     public void groceryHaul() {
         adjustStats.groceryHaul();
+        advanceTime();
+    }
 
+    // The player takes the biggest nap of their life
+    // Stat affectsL
+    // Energy += 100
+    // Food -= 30
+    public void superSleep() {
+        adjustStats.superSleep();
         advanceTime();
     }
 
