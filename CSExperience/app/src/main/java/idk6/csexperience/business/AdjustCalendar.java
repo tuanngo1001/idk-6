@@ -3,9 +3,8 @@ package idk6.csexperience.business;
 import idk6.csexperience.objects.Calendar;
 
 public class AdjustCalendar {
-    private int MORNING = 1;
-    private int AFTERNOON = 2;
-    private int EVENING = 3;
+    private int AFTERNOON = 1;
+    private int EVENING = 2;
 
     private int day;
     private int period;
@@ -32,7 +31,7 @@ public class AdjustCalendar {
     public void nextPeriod(){
         if(period == EVENING){
             nextDay();
-            period = MORNING;
+            period = AFTERNOON;
             //transition to next day
         }else if(period == AFTERNOON){
             period = EVENING;

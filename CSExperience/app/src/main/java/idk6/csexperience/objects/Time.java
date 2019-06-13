@@ -10,7 +10,7 @@ public class Time implements Parcelable {
     // Time includes the day and the period within the day. There are two free periods per day,
     // and a sleep period
     public Time() {
-        day = 22;
+        day = 1;
         period = 1;
     }
 

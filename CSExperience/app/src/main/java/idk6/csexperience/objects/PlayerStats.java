@@ -5,42 +5,24 @@ import android.os.Parcelable;
 
 public class PlayerStats implements Parcelable {
     private int energy;
-    private int hunger;
+    private int food;
     private int happiness;
 
-    private SkillLevel[] levels;
-    private CombatSkills skills;
-
-    //all of the skills that a player can acquire
-    private Skill[][] allSkill;
-
-    private int[] classKnowledge = new int[5];
+    // Class knowledge
+    // Right now there are only 3 courses. When we add difficulty there will be 5.
+    private int databasesKnowledge;
+    private int aiKnowledge;
+    private int graphicsKnowledge;
 
 
     public PlayerStats(int num_classes) {
-        energy = 100;
-        hunger = 100;
-        happiness = 100;
+        energy = 50;
+        food = 50;
+        happiness = 50;
 
-        skills = new CombatSkills();
-
-        levels = new SkillLevel[num_classes];
-        for (int i = 0;i < num_classes; i++)
-            levels[i] = new SkillLevel();
-
-        allSkill = new Skill[5][2];
-
-        allSkill[0][0] = (new Skill(1,11,"course 1 skill no 1", 100));
-        allSkill[0][1] = (new Skill(1,12,"course 1 skill no 2", 200));
-        allSkill[1][0] = (new Skill(2,21,"course 2 skill no 1", 100));
-        allSkill[1][1] = (new Skill(2,22,"course 2 skill no 2", 200));
-        allSkill[2][0] = (new Skill(3,31,"course 3 skill no 1", 100));
-        allSkill[2][1] = (new Skill(3,32,"course 3 skill no 2", 200));
-        allSkill[3][0] = (new Skill(4,41,"course 4 skill no 1", 100));
-        allSkill[3][1] = (new Skill(4,42,"course 4 skill no 2", 200));
-        allSkill[4][0] = (new Skill(5,51,"course 5 skill no 1", 100));
-        allSkill[4][1] = (new Skill(5,52,"course 5 skill no 2", 200));
-
+        databasesKnowledge = 1;
+        aiKnowledge = 1;
+        graphicsKnowledge = 1;
     }
 
     public SkillLevel getSkillLevel(int courseID){ return levels[courseID]; }
@@ -71,27 +53,41 @@ public class PlayerStats implements Parcelable {
         energy = newEnergy;
     }
 
-    public int getHunger() {
-        return hunger;
+    public int getFood() {
+        return food;
     }
 
-    public void setHunger(int newHunger) {
-        hunger = newHunger;
+    public void setFood(int newFood) {
+        food = newFood;
     }
 
-    public int getCourseKnowledge(int courseId){
-        assert(courseId >= 0 && courseId <= 4);
-        return 0;// classKnowledge[courseId];
+    public int getDatabasesKnowledge() {
+        return databasesKnowledge;
     }
 
-    public void setCourseKnowledge(int courseId, int value){
-        assert(courseId >= 0 && courseId <= 4);
-        //classKnowledge[courseId] = value;
+    public int getAiKnowledge() {
+        return aiKnowledge;
+    }
+
+    public int getGraphicsKnowledge() {
+        return graphicsKnowledge;
+    }
+
+    public void setDatabasesKnowledge(int databasesKnowledge) {
+        this.databasesKnowledge = databasesKnowledge;
+    }
+
+    public void setAiKnowledge(int aiKnowledge) {
+        this.aiKnowledge = aiKnowledge;
+    }
+
+    public void setGraphicsKnowledge(int graphicsKnowledge) {
+        this.graphicsKnowledge = graphicsKnowledge;
     }
 
     protected PlayerStats(Parcel in) {
         energy = in.readInt();
-        hunger = in.readInt();
+        food = in.readInt();
         happiness = in.readInt();
     }
 
@@ -103,7 +99,7 @@ public class PlayerStats implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(energy);
-        dest.writeInt(hunger);
+        dest.writeInt(food);
         dest.writeInt(happiness);
     }
 
