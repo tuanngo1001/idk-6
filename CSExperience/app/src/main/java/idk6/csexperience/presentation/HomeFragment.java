@@ -37,7 +37,7 @@ public class HomeFragment extends Fragment {
 
     private void changeDay(View view){
         TextView day = (TextView) view.findViewById(R.id.dayViewCounter);
-        day.setText(game.getTime().getDay()+"");
+        day.setText(game.getCalendar().getDay()+"");
 
     }
 
@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment {
         TextView progress = (TextView) view.findViewById(R.id.periodViewCounter);
         int checkProgress;
 
-        checkProgress = game.getTime().getPeriod();
+        checkProgress = game.getCalendar().getPeriod();
 
         if(checkProgress == 1){
             progress.setText("Afternoon");

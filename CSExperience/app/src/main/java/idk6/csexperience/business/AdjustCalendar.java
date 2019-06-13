@@ -1,6 +1,7 @@
 package idk6.csexperience.business;
 
 import idk6.csexperience.objects.Calendar;
+import idk6.csexperience.objects.Game;
 
 public class AdjustCalendar {
     private int AFTERNOON = 1;
@@ -11,8 +12,8 @@ public class AdjustCalendar {
     private String event;
     private Calendar calendar;
 
-    public AdjustCalendar(Calendar calendar){
-        this.calendar = calendar;
+    public AdjustCalendar(Game ourGame){
+        this.calendar = ourGame.getCalendar();
         this.day = calendar.getDay();
         this.period = calendar.getPeriod();
         this.event = calendar.getEvent();

@@ -1,37 +1,35 @@
 package idk6.csexperience.business;
 
+import idk6.csexperience.objects.Calendar;
 import idk6.csexperience.objects.Player;
-import idk6.csexperience.objects.Time;
 import idk6.csexperience.objects.Game;
 
 public class AdjustGame {
     private Game game;
-    private Time time;
+    private Calendar calendar;
     private Player player;
     private AdjustPlayerStats adjustStats;
-    private AdjustTime adjustTime;
+    private AdjustCalendar adjustCalendar;
 
     public AdjustGame(Game ourGame) {
         game = ourGame;
-        this.time = ourGame.getTime();
+        this.calendar = ourGame.getCalendar();
         this.player = ourGame.getPlayer();
         adjustStats = new AdjustPlayerStats(ourGame);
-        adjustTime = new AdjustTime(ourGame);
-    }
-
-    private void overnight() {
-        adjustTime.overnight();
+        adjustCalendar = new AdjustCalendar(ourGame);
     }
 
     // Advance time by one time slot (and roll over into the next day if need be)
     // Note that time period is either 1 or 2.
-    private void advanceTime() {
-        if(time.getPeriod() == 2) {     // If it is the evening,
-            adjustTime.nextPeriod();    // Set next period to 1
-            this.overnight();           // And advance to the next day
+    // Advance time by one time slot (and roll over into the next day if need be)
+    // Note that time period is either 1 or 2.
+    public void advanceTime() {
+        if(calendar.getPeriod() == 2) {
+            adjustCalendar.nextPeriod();
+            adjustStats.sleep();
         }
         else {
-            adjustTime.nextPeriod();    // Otherwise, we go from afternoon to evening
+            adjustCalendar.nextPeriod();
         }
     }
 
