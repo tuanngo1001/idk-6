@@ -35,7 +35,7 @@
 
 
             <TextView
-                android:id="@+id/graphView"
+                android:id="@+id/graphView1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/pixellari"
@@ -67,8 +67,7 @@
                 android:layout_gravity="bottom|left"
                 android:max="10"
                 android:paddingLeft="25sp"
-                android:paddingBottom="8sp"
-                android:progress="8" />
+                android:paddingBottom="8sp"/>
 
         </LinearLayout>
 
@@ -98,7 +97,7 @@
 
 
             <TextView
-                android:id="@+id/graphView"
+                android:id="@+id/graphView2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/pixellari"
@@ -114,7 +113,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/dbLevel"
+                android:id="@+id/aiLevel"
                 android:layout_width="288dp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/pixellari"
@@ -123,15 +122,14 @@
                 android:textSize="24sp" />
 
             <RatingBar
-                android:id="@+id/dbRatingBar"
+                android:id="@+id/aiRatingBar"
                 style="@android:style/Widget.DeviceDefault.RatingBar.Small"
                 android:layout_width="184dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|left"
                 android:max="10"
                 android:paddingLeft="25sp"
-                android:paddingBottom="8sp"
-                android:progress="6" />
+                android:paddingBottom="8sp" />
 
         </LinearLayout>
 
@@ -142,7 +140,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/studyDB"
+                android:id="@+id/studyAI"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
@@ -161,7 +159,7 @@
 
 
             <TextView
-                android:id="@+id/graphView"
+                android:id="@+id/graphView3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/pixellari"
@@ -177,7 +175,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/dbLevel"
+                android:id="@+id/graphicsLevel"
                 android:layout_width="288dp"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/pixellari"
@@ -186,15 +184,14 @@
                 android:textSize="24sp" />
 
             <RatingBar
-                android:id="@+id/dbRatingBar"
+                android:id="@+id/graphicsRatingBar"
                 style="@android:style/Widget.DeviceDefault.RatingBar.Small"
                 android:layout_width="184dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|left"
                 android:max="10"
                 android:paddingLeft="25sp"
-                android:paddingBottom="8sp"
-                android:progress="3" />
+                android:paddingBottom="8sp"/>
 
         </LinearLayout>
 
@@ -205,7 +202,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/studyDB"
+                android:id="@+id/studyGraphics"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
