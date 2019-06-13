@@ -9,38 +9,40 @@ import idk6.csexperience.persistence.CalendarPersistence;
 
 
 public class CalendarPersistenceStub implements CalendarPersistence {
-    private List<CalendarEvent> calendarevent;
+    private List<CalendarEvent> calendarEvent;
     private boolean midTerm = true;
     private boolean finalExam = false;
 
     public CalendarPersistenceStub() {
-        this.calendarevent = new ArrayList<>();
-        calendarevent.add(new CalendarEvent("Course1",1,1,midTerm));
-        calendarevent.add(new CalendarEvent("Course2",2,2,finalExam));
-        calendarevent.add(new CalendarEvent("Course3",3,1,midTerm));
-        calendarevent.add(new CalendarEvent("Course4",4,2,finalExam));
-        calendarevent.add(new CalendarEvent("Course5",5,1,midTerm));
+        this.calendarEvent = new ArrayList<>();
+        calendarEvent.add(new CalendarEvent("Databases",10,1,midTerm));
+        calendarEvent.add(new CalendarEvent("Databases",28,2,finalExam));
+        calendarEvent.add(new CalendarEvent("AI",13,1,midTerm));
+        calendarEvent.add(new CalendarEvent("AI",29,2,finalExam));
+        calendarEvent.add(new CalendarEvent("Graphics",15,1,midTerm));
+        calendarEvent.add(new CalendarEvent("Graphics", 30, 2,finalExam));
     }
+
     @Override
     public List<CalendarEvent> getCalEventSequential() {
-        return Collections.unmodifiableList(calendarevent);
+        return Collections.unmodifiableList(calendarEvent);
     }
 
     @Override
     public CalendarEvent insertCalEvent(CalendarEvent currentEvent) {
         // don't bother checking for duplicates
-        calendarevent.add(currentEvent);
+        calendarEvent.add(currentEvent);
         return currentEvent;
     }
 
     @Override
-    public void deleteCalEvent(CalendarEvent currentCalendarevent) {
+    public void deleteCalEvent(CalendarEvent currentCalendarEvent) {
         int index;
 
-        index = calendarevent.indexOf(currentCalendarevent);
+        index = calendarEvent.indexOf(currentCalendarEvent);
         if (index >= 0)
         {
-            calendarevent.remove(index);
+            calendarEvent.remove(index);
         }
     }
 
