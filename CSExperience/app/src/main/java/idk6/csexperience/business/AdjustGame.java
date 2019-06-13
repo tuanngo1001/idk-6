@@ -52,7 +52,7 @@ public class AdjustGame {
     // Stat affects:
     // Food += 50
     public void eat(){
-        adjustStats.eat(5, 5);
+        adjustStats.eat();
         advanceTime();
     }
 

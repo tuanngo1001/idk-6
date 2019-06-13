@@ -23,7 +23,7 @@ public class AdjustPlayerStats {
 
         happiness += DRINK_MODIFIER * quantity;
         if(happiness > 100)
-            happiness =100;
+            happiness = 100;
         food += DRINK_MODIFIER/2 * quantity;
         if(food > 100)
             food = 100;
@@ -36,41 +36,21 @@ public class AdjustPlayerStats {
         stats.setHappiness(happiness);
     }
 
-    // eating decreases food at a steady rate, increases energy. Low quality food will lower happiness
-    // food quality is from 1-10
-    public void eat(int quantity, int quality) {
-        int FOOD_MODIFIER = 10; //subject to change, will adjust difficulty of game
 
-        food = food - (FOOD_MODIFIER * quantity);
-        energy += FOOD_MODIFIER/4 * quality;
-        if(food < 0)
-            food = 0;
-        if(energy > 100)
-            energy = 100;
+    public void eat() {
+        food += 50;
 
-        if(quality >= 6){
-            //no happiness penalty
-        }
-        else if(quality < 6 && quality >= 3) {
-            happiness -= quantity * 3;
-        }
-        else {
-            happiness -= quantity * 5;
-        }
+        if(food > 100)
+            food = 100;
 
-        if(happiness < 0)
-            happiness = 0;
-
-        stats.setHappiness(happiness);
         stats.setfood(food);
-        stats.setEnergy(energy);
     }
 
     public void sleep() {
         energy += 50;
-        food -= 20;         // It seems weird, but more food is a good thing
-        if(food > 100)
-            food =100;
+        food -= 20;         
+        if(food < 0)
+            food = 0;
         if (energy > 100)
             energy = 100;
 

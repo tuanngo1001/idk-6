@@ -10,9 +10,9 @@ public class PlayerStats implements Parcelable {
 
 
     public PlayerStats(int num_classes) {
-        energy = 20;
-        food = 100;
-        happiness = 100;
+        energy = 50;
+        food = 50;
+        happiness = 50;
 
     }
 
