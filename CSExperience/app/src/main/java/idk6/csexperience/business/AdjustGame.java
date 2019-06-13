@@ -81,12 +81,13 @@ public class AdjustGame {
         advanceTime();
     }
 
-    // The player takes the biggest nap of their life
+    // The player takes the biggest nap of their life but loses an extra time slot
     // Stat affectsL
     // Energy += 100
     // Food -= 30
     public void superSleep() {
         adjustStats.superSleep();
+        advanceTime();
         advanceTime();
     }
 

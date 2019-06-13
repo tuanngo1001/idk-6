@@ -15,7 +15,7 @@ public class PlayerStats implements Parcelable {
     private int graphicsKnowledge;
 
 
-    public PlayerStats(int num_classes) {
+    public PlayerStats() {
         energy = 50;
         food = 50;
         happiness = 50;
@@ -24,18 +24,6 @@ public class PlayerStats implements Parcelable {
         aiKnowledge = 1;
         graphicsKnowledge = 1;
     }
-
-    public SkillLevel getSkillLevel(int courseID){ return levels[courseID]; }
-
-    public CombatSkills getSkillsList(){ return skills; }
-
-    public void addSkill(Skill newSkill){
-        skills.addSkill(newSkill);
-    }
-
-    public Skill getSkill(int id){ return skills.getSkill(id); }
-
-    public Skill getNewSkill(int cID, int skillNo){ return allSkill[cID][skillNo]; }
 
     public int getHappiness() {
         return happiness;
