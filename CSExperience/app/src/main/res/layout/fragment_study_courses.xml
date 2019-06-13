@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        layout="@layout/app_bar_nav" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="281dp">
+
+        <TextView
+            android:id="@+id/month"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/pixellari"
+            android:gravity="bottom|center"
+            android:text="Select a Course to Study"
+            android:textColor="@color/colorBlack"
+            android:textSize="48sp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="441dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="350dp">
+
+
+            <TextView
+                android:id="@+id/graphView1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/pixellari"
+                android:gravity="bottom|center"
+                android:text="Databases"
+                android:textSize="32sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="390dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/dbLevel"
+                android:layout_width="288dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/pixellari"
+                android:gravity="bottom|right"
+                android:text="Current Level"
+                android:textSize="24sp" />
+
+            <RatingBar
+                android:id="@+id/dbRatingBar"
+                style="@android:style/Widget.DeviceDefault.RatingBar.Small"
+                android:layout_width="184dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|left"
+                android:max="10"
+                android:paddingLeft="25sp"
+                android:paddingBottom="8sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/studyDB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@drawable/button_background"
+                android:text="Study!" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="605dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="515dp">
+
+
+            <TextView
+                android:id="@+id/graphView2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/pixellari"
+                android:gravity="bottom|center"
+                android:text="Artificial Intelligence"
+                android:textSize="32sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="555dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/aiLevel"
+                android:layout_width="288dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/pixellari"
+                android:gravity="bottom|right"
+                android:text="Current Level"
+                android:textSize="24sp" />
+
+            <RatingBar
+                android:id="@+id/aiRatingBar"
+                style="@android:style/Widget.DeviceDefault.RatingBar.Small"
+                android:layout_width="184dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|left"
+                android:max="10"
+                android:paddingLeft="25sp"
+                android:paddingBottom="8sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/studyAI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@drawable/button_background"
+                android:text="Study!" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="761dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="680dp">
+
+
+            <TextView
+                android:id="@+id/graphView3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/pixellari"
+                android:gravity="bottom|center"
+                android:text="Graphics"
+                android:textSize="32sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="710dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/graphicsLevel"
+                android:layout_width="288dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/pixellari"
+                android:gravity="bottom|right"
+                android:text="Current Level"
+                android:textSize="24sp" />
+
+            <RatingBar
+                android:id="@+id/graphicsRatingBar"
+                style="@android:style/Widget.DeviceDefault.RatingBar.Small"
+                android:layout_width="184dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|left"
+                android:max="10"
+                android:paddingLeft="25sp"
+                android:paddingBottom="8sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/studyGraphics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="@drawable/button_background"
+                android:text="Study!" />
+        </LinearLayout>
+    </FrameLayout>
+
+</RelativeLayout>
