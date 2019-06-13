@@ -46,6 +46,7 @@ public class AdjustCalendar {
         calendar.getImportantDates().put(date,event);
     }
 
+
     public void deleteImportantEvent(int date){
         calendar.getImportantDates().remove(date);
     }
@@ -54,7 +55,9 @@ public class AdjustCalendar {
         return calendar.getImportantDates().get(date);
     }
 
+    //ADDINNG FOR TESTING AdjustCalendar
 
-
-
+    public Calendar getCalendar(){
+        return this.calendar;
+    }
 }

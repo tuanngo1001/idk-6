@@ -42,4 +42,3 @@ public class AdjustTimeTest
         System.out.println("Finished testCourse");
     }
 }
-
