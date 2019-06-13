@@ -48,8 +48,6 @@ public class HomeFragment extends Fragment {
         checkProgress = game.getTime().getPeriod();
 
         if(checkProgress == 1){
-            progress.setText("Morning");
-        }else if(checkProgress == 2){
             progress.setText("Afternoon");
         }else {
             progress.setText("Evening");
