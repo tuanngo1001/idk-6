@@ -63,11 +63,11 @@ public class HomeFragment extends Fragment {
 
     private void happinessBar(View view){
         ProgressBar progressEnergy = (ProgressBar) view.findViewById(R.id.progressBarHappiness);
-        progressEnergy.setProgress(game.getPlayer().getStats().getEnergy());
+        progressEnergy.setProgress(game.getPlayer().getStats().getHappiness());
     }
 
     private void hungerBar(View view){
         ProgressBar progressEnergy = (ProgressBar) view.findViewById(R.id.progressBarHunger);
-        progressEnergy.setProgress(game.getPlayer().getStats().getEnergy());
+        progressEnergy.setProgress(game.getPlayer().getStats().getHunger());
     }
 }
