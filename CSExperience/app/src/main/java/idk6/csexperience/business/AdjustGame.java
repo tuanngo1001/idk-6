@@ -26,7 +26,7 @@ public class AdjustGame {
 
     // Advance time by one time slot (and roll over into the next day if need be)
     // Note that time period is either 1 or 2.
-    public void advanceTime() {
+    private void advanceTime() {
         if(time.getPeriod() == 2) {
             adjustTime.nextPeriod();
             this.overnight();
@@ -42,7 +42,7 @@ public class AdjustGame {
 
     // The player goes to sleep
     // Stat affects:
-    // Energy += 5
+    // Energy += 50
     public void sleep(){
         adjustStats.sleep();
         this.advanceTime();
@@ -50,7 +50,7 @@ public class AdjustGame {
 
     // The player eats something tasty
     // Stat affects:
-    // Hunger += 5
+    // Hunger += 50
     public void eat(){
         adjustStats.eat(5, 5);
         advanceTime();
@@ -58,7 +58,7 @@ public class AdjustGame {
 
     // The player takes a night to play video-games (how meta)
     // Stat affects:
-    // Happiness += 5
+    // Happiness += 50
     public void gameItUp() {
         adjustStats.play();
         advanceTime();
@@ -66,8 +66,8 @@ public class AdjustGame {
 
     // The player goes out for the night of moloko with his droogs (Reference: Clockwork Orange)
     // Stat affects:
-    // Happiness += 8
-    // Energy -= 3       (Booze always cost more than just money anyway, right?)
+    // Happiness += 80
+    // Energy -= 30       (Booze always cost more than just money anyway, right?)
     public void nightOut() {
         adjustStats.nightOut();
         advanceTime();
@@ -75,8 +75,8 @@ public class AdjustGame {
 
     // The player decides convenience store subs aren't cutting it anymore and wants real food.
     // Stat affects:
-    // Hunger += 8
-    // Energy -= 3
+    // Hunger += 80
+    // Energy -= 30
     public void groceryHaul() {
         adjustStats.groceryHaul();
 

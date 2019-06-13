@@ -66,12 +66,9 @@ public class AdjustPlayerStats {
         stats.setEnergy(energy);
     }
 
-    // a general method to adjust energy levels. This will be called every night and if a player decides
-    // to nap instead of studying or doing some other activity.
-    // quantity will normally be just 1
     public void sleep() {
-        energy += 5;
-        hunger += 25;
+        energy += 50;
+        hunger -= 20;         // It seems weird, but more hunger is a good thing
         if(hunger > 100)
             hunger =100;
         if (energy > 100)
@@ -82,7 +79,7 @@ public class AdjustPlayerStats {
     }
 
     public void play() {
-        happiness += 5;
+        happiness += 50;
         if(happiness > 100) {
             happiness = 100;
         }
@@ -91,11 +88,11 @@ public class AdjustPlayerStats {
     }
 
     public void nightOut() {
-        happiness += 8;
+        happiness += 80;
         if(happiness > 100) {
             happiness = 100;
         }
-        energy -= 3;
+        energy -= 30;
         if(energy < 0) {
             energy = 0;
         }
@@ -104,11 +101,11 @@ public class AdjustPlayerStats {
     }
 
     public void groceryHaul() {
-        hunger -= 8;
+        hunger -= 80;
         if(hunger < 0) {
             hunger = 0;
         }
-        energy -= 3;
+        energy -= 30;
         if(energy < 0) {
             energy = 0;
         }
