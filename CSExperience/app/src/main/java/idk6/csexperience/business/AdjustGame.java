@@ -90,11 +90,18 @@ public class AdjustGame {
         advanceTime();
     }
 
-    public void study(int courseId) {
-        if (courseId >= 0 && courseId < 5) {
-            //do shit
-        }
+    public void studyDB() {
+        adjustStats.studyDatabases();
+        advanceTime();
     }
 
+    public void studyAI() {
+        adjustStats.studyAi();
+        advanceTime();
+    }
 
+    public void studyGraphics() {
+        adjustStats.studyGraphics();
+        advanceTime();
+    }
 }

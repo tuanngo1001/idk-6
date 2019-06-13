@@ -116,6 +116,8 @@ public class AdjustPlayerStats {
         if(databasesKnowledge > 10)
             databasesKnowledge = 10;
 
+        studyHealthCost();
+
         stats.setDatabasesKnowledge(databasesKnowledge);
     }
 
@@ -123,6 +125,8 @@ public class AdjustPlayerStats {
         aiKnowledge++;
         if(aiKnowledge > 10)
             aiKnowledge = 10;
+
+        studyHealthCost();
 
         stats.setAiKnowledge(aiKnowledge);
     }
@@ -132,7 +136,29 @@ public class AdjustPlayerStats {
         if(graphicsKnowledge > 10)
             graphicsKnowledge = 10;
 
+        studyHealthCost();
+
         stats.setGraphicsKnowledge(graphicsKnowledge);
+    }
+
+    private void studyHealthCost(){
+        // Study isn't free...
+
+        happiness -= 20;
+        if(happiness < 0)
+            happiness = 0;
+
+        energy -= 15;
+        if(energy < 0)
+            energy = 0;
+
+        food -= 8;
+        if(food < 0 )
+            food = 0;
+
+        stats.setHappiness(happiness);
+        stats.setEnergy(energy);
+        stats.setFood(food);
     }
 
 } // end AdjustPlayerStats
