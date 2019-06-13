@@ -161,4 +161,24 @@ public class AdjustPlayerStats {
         stats.setFood(food);
     }
 
+    public int getHappiness() { return happiness; }
+
+    public int getFood() { return food; }
+
+    public int getEnergy() { return energy; }
+
+    public int getAiKnowledge() { return aiKnowledge; }
+
+    public int getDatabasesKnowledge() { return databasesKnowledge; }
+
+    public int getGraphicsKnowledge() { return graphicsKnowledge; }
+
+    public void setAllToZero(){
+        happiness = 0;
+        food = 0;
+        energy = 0;
+        aiKnowledge = 0;
+        databasesKnowledge = 0;
+        graphicsKnowledge = 0;
+    }
 } // end AdjustPlayerStats
