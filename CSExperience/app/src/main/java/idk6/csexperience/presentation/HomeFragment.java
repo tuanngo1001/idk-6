@@ -66,6 +66,6 @@ public class HomeFragment extends Fragment {
 
     private void foodBar(View view){
         ProgressBar progressEnergy = (ProgressBar) view.findViewById(R.id.progressBarfood);
-        progressEnergy.setProgress(game.getPlayer().getStats().getfood());
+        progressEnergy.setProgress(game.getPlayer().getStats().getFood());
     }
 }
