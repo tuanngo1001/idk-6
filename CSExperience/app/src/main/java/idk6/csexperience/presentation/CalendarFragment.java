@@ -49,7 +49,7 @@ public class CalendarFragment extends Fragment {
             int resID = getResources().getIdentifier(buttonDay, "id", "idk6.csexperience" );
             Button dateIcon = (Button) view.findViewById(resID);
             dateIcon.setBackgroundResource(id);
-            
+
             dateIcon.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     Toast.makeText(getContext(), examName, Toast.LENGTH_SHORT).show();
