@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.Iterator;
 import java.util.List;
@@ -28,16 +29,17 @@ public class CalendarFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_calendar,container,false);
-
+        CalendarEvent currentExam;
         calendarData = new CalendarPersistenceAccessor();
 
         // Fetch the list of exams and get ready to iterate through them
         List<CalendarEvent> examList = calendarData.getListOfExams();
         Iterator i = examList.iterator();
-        CalendarEvent currentExam;
+
 
         while(i.hasNext()){
             currentExam = (CalendarEvent) i.next();
+            final String examName = getExamType(currentExam);
             int examDate = currentExam.getExamDate();
             int id = getResources().getIdentifier("idk6.csexperience:drawable/button_background_exam_date" , null, null);
 
@@ -47,8 +49,27 @@ public class CalendarFragment extends Fragment {
             int resID = getResources().getIdentifier(buttonDay, "id", "idk6.csexperience" );
             Button dateIcon = (Button) view.findViewById(resID);
             dateIcon.setBackgroundResource(id);
-        }
+            
+            dateIcon.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Toast.makeText(getContext(), examName, Toast.LENGTH_SHORT).show();
+                }
+            });
 
+        }
         return view;
     }
+
+    private String getExamType(CalendarEvent currentExam){
+        String examType;
+
+        if( currentExam.checkMid()) {
+            examType = currentExam.getExamName() + " Midterm";
+        }else
+            examType = currentExam.getExamName() + " Final";
+
+        return examType;
+    }
+
+
 }
