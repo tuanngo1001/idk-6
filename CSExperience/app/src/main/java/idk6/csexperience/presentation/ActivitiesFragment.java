@@ -17,9 +17,9 @@ import idk6.csexperience.business.AdjustGame;
 import idk6.csexperience.objects.Game;
 
 public class ActivitiesFragment extends Fragment {
-    Button study, sleep, eat, gameItUp, groceryHaul, nightOut, superSleep;
-    Game game;
-    AdjustGame adjuster;
+    private Button study, sleep, eat, gameItUp, groceryHaul, nightOut, superSleep;
+    private Game game;
+    private AdjustGame adjuster;
 
     @Nullable
     @Override
@@ -49,7 +49,7 @@ public class ActivitiesFragment extends Fragment {
             public void onClick(View view) {
                 StudyFragment nextFrag = new StudyFragment();
                 getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, nextFrag, "studyFragment")
+                        .replace(R.id.fragment_container, nextFrag, "StudyFragment")
                         .addToBackStack(null)
                         .commit();
             }
