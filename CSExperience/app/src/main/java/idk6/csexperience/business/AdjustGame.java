@@ -27,12 +27,12 @@ public class AdjustGame {
     // Advance time by one time slot (and roll over into the next day if need be)
     // Note that time period is either 1 or 2.
     private void advanceTime() {
-        if(time.getPeriod() == 2) {
-            adjustTime.nextPeriod();
-            this.overnight();
+        if(time.getPeriod() == 2) {     // If it is the evening,
+            adjustTime.nextPeriod();    // Set next period to 1
+            this.overnight();           // And advance to the next day
         }
         else {
-            adjustTime.nextPeriod();
+            adjustTime.nextPeriod();    // Otherwise, we go from afternoon to evening
         }
     }
 
@@ -50,7 +50,7 @@ public class AdjustGame {
 
     // The player eats something tasty
     // Stat affects:
-    // Hunger += 50
+    // Food += 50
     public void eat(){
         adjustStats.eat(5, 5);
         advanceTime();
@@ -75,7 +75,7 @@ public class AdjustGame {
 
     // The player decides convenience store subs aren't cutting it anymore and wants real food.
     // Stat affects:
-    // Hunger += 80
+    // Food += 80
     // Energy -= 30
     public void groceryHaul() {
         adjustStats.groceryHaul();

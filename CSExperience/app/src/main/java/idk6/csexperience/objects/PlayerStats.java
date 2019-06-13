@@ -5,13 +5,13 @@ import android.os.Parcelable;
 
 public class PlayerStats implements Parcelable {
     private int energy;
-    private int hunger;
+    private int food;
     private int happiness;
 
 
     public PlayerStats(int num_classes) {
-        energy = 100;
-        hunger = 100;
+        energy = 20;
+        food = 100;
         happiness = 100;
 
     }
@@ -32,12 +32,12 @@ public class PlayerStats implements Parcelable {
         energy = newEnergy;
     }
 
-    public int getHunger() {
-        return hunger;
+    public int getfood() {
+        return food;
     }
 
-    public void setHunger(int newHunger) {
-        hunger = newHunger;
+    public void setfood(int newFood) {
+        food = newFood;
     }
 
     public int getCourseKnowledge(int courseId){
@@ -52,7 +52,7 @@ public class PlayerStats implements Parcelable {
 
     protected PlayerStats(Parcel in) {
         energy = in.readInt();
-        hunger = in.readInt();
+        food = in.readInt();
         happiness = in.readInt();
     }
 
@@ -64,7 +64,7 @@ public class PlayerStats implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(energy);
-        dest.writeInt(hunger);
+        dest.writeInt(food);
         dest.writeInt(happiness);
     }
 

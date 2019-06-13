@@ -27,7 +27,7 @@ public class HomeFragment extends Fragment {
 
         energyBar(view);
         happinessBar(view);
-        hungerBar(view);
+        foodBar(view);
 
         changeDay(view);
         changeProgress(view);
@@ -66,8 +66,8 @@ public class HomeFragment extends Fragment {
         progressEnergy.setProgress(game.getPlayer().getStats().getHappiness());
     }
 
-    private void hungerBar(View view){
-        ProgressBar progressEnergy = (ProgressBar) view.findViewById(R.id.progressBarHunger);
-        progressEnergy.setProgress(game.getPlayer().getStats().getHunger());
+    private void foodBar(View view){
+        ProgressBar progressEnergy = (ProgressBar) view.findViewById(R.id.progressBarfood);
+        progressEnergy.setProgress(game.getPlayer().getStats().getfood());
     }
 }

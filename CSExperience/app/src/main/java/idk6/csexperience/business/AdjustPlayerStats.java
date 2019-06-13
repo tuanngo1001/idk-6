@@ -7,44 +7,44 @@ import idk6.csexperience.objects.PlayerStats;
 public class AdjustPlayerStats {
     private PlayerStats stats;
     private int energy;
-    private int hunger;
+    private int food;
     private int happiness;
 
     public AdjustPlayerStats(Game ourGame) {
         stats = ourGame.getPlayer().getStats();
         energy = stats.getEnergy();
-        hunger = stats.getHunger();
+        food = stats.getfood();
         happiness = stats.getHappiness();
     }
 
-    //drinking increases happiness, hunger, decreases energy
+    //drinking increases happiness, food, decreases energy
     public void drink(int quantity) {
         int DRINK_MODIFIER = 10; //this subject to change, will adjust game difficulty
 
         happiness += DRINK_MODIFIER * quantity;
         if(happiness > 100)
             happiness =100;
-        hunger += DRINK_MODIFIER/2 * quantity;
-        if(hunger > 100)
-            hunger = 100;
+        food += DRINK_MODIFIER/2 * quantity;
+        if(food > 100)
+            food = 100;
         energy -= DRINK_MODIFIER/2 * quantity;
         if(energy < 0)
             energy = 0;
 
         stats.setEnergy(energy);
-        stats.setHunger(hunger);
+        stats.setfood(food);
         stats.setHappiness(happiness);
     }
 
-    // eating decreases hunger at a steady rate, increases energy. Low quality food will lower happiness
+    // eating decreases food at a steady rate, increases energy. Low quality food will lower happiness
     // food quality is from 1-10
     public void eat(int quantity, int quality) {
         int FOOD_MODIFIER = 10; //subject to change, will adjust difficulty of game
 
-        hunger = hunger - (FOOD_MODIFIER * quantity);
+        food = food - (FOOD_MODIFIER * quantity);
         energy += FOOD_MODIFIER/4 * quality;
-        if(hunger < 0)
-            hunger = 0;
+        if(food < 0)
+            food = 0;
         if(energy > 100)
             energy = 100;
 
@@ -62,20 +62,20 @@ public class AdjustPlayerStats {
             happiness = 0;
 
         stats.setHappiness(happiness);
-        stats.setHunger(hunger);
+        stats.setfood(food);
         stats.setEnergy(energy);
     }
 
     public void sleep() {
         energy += 50;
-        hunger -= 20;         // It seems weird, but more hunger is a good thing
-        if(hunger > 100)
-            hunger =100;
+        food -= 20;         // It seems weird, but more food is a good thing
+        if(food > 100)
+            food =100;
         if (energy > 100)
             energy = 100;
 
         stats.setEnergy(energy);
-        stats.setHunger(hunger);
+        stats.setfood(food);
     }
 
     public void play() {
@@ -101,9 +101,9 @@ public class AdjustPlayerStats {
     }
 
     public void groceryHaul() {
-        hunger -= 80;
-        if(hunger < 0) {
-            hunger = 0;
+        food -= 80;
+        if(food < 0) {
+            food = 0;
         }
         energy -= 30;
         if(energy < 0) {
