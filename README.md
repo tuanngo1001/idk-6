@@ -1,7 +1,7 @@
 # README
 
 ## Our _Contributing_ Members
-![The Boyz](20190613_143907.jpg)
+![The Boyz](theboyz.jpg)
 
 
 ## A Note for the Marker Regarding Iteration 1:
