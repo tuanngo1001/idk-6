@@ -3,13 +3,49 @@ package idk6.csexperience.objects;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Game implements Parcelable {
+/*
+ Game Class
+
+ Acts as a singleton class, meaning that our app will have only one game object at a time.
+
+ Benefit: the core game object is now in one place and doesn't need to based around
+          via "parcelable".
+ */
+
+public class Game{
+    private static Game coreGame;
     private Calendar calendar;
     private Player player;
 
-    public Game(String name) {
+    // Constructor is private
+    private Game() {
         calendar = new Calendar();
-        player = new Player(name, 3);
+        player = new Player();
+    }
+
+    /*  getCoreGame()
+        This is our getter for the coreGame object. Use this whenever you want the coreGame.
+
+        For more info see: https://refactoring.guru/design-patterns/singleton
+     */
+    public static Game getCoreGame(){
+       if(coreGame == null){
+           coreGame = new Game();
+       }
+
+       return coreGame;
+    }
+
+    /* destroyGame()
+       Use this to clear the current "running" game instance.
+       Useful during testing
+     */
+    public static void destoryGame(){
+        coreGame = null;
+    }
+
+    public void setName(String name){
+        player.setName(name);
     }
 
     public Player getPlayer() {
@@ -18,32 +54,4 @@ public class Game implements Parcelable {
 
     public Calendar getCalendar() { return calendar; }
 
-    protected Game(Parcel in) {
-        calendar = (Calendar) in.readValue(Calendar.class.getClassLoader());
-        player = (Player) in.readValue(Player.class.getClassLoader());
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeValue(calendar);
-        dest.writeValue(player);
-    }
-
-    @SuppressWarnings("unused")
-    public static final Parcelable.Creator<Game> CREATOR = new Parcelable.Creator<Game>() {
-        @Override
-        public Game createFromParcel(Parcel in) {
-            return new Game(in);
-        }
-
-        @Override
-        public Game[] newArray(int size) {
-            return new Game[size];
-        }
-    };
 }
