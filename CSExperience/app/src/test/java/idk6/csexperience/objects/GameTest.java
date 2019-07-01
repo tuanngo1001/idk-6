@@ -11,7 +11,9 @@ public class GameTest {
     public void testGamePlayer1(){
         Game gamePlayer;
         System.out.println("Starting testGame");
-        gamePlayer = new Game("playerName");
+        Game.destoryGame();
+        gamePlayer = Game.getCoreGame();
+        gamePlayer.setName("playerName");
         assertNotNull(gamePlayer);
         assertTrue("playerName".equals(gamePlayer.getPlayer().getName()));
 
