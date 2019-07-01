@@ -26,8 +26,7 @@ public class ActivitiesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_activities,container,false);
 
-        Intent i = getActivity().getIntent();                   // Get the game from the intent
-        game = (Game) i.getParcelableExtra("coreGame");
+        game = Game.getCoreGame();
 
         // Create a new adjuster for changing the game state:
         adjuster = new AdjustGame(game);
