@@ -14,7 +14,7 @@ public class AdjustCalendarTest {
     public void testPlayer1(){
 
         //TESTING FOR CREATION OF AdjustCalendar
-        Game testGame = new Game("testUser");
+        Game testGame = Game.getCoreGame();
         AdjustCalendar adjustCalendar;
         System.out.println("Starting test AdjustCalendar");
         //IMPLEMENTING the testCalendar with

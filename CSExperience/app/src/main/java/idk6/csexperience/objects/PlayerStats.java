@@ -3,7 +3,7 @@ package idk6.csexperience.objects;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class PlayerStats implements Parcelable {
+public class PlayerStats {
     private int energy;
     private int food;
     private int happiness;
@@ -78,29 +78,4 @@ public class PlayerStats implements Parcelable {
         food = in.readInt();
         happiness = in.readInt();
     }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(energy);
-        dest.writeInt(food);
-        dest.writeInt(happiness);
-    }
-
-    @SuppressWarnings("unused")
-    public static final Parcelable.Creator<PlayerStats> CREATOR = new Parcelable.Creator<PlayerStats>() {
-        @Override
-        public PlayerStats createFromParcel(Parcel in) {
-            return new PlayerStats(in);
-        }
-
-        @Override
-        public PlayerStats[] newArray(int size) {
-            return new PlayerStats[size];
-        }
-    };
 }

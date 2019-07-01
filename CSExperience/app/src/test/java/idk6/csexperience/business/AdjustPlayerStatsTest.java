@@ -15,7 +15,8 @@ public class AdjustPlayerStatsTest {
         System.out.println("Starting testAdjustPlayerStat: eat, sleep, play function when all the" +
                 " stat is set to 0");
 
-        AdjustPlayerStats adjuster = new AdjustPlayerStats(new Game("user"));
+        Game.destoryGame();
+        AdjustPlayerStats adjuster = new AdjustPlayerStats(Game.getCoreGame());
         adjuster.setAllToZero();
         adjuster.eat();
         assertEquals("Food should be 50 after eat",50,adjuster.getFood());
@@ -36,7 +37,8 @@ public class AdjustPlayerStatsTest {
         System.out.println("Starting testAdjustPlayerStat: eat, sleep, play function when all the" +
                 " stat is set to default");
 
-        AdjustPlayerStats adjuster = new AdjustPlayerStats(new Game("user"));
+        Game.destoryGame();
+        AdjustPlayerStats adjuster = new AdjustPlayerStats(Game.getCoreGame());
         adjuster.eat();
         assertEquals("Food should be 100 after eat",100,adjuster.getFood());
 
@@ -56,7 +58,8 @@ public class AdjustPlayerStatsTest {
         System.out.println("Starting testAdjustPlayerStat: nightOut, superSleep, groceryHaul " +
                 "function when all the stat is set to 0");
 
-        AdjustPlayerStats adjuster = new AdjustPlayerStats(new Game("user"));
+        Game.destoryGame();
+        AdjustPlayerStats adjuster = new AdjustPlayerStats(Game.getCoreGame());
         adjuster.setAllToZero();
 
         adjuster.nightOut();
@@ -76,7 +79,8 @@ public class AdjustPlayerStatsTest {
         System.out.println("Starting testAdjustPlayerStat: nightOut, superSleep, groceryHaul " +
                 "function when all the stat is set to default");
 
-        AdjustPlayerStats adjuster = new AdjustPlayerStats(new Game("user"));
+        Game.destoryGame();
+        AdjustPlayerStats adjuster = new AdjustPlayerStats(Game.getCoreGame());
 
         adjuster.nightOut();
         assertEquals("Happiness Should be 100 after nightOut",100,adjuster.getHappiness());
@@ -94,7 +98,8 @@ public class AdjustPlayerStatsTest {
     public void testAPS5(){
         System.out.println("Starting testAdjustPlayerStat: studyAI functions with the default stat");
 
-        AdjustPlayerStats adjuster = new AdjustPlayerStats(new Game("user"));
+        Game.destoryGame();
+        AdjustPlayerStats adjuster = new AdjustPlayerStats(Game.getCoreGame());
 
         adjuster.studyAi();
         assertEquals("Happiness Should be 30",30,adjuster.getHappiness());
@@ -109,7 +114,8 @@ public class AdjustPlayerStatsTest {
     public void testAPS6(){
         System.out.println("Starting testAdjustPlayerStat: studyDatabases functions with the default stat");
 
-        AdjustPlayerStats adjuster = new AdjustPlayerStats(new Game("user"));
+        Game.destoryGame();
+        AdjustPlayerStats adjuster = new AdjustPlayerStats(Game.getCoreGame());
 
         adjuster.studyDatabases();
         assertEquals("Happiness Should be 30 after nightOut",30,adjuster.getHappiness());
@@ -124,7 +130,8 @@ public class AdjustPlayerStatsTest {
     public void testAPS7(){
         System.out.println("Starting testAdjustPlayerStat: studyGraphics functions with the default stat");
 
-        AdjustPlayerStats adjuster = new AdjustPlayerStats(new Game("user"));
+        Game.destoryGame();
+        AdjustPlayerStats adjuster = new AdjustPlayerStats(Game.getCoreGame());
 
         adjuster.studyGraphics();
         assertEquals("Happiness Should be 30 after nightOut",30,adjuster.getHappiness());

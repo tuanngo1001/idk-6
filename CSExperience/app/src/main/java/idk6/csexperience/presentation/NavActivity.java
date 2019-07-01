@@ -9,6 +9,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import idk6.csexperience.R;
 import idk6.csexperience.objects.Game;
@@ -28,8 +30,12 @@ public class NavActivity extends AppCompatActivity
     }
 
     protected void onPlayClick(View view){
-        reloadActivity.onClick(view);
+        // Get the name that was input by the user
+        TextView textElement = (TextView) findViewById(R.id.gameName);
+        String playerName = textElement.getText().toString();
+        game.setName(playerName);  // and set it as our player's name
 
+        reloadActivity.onClick(view);
     }
 
     public void onCreate(Bundle savedInstanceState) {
@@ -50,8 +56,7 @@ public class NavActivity extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
-        game = new Game("Name");
-        getIntent().putExtra("coreGame",game);
+        game = Game.getCoreGame();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new HomeFragment()).commit();

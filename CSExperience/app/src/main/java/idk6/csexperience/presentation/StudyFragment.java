@@ -25,8 +25,7 @@ public class StudyFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Intent i = getActivity().getIntent();
-        game = (Game) i.getParcelableExtra("coreGame");
+        game = Game.getCoreGame();
         adjuster = new AdjustGame(game);
         View view = inflater.inflate(R.layout.fragment_study_courses, container, false);
 
