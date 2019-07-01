@@ -20,13 +20,8 @@ public class AdjustCalendar {
     }
 
     public void nextDay(){
-        if(day == 30) {
-            //end game
-
-        }else {
-            day++;
-            calendar.setDay(day);
-        }
+        day++;
+        calendar.setDay(day);
     }
 
     public void nextPeriod(){

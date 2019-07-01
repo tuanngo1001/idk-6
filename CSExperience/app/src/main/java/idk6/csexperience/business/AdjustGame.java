@@ -19,18 +19,9 @@ public class AdjustGame {
         adjustCalendar = new AdjustCalendar(ourGame);
     }
 
-    // Advance time by one time slot (and roll over into the next day if need be)
-    // Note that time period is either 1 or 2.
-    // Advance time by one time slot (and roll over into the next day if need be)
-    // Note that time period is either 1 or 2.
+    // Advance time by one time slot (
     public void advanceTime() {
-        if(calendar.getPeriod() == 2) {
-            adjustCalendar.nextPeriod();
-            adjustStats.sleep();
-        }
-        else {
-            adjustCalendar.nextPeriod();
-        }
+        adjustCalendar.nextPeriod();
     }
 
     // ------------------------------------------
