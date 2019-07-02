@@ -7,6 +7,7 @@ public class PlayerStats {
     private int energy;
     private int food;
     private int happiness;
+    private int money;
 
     // Class knowledge
     // Right now there are only 3 courses. When we add difficulty there will be 5.
@@ -19,11 +20,18 @@ public class PlayerStats {
         energy = 50;
         food = 50;
         happiness = 50;
+        money = 50;
 
         databasesKnowledge = 1;
         aiKnowledge = 1;
         graphicsKnowledge = 1;
     }
+
+    public int getMoney() { return money; }
+
+    public void changeMoney(int change) { money += change; }
+
+    public void setMoney(int newMoney) { money = newMoney; }
 
     public int getHappiness() {
         return happiness;
