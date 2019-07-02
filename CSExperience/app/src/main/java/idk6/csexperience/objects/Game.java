@@ -52,6 +52,6 @@ public class Game{
         return player;
     }
 
-    public Calendar getCalendar() { return calendar; }
+    public Calendar getCalendar() { return this.calendar; }
 
 }
