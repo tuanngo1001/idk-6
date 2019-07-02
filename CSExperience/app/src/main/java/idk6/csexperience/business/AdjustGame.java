@@ -94,13 +94,41 @@ public class AdjustGame {
         advanceTime();
     }
 
+    public void cheggDB() {
+        adjustStats.studyDatabases();
+    }
+
     public void studyAI() {
         adjustStats.studyAi();
         advanceTime();
+    }
+
+    public void cheggAI() {
+        adjustStats.studyAi();
     }
 
     public void studyGraphics() {
         adjustStats.studyGraphics();
         advanceTime();
     }
+
+    public void cheggGraphics() {
+        adjustStats.studyGraphics();
+    }
+
+
+    public boolean buyCoffee() {
+        return adjustStats.buyCoffee();
+
+    }
+
+    public boolean useChegg() {
+        return adjustStats.useChegg();
+    }
+
+    public boolean buyBeer() {
+        return adjustStats.buyBeer();
+    }
+
+
 }

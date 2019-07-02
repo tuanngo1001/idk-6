@@ -12,18 +12,18 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="200dp">
 
         <TextView
             android:id="@+id/month"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="225sp"
             android:fontFamily="@font/pixellari"
             android:text="Month"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorAccent"
             android:textSize="48sp" />
     </LinearLayout>
 

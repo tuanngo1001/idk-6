@@ -18,15 +18,15 @@ import idk6.csexperience.R;
 import idk6.csexperience.business.AdjustGame;
 import idk6.csexperience.objects.Game;
 
-public class ActivitiesFragment extends Fragment {
-    private Button study, sleep, eat, gameItUp, groceryHaul, nightOut, superSleep;
+public class StoreFragment extends Fragment {
+    private Button coffee, beer, chegg, computer;
     private Game game;
     private AdjustGame adjuster;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_activities,container,false);
+        View view = inflater.inflate(R.layout.fragment_items,container,false);
 
         game = Game.getCoreGame();
 
@@ -34,75 +34,74 @@ public class ActivitiesFragment extends Fragment {
         adjuster = new AdjustGame(game);
 
         // Define buttons
-        study = (Button) view.findViewById(R.id.buttonStudy);
-        sleep = (Button) view.findViewById(R.id.buttonSleep);
-        eat = (Button) view.findViewById(R.id.buttonEat);
-        gameItUp = (Button) view.findViewById(R.id.buttonGame);
-        groceryHaul = (Button) view.findViewById(R.id.buttonGroceryHaul);
-        nightOut = (Button) view.findViewById(R.id.buttonNightOut);
-        superSleep = (Button) view.findViewById(R.id.buttonSuperSleep);
+        coffee = (Button) view.findViewById(R.id.buttonCoffee);
+        beer = (Button) view.findViewById(R.id.buttonBeer);
+        chegg = (Button) view.findViewById(R.id.buttonChegg);
+        computer = (Button) view.findViewById(R.id.buttonComputer);
 
         // Define on-click listeners for those buttons
+        // WARNING: Nasty copy-pasta code below
 
-        // STUDY
-        study.setOnClickListener(new View.OnClickListener(){
+        // COFFEE
+        coffee.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new StudyFragment()).commit();
+
+                if (adjuster.buyCoffee()) {
+                    showDialog("Energy Increased!", "Jittery Yet?");
+                    goToHome();
+                }
+                else {
+                    showDialog("Insufficent Funds!", "How embarassing...");
+                }
             }
         });
 
-        // SLEEP
-        sleep.setOnClickListener(new View.OnClickListener(){
+        // BEER
+        beer.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                adjuster.sleep();
-                showDialog("Energy Increased!", "I'm not tired anymore!");
-                goToHome();
+
+                if (adjuster.buyBeer()) {
+                    showDialog("Feeling Better!", "But at what cost?");
+                    goToHome();
+                }
+                else {
+                    showDialog("Insufficent Funds!", "How embarassing...");
+                }
             }
         });
 
-        // EAT
-        eat.setOnClickListener(new View.OnClickListener(){
+        // CHEGG
+        chegg.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                adjuster.eat();
-                showDialog("Food Increased!", "That was delicious!");
-                goToHome();
+
+                if (adjuster.useChegg()) {
+                    showDialog("Studying: the quick way!", "Pick a class to get ahead in!");
+
+                    StudyFragment nextFrag = new StudyFragment(true);
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container, nextFrag, "StudyFragment")
+                            .addToBackStack(null)
+                            .commit();
+                }
+                else {
+                    showDialog("Insufficent Funds!", "How embarassing...");
+                }
             }
+
         });
 
-        // GAME IT UP
-        gameItUp.setOnClickListener(new View.OnClickListener(){
+        // COMPUTER
+        computer.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                adjuster.gameItUp();
-                showDialog("Happiness Increased!", "Too bad I can't do this all day.");
-                goToHome();
-            }
-        });
 
-        // GROCERY HAUL
-        groceryHaul.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view) {
-                adjuster.groceryHaul();
-                showDialog("Food Increased!", "Full stock! But I should rest now.");
-                goToHome();
-            }
-        });
+                //TODO
+                //adjuster.sleep();
 
-        // NIGHT OUT
-        nightOut.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view) {
-                adjuster.nightOut();
-                showDialog("Happiness Increased!", "That was fun! But I am very tired.");
-                goToHome();
-            }
-        });
-
-        // SUPER SLEEP
-        superSleep.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view) {
-                adjuster.superSleep();
-                showDialog("Energy Increased!", "I slept a whole day? I should eat something.");
-                goToHome();
+                HomeFragment nextFrag = new HomeFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, nextFrag, "HomeFragment")
+                        .addToBackStack(null)
+                        .commit();
             }
         });
 
@@ -117,6 +116,7 @@ public class ActivitiesFragment extends Fragment {
                 .addToBackStack(null)
                 .commit();
     }
+
 
     private void showDialog(String dialogTitle, String dialogText){
         final Dialog dialog = new Dialog(getActivity());

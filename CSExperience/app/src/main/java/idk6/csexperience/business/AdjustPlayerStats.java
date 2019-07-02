@@ -13,6 +13,7 @@ public class AdjustPlayerStats {
     private int energy;     // Health stats
     private int food;
     private int happiness;
+    private int money;
 
     int databasesKnowledge; // Course stats
     int aiKnowledge;
@@ -24,6 +25,7 @@ public class AdjustPlayerStats {
         energy = stats.getEnergy();
         food = stats.getFood();
         happiness = stats.getHappiness();
+        money = stats.getMoney();
 
         databasesKnowledge = stats.getDatabasesKnowledge();
         aiKnowledge = stats.getAiKnowledge();
@@ -141,6 +143,49 @@ public class AdjustPlayerStats {
         stats.setGraphicsKnowledge(graphicsKnowledge);
     }
 
+    // ------------------------------------------------------
+    // PURCHASABLE ITEM MODIFIERS
+    // ------------------------------------------------------
+
+    public boolean buyCoffee() {
+        if (money < 5) {
+            return false;
+        }
+        else {
+            money -= 5;
+            energy += 15;
+            food -= 10; //coffee makes you hungry?
+        }
+
+        updateStats();
+        return true;
+    }
+
+    public boolean buyBeer() {
+        if (money < 7) {
+            return false;
+        }
+        else {
+            money -= 7;
+            energy -= 15;
+            food -= 15;
+            happiness += 30;
+        }
+        updateStats();
+        return true;
+    }
+
+    public boolean useChegg() {
+        if (money < 25) {
+            return false;
+        }
+        else {
+            money -= 25;
+            //some sort of study benefit;
+        }
+        updateStats();
+        return true;
+    }
 
     private void studyHealthCost(){
         // Study isn't free...
@@ -162,6 +207,12 @@ public class AdjustPlayerStats {
         stats.setFood(food);
     }
 
+    private void updateStats() {
+        stats.setHappiness(happiness);
+        stats.setEnergy(energy);
+        stats.setFood(food);
+        stats.setMoney(money);
+    }
     public int getHappiness() { return happiness; }
 
     public int getFood() { return food; }

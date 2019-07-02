@@ -1,16 +1,19 @@
 package idk6.csexperience.presentation;
 
+import android.app.Dialog;
 import android.content.Intent;
-import android.media.Rating;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RatingBar;
+import android.widget.TextView;
 
 import idk6.csexperience.R;
 import idk6.csexperience.business.AdjustGame;
@@ -21,13 +24,24 @@ public class StudyFragment extends Fragment {
     private Game game;
     private AdjustGame adjuster;
     private Button studyDB, studyAI, studyGraphics;
+    // this chegg variable alters this page to be of use in a chegg purchase, in addition to studying
+    private boolean chegg;
+
+    public StudyFragment(){
+        chegg = false;
+    }
+    public StudyFragment(boolean isChegg){
+        chegg = isChegg;
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         game = Game.getCoreGame();
-        adjuster = new AdjustGame(game);
         View view = inflater.inflate(R.layout.fragment_study_courses, container, false);
+
+        adjuster = new AdjustGame(game);
+
 
         // Update the view with the player's current knowledge
         databasesRating(view);
@@ -39,27 +53,37 @@ public class StudyFragment extends Fragment {
         studyAI = (Button) view.findViewById(R.id.studyAI);
         studyGraphics = (Button) view.findViewById(R.id.studyGraphics);
 
+        if (chegg) {
+            TextView welcomeText = (TextView) view.findViewById(R.id.selectCourseView);
+            welcomeText.setText("Get Ahead");
+        }
         // STUDY DATABASES
         studyDB.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                adjuster.studyDB();
-                HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, nextFrag, "HomeFragment")
-                        .addToBackStack(null)
-                        .commit();
+
+                if(chegg){
+                    adjuster.cheggDB();
+                }
+                else {
+                    adjuster.studyDB();
+                }
+
+                showDialog("Database Knowledge Increased!", "I'm level " + game.getPlayer().getStats().getDatabasesKnowledge() + " now!");
+                goToHome();
             }
         });
 
         // STUDY ARTIFICIAL INTELLIGENCE
         studyAI.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                adjuster.studyAI();
-                HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, nextFrag, "HomeFragment")
-                        .addToBackStack(null)
-                        .commit();
+                if(chegg) {
+                    adjuster.cheggAI();
+                }
+                else {
+                    adjuster.studyAI();
+                }
+                showDialog("AI Knowledge Increased!", "I'm level " + game.getPlayer().getStats().getAiKnowledge() + " now!");
+                goToHome();
             }
         });
 
@@ -67,15 +91,16 @@ public class StudyFragment extends Fragment {
         // STUDY GRAPHICS
         studyGraphics.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                adjuster.studyGraphics();
-                HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, nextFrag, "HomeFragment")
-                        .addToBackStack(null)
-                        .commit();
+                if(chegg){
+                    adjuster.cheggGraphics();
+                }
+                else {
+                    adjuster.studyGraphics();
+                }
+                showDialog("Graphics Knowledge Increased!", "I'm level " + game.getPlayer().getStats().getGraphicsKnowledge() + " now!");
+                goToHome();
             }
         });
-
 
         return  view;
     }
@@ -99,6 +124,43 @@ public class StudyFragment extends Fragment {
         RatingBar ratingGraphics = (RatingBar) view.findViewById(R.id.graphicsRatingBar);
         ratingGraphics.setNumStars(10);
         ratingGraphics.setRating(game.getPlayer().getStats().getGraphicsKnowledge());
+    }
+
+    private void showDialog(String dialogTitle, String dialogText) {
+
+        final Dialog dialog = new Dialog(getActivity());
+
+        dialog.setContentView(R.layout.dialog);
+
+        // set the custom dialog components - text, image and button
+        TextView title = (TextView) dialog.findViewById(R.id.dialogTitle);
+        title.setText(dialogTitle);
+
+
+        TextView text = (TextView) dialog.findViewById(R.id.dialogText);
+        text.setText(dialogText);
+
+        TextView blank = (TextView) dialog.findViewById(R.id.blankDialog);
+        blank.setText(" ");
+
+        FloatingActionButton dialogButton = (FloatingActionButton) dialog.findViewById(R.id.closeDialog);
+        // if button is clicked, close the custom dialog
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+    }
+
+    private void goToHome(){
+        HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, nextFrag, "HomeFragment")
+                .addToBackStack(null)
+                .commit();
     }
 
 

@@ -2,28 +2,30 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/relativeLayout3"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
 
     <include
-        android:id="@+id/include4"
+        android:id="@+id/include2"
         layout="@layout/app_bar_nav"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="@+id/scrollViewActivities">
+        app:layout_constraintTop_toTopOf="@+id/scrollViewJobs">
 
         <TextView
             android:id="@+id/loadScreen"
@@ -32,7 +34,7 @@
             android:fontFamily="@font/pixellari"
             android:paddingTop="200dp"
             android:gravity="center"
-            android:text="Activities"
+            android:text="Jobs"
             android:textColor="@color/colorAccent"
             android:textSize="48sp" />
 
@@ -40,7 +42,7 @@
 
 
     <ScrollView
-        android:id="@+id/scrollViewActivities"
+        android:id="@+id/scrollViewJobs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="300dp">
@@ -51,75 +53,91 @@
             android:gravity="center"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/titleCafeteria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixellari"
+                android:gravity="bottom|center"
+                android:text="Cafeteria"
+                android:textSize="32sp" />
+
+            <TextView
+                android:id="@+id/textModifierCafeteria"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:fontFamily="@font/pixellari"
+                android:gravity="bottom|center"
+                android:text="+ 5 coins - 10 Energy"
+                android:textSize="24sp" />
+
             <Button
-                android:id="@+id/buttonStudy"
+                android:id="@+id/buttonCafeteria"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/nav_header_vertical_spacing"
                 android:layout_marginBottom="25dp"
                 android:background="@drawable/button_background"
                 android:fontFamily="@font/pixellari"
-                android:text="Study"
+                android:text="Cafeteria"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/titleBookstore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixellari"
+                android:gravity="bottom|center"
+                android:text="Bookstore"
+                android:textSize="32sp" />
+
+            <TextView
+                android:id="@+id/textModifierBookstore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:fontFamily="@font/pixellari"
+                android:gravity="bottom|center"
+                android:text="+ 7 coins - 25 Energy"
                 android:textSize="24sp" />
 
             <Button
-                android:id="@+id/buttonSleep"
+                android:id="@+id/buttonBookStore"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="25dp"
                 android:background="@drawable/button_background"
                 android:fontFamily="@font/pixellari"
-                android:text="Sleep"
+                android:text="Bookstore"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/titleLabTrials"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixellari"
+                android:gravity="bottom|center"
+                android:text="Lab Trials"
+                android:textSize="32sp" />
+
+            <TextView
+                android:id="@+id/textModifierLabTrials"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:fontFamily="@font/pixellari"
+                android:gravity="bottom|center"
+                android:text="+ 10 coins - 50 Energy"
                 android:textSize="24sp" />
 
             <Button
-                android:id="@+id/buttonEat"
+                android:id="@+id/buttonLabTrials"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="27dp"
+                android:layout_marginBottom="25dp"
                 android:background="@drawable/button_background"
                 android:fontFamily="@font/pixellari"
-                android:text="Eat"
-                android:textSize="24sp" />
-
-            <Button
-                android:id="@+id/buttonGame"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="27dp"
-                android:background="@drawable/button_background"
-                android:fontFamily="@font/pixellari"
-                android:text="Game"
-                android:textSize="24sp" />
-
-            <Button
-                android:id="@+id/buttonGroceryHaul"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="27dp"
-                android:background="@drawable/button_background"
-                android:fontFamily="@font/pixellari"
-                android:text="Grocery Haul"
-                android:textSize="24sp" />
-
-            <Button
-                android:id="@+id/buttonNightOut"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="27dp"
-                android:background="@drawable/button_background"
-                android:fontFamily="@font/pixellari"
-                android:text="Night Out"
-                android:textSize="24sp" />
-
-            <Button
-                android:id="@+id/buttonSuperSleep"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="139dp"
-                android:background="@drawable/button_background"
-                android:fontFamily="@font/pixellari"
-                android:text="Super Sleep"
+                android:text="Lab Trials"
                 android:textSize="24sp" />
         </LinearLayout>
     </ScrollView>
