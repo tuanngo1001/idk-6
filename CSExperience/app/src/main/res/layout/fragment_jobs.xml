@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pixellari"
                 android:gravity="bottom|center"
-                android:text="Cafeteria"
+                android:text="Tim Wortons"
                 android:textSize="32sp" />
 
             <TextView
@@ -69,7 +69,7 @@
                 android:layout_marginBottom="25dp"
                 android:fontFamily="@font/pixellari"
                 android:gravity="bottom|center"
-                android:text="+ 5 coins - 10 Energy"
+                android:text="Coins + 15\nHappiness - 20\nEnergy - 15\nFood - 8"
                 android:textSize="24sp" />
 
             <Button
@@ -79,7 +79,7 @@
                 android:layout_marginBottom="25dp"
                 android:background="@drawable/button_background"
                 android:fontFamily="@font/pixellari"
-                android:text="Cafeteria"
+                android:text="Waiter/Waitress"
                 android:textSize="24sp" />
 
             <TextView
@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pixellari"
                 android:gravity="bottom|center"
-                android:text="Bookstore"
+                android:text="Outdigo"
                 android:textSize="32sp" />
 
             <TextView
@@ -98,7 +98,7 @@
                 android:layout_marginBottom="25dp"
                 android:fontFamily="@font/pixellari"
                 android:gravity="bottom|center"
-                android:text="+ 7 coins - 25 Energy"
+                android:text="Coins + 17\nHappiness - 15\nEnergy - 20\nFood - 8"
                 android:textSize="24sp" />
 
             <Button
@@ -108,36 +108,36 @@
                 android:layout_marginBottom="25dp"
                 android:background="@drawable/button_background"
                 android:fontFamily="@font/pixellari"
-                android:text="Bookstore"
+                android:text="Cashier"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/titleLabTrials"
+                android:id="@+id/titleDelivery"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pixellari"
                 android:gravity="bottom|center"
-                android:text="Lab Trials"
+                android:text="Keep The Dishes"
                 android:textSize="32sp" />
 
             <TextView
-                android:id="@+id/textModifierLabTrials"
+                android:id="@+id/textModifierDelivery"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="25dp"
                 android:fontFamily="@font/pixellari"
                 android:gravity="bottom|center"
-                android:text="+ 10 coins - 50 Energy"
+                android:text="Coins + 20\nHappiness - 8\nEnergy - 20\nFood - 15"
                 android:textSize="24sp" />
 
             <Button
-                android:id="@+id/buttonLabTrials"
+                android:id="@+id/buttonDelivery"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="25dp"
                 android:background="@drawable/button_background"
                 android:fontFamily="@font/pixellari"
-                android:text="Lab Trials"
+                android:text="Deliver"
                 android:textSize="24sp" />
         </LinearLayout>
     </ScrollView>

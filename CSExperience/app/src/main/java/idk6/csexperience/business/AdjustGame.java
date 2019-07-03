@@ -110,7 +110,6 @@ public class AdjustGame {
 
     public boolean buyCoffee() {
         return adjustStats.buyCoffee();
-
     }
 
     public boolean useChegg() {
@@ -121,5 +120,45 @@ public class AdjustGame {
         return adjustStats.buyBeer();
     }
 
+    //----------------------------------------------------------------------------------------------
+    //ADDING FOR JOB:
+    public boolean waiterWaitress () {
+        boolean canDo;
+        canDo = adjustStats.doServer();
+        if(canDo){
+            this.player.getStats().changeMoney(15);
+            advanceTime();
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean cashier() {
+        boolean canDo;
+        canDo = adjustStats.doCashier();
+        if(canDo){
+            this.player.getStats().changeMoney(17);
+            advanceTime();
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean delivery() {
+        boolean canDo;
+        canDo = adjustStats.doDelivering();
+        if(canDo){
+            this.player.getStats().changeMoney(20);
+            advanceTime();
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
 }
