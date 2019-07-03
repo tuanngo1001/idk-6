@@ -15,7 +15,6 @@ public class PlayerStats {
     private int graphicsKnowledge;
 
     // Combat instance
-    private SkillLevel[] levels;
     private CombatSkills skills;
 
     //all of the skills that a player can acquire
@@ -32,10 +31,6 @@ public class PlayerStats {
 
         skills = new CombatSkills();
 
-        levels = new SkillLevel[3];
-        for (int i = 0;i < 3; i++)
-            levels[i] = new SkillLevel();
-
         allSkill = new Skill[3][3];
 
         allSkill[0][0] = (new Skill(1,11,"course 1 skill no 1", 100));
@@ -49,8 +44,6 @@ public class PlayerStats {
         allSkill[2][2] = (new Skill(3,33,"course 3 skill no 3", 300));
 
     }
-
-    public SkillLevel getSkillLevel(int courseID){ return levels[courseID]; }
 
     public CombatSkills getSkillsList(){ return skills; }
 
@@ -98,14 +91,32 @@ public class PlayerStats {
 
     public void setDatabasesKnowledge(int databasesKnowledge) {
         this.databasesKnowledge = databasesKnowledge;
+        if (databasesKnowledge == 2)
+            addSkill(allSkill[0][0]);
+        else if (databasesKnowledge == 5)
+            addSkill(allSkill[0][1]);
+        else if (databasesKnowledge == 10)
+            addSkill(allSkill[0][2]);
     }
 
     public void setAiKnowledge(int aiKnowledge) {
         this.aiKnowledge = aiKnowledge;
+        if (aiKnowledge == 2)
+            addSkill(allSkill[1][0]);
+        else if (aiKnowledge == 5)
+            addSkill(allSkill[1][1]);
+        else if (aiKnowledge == 10)
+            addSkill(allSkill[1][2]);
     }
 
     public void setGraphicsKnowledge(int graphicsKnowledge) {
         this.graphicsKnowledge = graphicsKnowledge;
+        if (graphicsKnowledge == 2)
+            addSkill(allSkill[2][0]);
+        else if (graphicsKnowledge == 5)
+            addSkill(allSkill[2][1]);
+        else if (graphicsKnowledge == 10)
+            addSkill(allSkill[2][2]);
     }
 
     protected PlayerStats(Parcel in) {
