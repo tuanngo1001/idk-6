@@ -235,7 +235,7 @@ public class AdjustPlayerStats {
             return false;
         }
         else{
-            jobSelect = 1;
+            jobSelect = 3;
             workHealthCost();
             return true;
         }
