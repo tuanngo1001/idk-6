@@ -148,6 +148,7 @@ public class AdjustPlayerStatsTest {
     @Test
     public void testDoServer(){
         System.out.println("Starting testDoServer");
+        Game.destoryGame();
         Game testGame1 = Game.getCoreGame();
         assertNotNull("Game should not be Null", testGame1);
         testGame1.getPlayer().getStats().setEnergy(15);
@@ -168,6 +169,7 @@ public class AdjustPlayerStatsTest {
     @Test
     public void testDoCashier(){
         System.out.println("Starting testDoCashier");
+        Game.destoryGame();
         Game testGame1 = Game.getCoreGame();
         assertNotNull("Game should not be Null", testGame1);
         testGame1.getPlayer().getStats().setEnergy(20);
@@ -188,6 +190,7 @@ public class AdjustPlayerStatsTest {
     @Test
     public void testDoDelivering(){
         System.out.println("Starting testDoDelivering");
+        Game.destoryGame();
         Game testGame1 = Game.getCoreGame();
         assertNotNull("Game should not be Null", testGame1);
         testGame1.getPlayer().getStats().setEnergy(20);

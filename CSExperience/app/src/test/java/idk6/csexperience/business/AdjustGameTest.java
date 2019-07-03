@@ -32,6 +32,7 @@ public class AdjustGameTest {
     @Test
     public void testWaiterWaitress(){
         System.out.println("Starting testWaiterWaitress");
+        Game.destoryGame();
         Game testGame1 = Game.getCoreGame();
         assertNotNull("Game should not be Null", testGame1);
         testGame1.getPlayer().getStats().setEnergy(0);
@@ -42,6 +43,7 @@ public class AdjustGameTest {
         assertFalse("Cannot do Waitress with low level status",
                     adjustGame1.waiterWaitress());
 
+        Game.destoryGame();
         Game testGame2 = Game.getCoreGame();
         assertNotNull("Game should not be Null", testGame2);
         testGame2.getPlayer().getStats().setEnergy(100);
@@ -56,6 +58,7 @@ public class AdjustGameTest {
     @Test
     public void testCashier(){
         System.out.println("Starting testCahsier");
+        Game.destoryGame();
         Game testGame1 = Game.getCoreGame();
         assertNotNull("Game should not be Null", testGame1);
         testGame1.getPlayer().getStats().setEnergy(0);
@@ -66,6 +69,7 @@ public class AdjustGameTest {
         assertFalse("Cannot do Cashier with low level status",
                 adjustGame1.cashier());
 
+        Game.destoryGame();
         Game testGame2 = Game.getCoreGame();
         assertNotNull("Game should not be Null", testGame2);
         testGame2.getPlayer().getStats().setEnergy(100);
@@ -80,6 +84,7 @@ public class AdjustGameTest {
     @Test
     public void testDelivery(){
         System.out.println("Starting testDelivery");
+        Game.destoryGame();
         Game testGame1 = Game.getCoreGame();
         assertNotNull("Game should not be Null", testGame1);
         testGame1.getPlayer().getStats().setEnergy(0);
@@ -90,6 +95,7 @@ public class AdjustGameTest {
         assertFalse("Cannot do Waitress with low level status",
                 adjustGame1.delivery());
 
+        Game.destoryGame();
         Game testGame2 = Game.getCoreGame();
         assertNotNull("Game should not be Null", testGame2);
         testGame2.getPlayer().getStats().setEnergy(100);
