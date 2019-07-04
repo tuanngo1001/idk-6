@@ -1,17 +1,11 @@
 package idk6.csexperience.business;
 
 import org.junit.Test;
-
 import static org.junit.Assert.*;
-
-import idk6.csexperience.business.AdjustPlayerStats;
-
 import idk6.csexperience.objects.Game;
 
 public class AdjustPlayerStatsTest {
-
     @Test
-    //MADE CHANGES=============================================
     public void testEatSleepPlay0(){
         System.out.println("Starting testAdjustPlayerStat: eat, sleep, play function when all the" +
                 " stat is set to 0");
@@ -32,9 +26,7 @@ public class AdjustPlayerStatsTest {
         System.out.println("Finished testAdjustPlayerStat: eat, sleep, play function when all the" +
                 " stat is set to 0\n");
     }
-
     @Test
-    //MADE CHANGES==============================================
     public void testEatSleepPlayDefault(){
         System.out.println("Starting testAdjustPlayerStat: eat, sleep, play function when all the" +
                 " stat is set to default");
@@ -54,7 +46,6 @@ public class AdjustPlayerStatsTest {
         System.out.println("Finished testAdjustPlayerStat: eat, sleep, play function when all the" +
                 " stat is set to default\n");
     }
-
     @Test
     public void testNightOut(){
         System.out.println("Starting testAdjustPlayerStat: nightOut, superSleep, groceryHaul " +
@@ -95,7 +86,6 @@ public class AdjustPlayerStatsTest {
         System.out.println("Finished testAdjustPlayerStat: nightOut, superSleep, groceryHaul " +
                 "function when all the stat is set to default\n");
     }
-
     @Test
     public void testStudyAI(){
         System.out.println("Starting testAdjustPlayerStat: studyAI functions with the default stat");
@@ -111,7 +101,6 @@ public class AdjustPlayerStatsTest {
 
         System.out.println("Finished testAdjustPlayerStat: studyAI functions with default stat\n");
     }
-
     @Test
     public void testStudyDatabases(){
         System.out.println("Starting testAdjustPlayerStat: studyDatabases functions with the default stat");
@@ -127,7 +116,6 @@ public class AdjustPlayerStatsTest {
 
         System.out.println("Finished testAdjustPlayerStat: studyDatabases functions with default stat\n");
     }
-
     @Test
     public void testStudyGraphics(){
         System.out.println("Starting testAdjustPlayerStat: studyGraphics functions with the default stat");
@@ -143,7 +131,6 @@ public class AdjustPlayerStatsTest {
 
         System.out.println("Finished testAdjustPlayerStat: studyGraphics functions with default stat\n");
     }
-
     //ADDING TEST METHOD FOR JOBS===================================================================
     @Test
     public void testDoServer(){
@@ -208,6 +195,4 @@ public class AdjustPlayerStatsTest {
         assertTrue("Food should be 0", playerStats1.getFood() == 0);
         System.out.println("Finished testDoServer\n");
     }
-    //==============================================================================================
-
 }
