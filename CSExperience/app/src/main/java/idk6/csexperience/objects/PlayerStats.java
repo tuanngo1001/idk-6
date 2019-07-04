@@ -3,6 +3,8 @@ package idk6.csexperience.objects;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
+
 public class PlayerStats {
     private int energy;
     private int food;
@@ -45,7 +47,7 @@ public class PlayerStats {
 
     }
 
-    public CombatSkills getSkillsList(){ return skills; }
+    public ArrayList<Skill> getSkillsList(){ return skills.getSkillsList(); }
 
     public void addSkill(Skill newSkill){ skills.addSkill(newSkill); }
 

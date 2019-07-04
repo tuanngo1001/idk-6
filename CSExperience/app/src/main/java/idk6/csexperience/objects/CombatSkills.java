@@ -9,7 +9,7 @@ public class CombatSkills {
         skillsList = new ArrayList<Skill>();
     }
 
-    public ArrayList getSkillsList(){ return skillsList; }
+    public ArrayList<Skill> getSkillsList(){ return skillsList; }
 
     public Skill getLastSkill(){ return skillsList.get(skillsList.size() - 1); }
 
