@@ -1,6 +1,5 @@
 package idk6.csexperience.presentation;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,19 +7,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-
-
 import idk6.csexperience.R;
-import idk6.csexperience.application.Services;
-import idk6.csexperience.business.GameServices;
 import idk6.csexperience.objects.Game;
-import idk6.csexperience.objects.PlayerStats;
-import idk6.csexperience.persistence.PlayerCustomizationPersistence;
-import idk6.csexperience.persistence.PlayerStatsPersistence;
+
 
 public class HomeFragment extends Fragment {
     private Game game;
@@ -38,25 +34,25 @@ public class HomeFragment extends Fragment {
         name(view);
         changeDay(view);
         changeProgress(view);
+        arrowAnimation(view);
 
         // start DB testing button code
-        Button saveStats = (Button) view.findViewById(R.id.saveStats);
+//        Button saveStats = (Button) view.findViewById(R.id.saveStats);
+//
+//        saveStats.setOnClickListener(new View.OnClickListener(){
+//            public void onClick(View view) {
 
-        saveStats.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view) {
-                System.out.println("Attempting to save game...");
-                GameServices gs = new GameServices();
-                gs.save();
-                //PlayerStatsPersistence persistence = Services.getPlayerStatsPersistence();
-                //persistence.insertNewPlayer(game.getPlayer().getName());
+//                System.out.println("Attempting to save game...");
+//                GameServices gs = new GameServices();
+//                gs.save();
+//                //PlayerStatsPersistence persistence = Services.getPlayerStatsPersistence();
+//                //persistence.insertNewPlayer(game.getPlayer().getName());
 
-
-
-            }
-        });
-        // end DB testing code
-
-
+//                System.out.println("Attempting to save stats...");
+//                PlayerStatsPersistence persistence = Services.getPlayerStatsPersistence();
+//                persistence.insertNewPlayer(game.getPlayer().getName());
+//
+//        // end DB testing code
         return view;
     }
 
@@ -113,4 +109,13 @@ public class HomeFragment extends Fragment {
         name.setText( "Hello " + playerName + "!" );
     }
 
+    private void arrowAnimation(View view){
+        ImageView arrow = view.findViewById(R.id.arrowImage);
+
+        Animation animation = new AlphaAnimation(1, 0); //to change visibility from visible to invisible
+        animation.setDuration(1500);
+        animation.setRepeatCount(5);
+        animation.setRepeatMode(Animation.REVERSE); //animation will start from end point once ended.
+        arrow.startAnimation(animation);
+    }
 }

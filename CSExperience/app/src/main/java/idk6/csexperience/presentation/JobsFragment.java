@@ -1,7 +1,6 @@
 package idk6.csexperience.presentation;
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,7 +17,7 @@ import idk6.csexperience.business.AdjustGame;
 import idk6.csexperience.objects.Game;
 
 public class JobsFragment extends Fragment {
-    private Button bookStore, cafeteria, deliver;
+    private Button bookStore, cafeteria, delivery;
     private Game game;
     private AdjustGame adjuster;
 
@@ -35,32 +34,10 @@ public class JobsFragment extends Fragment {
         // Define buttons
         bookStore = (Button) view.findViewById(R.id.buttonBookStore);
         cafeteria = (Button) view.findViewById(R.id.buttonCafeteria);
-        deliver = (Button) view.findViewById(R.id.buttonDelivery);
+        delivery = (Button) view.findViewById(R.id.buttonDelivery);
 
         // Define on-click listeners for those buttons
         // WARNING: Nasty copy-pasta code below
-
-        // BOOKSTORE
-        bookStore.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view) {
-
-                //TODO
-                if(adjuster.cashier()){
-                    showDialog("Well Done!", "Get $17!");
-                    goToHome();
-                }
-                else {
-                    showDialog("Status Low!", "Cannot do job now!");
-                }
-                //adjuster.sleep();
-
-                HomeFragment nextFrag = new HomeFragment();
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, nextFrag, "HomeFragment")
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
 
         // CAFETERIA
         cafeteria.setOnClickListener(new View.OnClickListener(){
@@ -68,41 +45,42 @@ public class JobsFragment extends Fragment {
 
                 //TODO
                 if(adjuster.waiterWaitress()){
-                    showDialog("Good Job!", "Get $15!");
-                    goToHome();
+                    showDialog("Hard work pays off!", "$15 Profit!");
                 }
                 else {
-                    showDialog("Status Low!", "Cannot do job now!");
+                    showDialog("Low Energy!", "Can't work now!");
                 }
-                //adjuster.sleep();
-
-                HomeFragment nextFrag = new HomeFragment();
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, nextFrag, "HomeFragment")
-                        .addToBackStack(null)
-                        .commit();
+                goToHome();
             }
         });
 
-        // LAB TRIALS
-        deliver.setOnClickListener(new View.OnClickListener(){
+        // BOOKSTORE
+        bookStore.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+
+                //TODO
+                if(adjuster.cashier()){
+                    showDialog("Hard work pays off!", "$17 Profit!");
+                }
+                else {
+                    showDialog("Low Energy!", "Can't work now!");
+                }
+                goToHome();
+            }
+        });
+
+        // DELIVERY
+        delivery.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
 
                 //TODO
                 if(adjuster.delivery()){
-                    showDialog("Well Done!", "Get $20!");
-                    goToHome();
+                    showDialog("Hard work pays off!", "$20 Profit!");
                 }
                 else {
-                    showDialog("Status Low!", "Cannot do job now!");
+                    showDialog("Low Energy!", "Can't work now!");
                 }
-                //adjuster.sleep();
-
-                HomeFragment nextFrag = new HomeFragment();
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, nextFrag, "HomeFragment")
-                        .addToBackStack(null)
-                        .commit();
+                goToHome();
             }
         });
 

@@ -10,15 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".presentation.LoadGame"
-            android:label="@string/title_activity_load_game"
+            android:name=".presentation.LoadActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".presentation.NavActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".presentation.StartActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

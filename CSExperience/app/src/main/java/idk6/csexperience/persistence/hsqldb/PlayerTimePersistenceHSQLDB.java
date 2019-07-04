@@ -101,7 +101,7 @@ public class PlayerTimePersistenceHSQLDB implements PlayerTimePersistence {
             st.setInt(2, day);
             st.setInt(3, period);
             st.executeUpdate();
-            } catch (SQLException e){
+        } catch (SQLException e){
             e.printStackTrace();
         }
     }
