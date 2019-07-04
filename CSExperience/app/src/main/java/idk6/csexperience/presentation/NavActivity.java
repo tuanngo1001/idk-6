@@ -1,5 +1,6 @@
 package idk6.csexperience.presentation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 
 
 import idk6.csexperience.R;
+import idk6.csexperience.application.DatabaseSetupHelper;
 import idk6.csexperience.objects.Game;
 
 public class NavActivity extends AppCompatActivity
@@ -23,6 +25,10 @@ public class NavActivity extends AppCompatActivity
     protected void onStart(){
         super.onStart();
         setContentView(R.layout.start_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        DatabaseSetupHelper.copyDatabaseToDevice(getApplicationContext());
+
     }
 
     protected void onStartClick(View view){
@@ -31,8 +37,17 @@ public class NavActivity extends AppCompatActivity
 
     protected void onLoadClick(View view){
         setContentView(R.layout.load_main);
+        getSupportFragmentManager().beginTransaction().replace(R.id.relativeLayout5,
+                new LoadFragment()).commit();
     }
 
+    protected void onSlotClick(View view) {
+        reloadActivity.onClick(view);
+    }
+
+    /**
+     * @param view
+     */
     protected void onReturnClick(View view) {
         setContentView(R.layout.start_main);
     }
@@ -41,7 +56,7 @@ public class NavActivity extends AppCompatActivity
         // Get the name that was input by the user
         TextView textElement = (TextView) findViewById(R.id.gameName);
         String playerName = textElement.getText().toString();
-        game.setName(playerName);  // and set it as our player's name
+        game.setPlayerName(playerName);  // and set it as our player's name
 
         reloadActivity.onClick(view);
     }
@@ -66,8 +81,8 @@ public class NavActivity extends AppCompatActivity
         game = Game.getCoreGame();
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new HomeFragment()).commit();
-            navigationView.setCheckedItem(R.id.nav_home);
+                new HomeFragment()).commit();
+        navigationView.setCheckedItem(R.id.nav_home);
 
     }
 

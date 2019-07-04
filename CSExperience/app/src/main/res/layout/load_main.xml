@@ -99,6 +99,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="25dp"
+                android:onClick="onSlotClick"
                 android:background="@drawable/button_background"
                 android:fontFamily="@font/pixellari"
                 android:text="Load Slot 1" />
@@ -133,6 +134,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="25dp"
+                android:onClick="onSlotClick"
                 android:background="@drawable/button_background"
                 android:fontFamily="@font/pixellari"
                 android:text="Load Slot 2" />
@@ -167,9 +169,11 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="25dp"
+                android:onClick="onSlotClick"
                 android:background="@drawable/button_background"
                 android:fontFamily="@font/pixellari"
                 android:text="Load Slot 3" />
+
         </LinearLayout>
     </ScrollView>
 

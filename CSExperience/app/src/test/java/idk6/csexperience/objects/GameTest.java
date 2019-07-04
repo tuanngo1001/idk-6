@@ -13,7 +13,7 @@ public class GameTest {
         System.out.println("Starting testGame");
         Game.destoryGame();
         gamePlayer = Game.getCoreGame();
-        gamePlayer.setName("playerName");
+        gamePlayer.setPlayerName("playerName");
         assertNotNull(gamePlayer);
         assertTrue("playerName".equals(gamePlayer.getPlayer().getName()));
 
