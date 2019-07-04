@@ -1,5 +1,6 @@
 package idk6.csexperience.presentation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import idk6.csexperience.R;
 import idk6.csexperience.business.GameServices;
+import idk6.csexperience.objects.Game;
 
 
 public class NavActivity extends StartActivity
@@ -69,14 +71,12 @@ public class NavActivity extends StartActivity
                 break;
 
             case R.id.nav_load:
-                //TODO
                 //Load game
-                Toast.makeText(NavActivity.this,
-                        "Slot "+ "getSlotNumber"+ " Loaded!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this, LoadActivity.class);
+                startActivity(intent);
                 break;
 
             case R.id.nav_save:
-                //TODO
                 //Save game
                 GameServices gs = new GameServices();
                 gs.save();
