@@ -19,7 +19,7 @@ public class AdjustGameTest {
         //Name of the game
         String gameName = "gameName";
         testGame = Game.getCoreGame();
-        testGame.setName(gameName);
+        testGame.setPlayerName(gameName);
         adjustGame = new AdjustGame(testGame);
 
         assertNotNull("Game should not be Null", testGame);

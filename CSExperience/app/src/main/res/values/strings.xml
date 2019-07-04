@@ -16,5 +16,8 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="title_activity_nav">NavActivity</string>
+    <string name="warning">WARNING!</string>
+    <string name="fatalError">FATAL ERROR!</string>
+    <string name="title_activity_load_game">LoadGame</string>
 
 </resources>

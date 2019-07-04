@@ -22,6 +22,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import idk6.csexperience.R;
+import idk6.csexperience.application.Services;
 import idk6.csexperience.business.CalendarPersistenceAccessor;
 import idk6.csexperience.objects.CalendarEvent;
 
@@ -34,7 +35,7 @@ public class CalendarFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_calendar,container,false);
         CalendarEvent currentExam;
-        calendarData = new CalendarPersistenceAccessor();
+        calendarData = new CalendarPersistenceAccessor(Services.getPlayerExamsPersistence());  // Use the REAL db via dependency injection
 
         // Fetch the list of exams and get ready to iterate through them
         List<CalendarEvent> examList = calendarData.getListOfExams();

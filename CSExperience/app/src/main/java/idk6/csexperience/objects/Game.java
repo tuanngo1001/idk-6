@@ -1,8 +1,5 @@
 package idk6.csexperience.objects;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 /*
  Game Class
 
@@ -11,6 +8,8 @@ import android.os.Parcelable;
  Benefit: the core game object is now in one place and doesn't need to based around
           via "parcelable".
  */
+
+import java.util.List;
 
 public class Game{
     private static Game coreGame;
@@ -44,8 +43,21 @@ public class Game{
         coreGame = null;
     }
 
-    public void setName(String name){
+    public void setPlayerName(String name){
         player.setName(name);
+    }
+
+    public void setPlayer(PlayerStats newPlayer) {
+        Player p = new Player();
+        p.setPlayerStats(newPlayer);
+        player = p;
+    }
+
+    public void setCalendar(List<Integer> list) {
+        Calendar c = new Calendar();
+        c.setDay(list.get(0));
+        c.setPeriod(list.get(1));
+        calendar = c;
     }
 
     public Player getPlayer() {

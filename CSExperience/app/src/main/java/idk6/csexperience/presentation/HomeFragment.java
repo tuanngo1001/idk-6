@@ -8,12 +8,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
+
 import idk6.csexperience.R;
+import idk6.csexperience.application.Services;
+import idk6.csexperience.business.GameServices;
 import idk6.csexperience.objects.Game;
+import idk6.csexperience.objects.PlayerStats;
+import idk6.csexperience.persistence.PlayerCustomizationPersistence;
+import idk6.csexperience.persistence.PlayerStatsPersistence;
 
 public class HomeFragment extends Fragment {
     private Game game;
@@ -28,9 +35,27 @@ public class HomeFragment extends Fragment {
         happinessBar(view);
         foodBar(view);
         wallet(view);
-
+        name(view);
         changeDay(view);
         changeProgress(view);
+
+        // start DB testing button code
+        Button saveStats = (Button) view.findViewById(R.id.saveStats);
+
+        saveStats.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                System.out.println("Attempting to save game...");
+                GameServices gs = new GameServices();
+                gs.save();
+                //PlayerStatsPersistence persistence = Services.getPlayerStatsPersistence();
+                //persistence.insertNewPlayer(game.getPlayer().getName());
+
+
+
+            }
+        });
+        // end DB testing code
+
 
         return view;
     }
@@ -81,4 +106,11 @@ public class HomeFragment extends Fragment {
         TextView money = (TextView) view.findViewById(R.id.coinValue);
         money.setText("$"+game.getPlayer().getStats().getMoney()+".00");
     }
+
+    private void name(View view){
+        TextView name = (TextView) view.findViewById(R.id.Greeting);
+        String playerName = Game.getCoreGame().getPlayer().getName();
+        name.setText( "Hello " + playerName + "!" );
+    }
+
 }

@@ -1,9 +1,13 @@
 package idk6.csexperience.objects;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 public class PlayerStats {
+    // Constants:
+    public static final int INITIAL_ENERGY = 50;
+    public static final int INITIAL_FOOD = 50;
+    public static final int INITIAL_HAPPINESS = 50;
+    public static final int INITIAL_MONEY = 50;
+    public static final int INITIAL_KNOWLEDGE = 1;
+
     private int energy;
     private int food;
     private int happiness;
@@ -17,14 +21,13 @@ public class PlayerStats {
 
 
     public PlayerStats() {
-        energy = 50;
-        food = 50;
-        happiness = 50;
-        money = 50;
-
-        databasesKnowledge = 1;
-        aiKnowledge = 1;
-        graphicsKnowledge = 1;
+        energy = INITIAL_ENERGY;
+        food = INITIAL_FOOD;
+        happiness = INITIAL_HAPPINESS;
+        money = INITIAL_MONEY;
+        databasesKnowledge = INITIAL_KNOWLEDGE;
+        aiKnowledge = INITIAL_KNOWLEDGE;
+        graphicsKnowledge = INITIAL_KNOWLEDGE;
     }
 
     public int getMoney() { return money; }
@@ -81,9 +84,10 @@ public class PlayerStats {
         this.graphicsKnowledge = graphicsKnowledge;
     }
 
-    protected PlayerStats(Parcel in) {
-        energy = in.readInt();
-        food = in.readInt();
-        happiness = in.readInt();
+    @Override
+    public String toString(){
+        return "Stats:\n" + energy + ", " + food + ", " + happiness;
     }
+
+
 }
