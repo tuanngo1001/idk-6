@@ -126,9 +126,13 @@ public class AdjustGame {
         return adjustStats.buyBeer();
     }
 
-    public boolean buySnack() { return adjustStats.buySnack(); }
+    public boolean buySnack() {
+        return adjustStats.buySnack();
+    }
 
-    public boolean buyEnergyDrink() { return adjustStats.buyEnergyDrink(); }
+    public boolean buyEnergyDrink() {
+        return adjustStats.buyEnergyDrink();
+    }
 
     //----------------------------------------------------------------------------------------------
     //ADDING FOR JOB:
