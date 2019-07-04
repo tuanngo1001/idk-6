@@ -81,17 +81,6 @@
                 android:text="Slot 1"
                 android:textSize="32sp" />
 
-            <TextView
-                android:id="@+id/lastSaveTime1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/pixellari"
-                android:gravity="bottom|center"
-                android:text="Saved Time"
-                android:textSize="24sp" />
-
             <Button
                 android:id="@+id/buttonLoad1"
                 android:layout_width="150dp"
@@ -116,16 +105,6 @@
                 android:text="Slot 2"
                 android:textSize="32sp" />
 
-            <TextView
-                android:id="@+id/lastSaveTime2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/pixellari"
-                android:gravity="bottom|center"
-                android:text="Empty Slot"
-                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/buttonLoad2"
@@ -151,16 +130,6 @@
                 android:text="Slot 3"
                 android:textSize="32sp" />
 
-            <TextView
-                android:id="@+id/lastSaveTime3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/pixellari"
-                android:gravity="bottom|center"
-                android:text="Empty Slot"
-                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/buttonLoad3"

@@ -87,6 +87,8 @@ public class AdjustGame {
 
     public void cheggDB() {
         adjustStats.studyDatabases();
+        adjustStats.studyDatabases();
+        adjustStats.payForChegg();
     }
 
     public void studyAI() {
@@ -96,6 +98,8 @@ public class AdjustGame {
 
     public void cheggAI() {
         adjustStats.studyAi();
+        adjustStats.studyAi();
+        adjustStats.payForChegg();
     }
 
     public void studyGraphics() {
@@ -105,6 +109,8 @@ public class AdjustGame {
 
     public void cheggGraphics() {
         adjustStats.studyGraphics();
+        adjustStats.studyGraphics();
+        adjustStats.payForChegg();
     }
 
 
@@ -119,6 +125,10 @@ public class AdjustGame {
     public boolean buyBeer() {
         return adjustStats.buyBeer();
     }
+
+    public boolean buySnack() { return adjustStats.buySnack(); }
+
+    public boolean buyEnergyDrink() { return adjustStats.buyEnergyDrink(); }
 
     //----------------------------------------------------------------------------------------------
     //ADDING FOR JOB:
