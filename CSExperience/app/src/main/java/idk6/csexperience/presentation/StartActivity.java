@@ -1,7 +1,9 @@
 package idk6.csexperience.presentation;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -44,6 +46,30 @@ public class StartActivity extends AppCompatActivity{
             game.setPlayerName(playerName);  // and set it as our player's name
             Intent intent = new Intent(this, NavActivity.class);
             startActivity(intent);
+        }else{
+            final Dialog dialog = new Dialog(view.getContext());
+            dialog.setContentView(R.layout.dialog);
+
+            // set the custom dialog components - text, image and button
+            TextView title = (TextView) dialog.findViewById(R.id.dialogTitle);
+            title.setText("Invalid Name!");
+
+            TextView text = (TextView) dialog.findViewById(R.id.dialogText);
+            text.setText("Please enter your name!");
+
+            TextView blank = (TextView) dialog.findViewById(R.id.blankDialog);
+            blank.setText(" ");
+
+            FloatingActionButton dialogButton = (FloatingActionButton) dialog.findViewById(R.id.closeDialog);
+            // if button is clicked, close the custom dialog
+            dialogButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+
+            dialog.show();
         }
 
     }
