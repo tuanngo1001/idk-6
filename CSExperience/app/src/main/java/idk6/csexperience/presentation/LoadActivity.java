@@ -72,17 +72,23 @@ public class LoadActivity extends AppCompatActivity {
 
         load1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                getKey(names.size(), SLOT1, gs, names.get(SLOT1));
+                if(names.size() > 0) {
+                    getKey(names.size(), SLOT1, gs, names.get(SLOT1));
+                }
             }
         });
         load2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                getKey(names.size(), SLOT2, gs, names.get(SLOT2));
+                if(names.size() > 1) {
+                    getKey(names.size(), SLOT2, gs, names.get(SLOT2));
+                }
             }
         });
         load3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                getKey(names.size(), SLOT3, gs, names.get(SLOT3));
+                if(names.size() > 2){
+                    getKey(names.size(), SLOT3, gs, names.get(SLOT3));
+                }
             }
         });
     }
@@ -93,19 +99,12 @@ public class LoadActivity extends AppCompatActivity {
         startActivity(newIntent);
     }
 
-    private void getKey(int listSize, int size, GameServices gs, String names){
+    private void getKey(int listSize, int size, GameServices gs, String name){
         if(listSize > size) {
-            if(gs.load(names)) {
+            if(gs.load(name)) {
                 Intent newIntent = new Intent(getBaseContext(), NavActivity.class);
                 startActivity(newIntent);
             }
-            else {
-                //error
-            }
-        }
-        else {
-            //error
         }
     }
-
 }
