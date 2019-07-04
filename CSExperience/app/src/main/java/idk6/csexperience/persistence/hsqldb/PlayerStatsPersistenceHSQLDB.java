@@ -173,17 +173,17 @@ public class PlayerStatsPersistenceHSQLDB implements PlayerStatsPersistence {
         System.out.println("Updating SAve GAme with name: " + PLAYER_ID);
 
         try(final Connection c = connection()){
-        final PreparedStatement st = c.prepareStatement("INSERT INTO PLAYERSTATS VALUES(?,?,?,?,?,?,?,?)");
-        st.setString(1, PLAYER_ID);
-        st.setInt(2, stats.getEnergy());
-        st.setInt(3, stats.getFood());
-        st.setInt(4, stats.getHappiness());
-        st.setInt(5, stats.getMoney());
-        st.setInt(6, stats.getDatabasesKnowledge());
-        st.setInt(7, stats.getAiKnowledge());
-        st.setInt(8, stats.getGraphicsKnowledge());
+            final PreparedStatement st = c.prepareStatement("INSERT INTO PLAYERSTATS VALUES(?,?,?,?,?,?,?,?)");
+            st.setString(1, PLAYER_ID);
+            st.setInt(2, stats.getEnergy());
+            st.setInt(3, stats.getFood());
+            st.setInt(4, stats.getHappiness());
+            st.setInt(5, stats.getMoney());
+            st.setInt(6, stats.getDatabasesKnowledge());
+            st.setInt(7, stats.getAiKnowledge());
+            st.setInt(8, stats.getGraphicsKnowledge());
 
-        st.executeUpdate();
+            st.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }

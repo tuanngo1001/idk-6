@@ -1,10 +1,6 @@
 package idk6.csexperience.presentation;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,10 +9,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Iterator;
 import java.util.List;
@@ -37,15 +31,20 @@ public class CalendarFragment extends Fragment {
         CalendarEvent currentExam;
         calendarData = new CalendarPersistenceAccessor(Services.getPlayerExamsPersistence());  // Use the REAL db via dependency injection
 
+
         // Fetch the list of exams and get ready to iterate through them
         List<CalendarEvent> examList = calendarData.getListOfExams();
-        Iterator i = examList.iterator();
+
+        System.out.println(calendarData.getListOfExams().get(0));
+
+        Iterator i =  examList.iterator();
 
 
         while(i.hasNext()){
             currentExam = (CalendarEvent) i.next();
             final String examName = getExamType(currentExam);
             final int examDate = currentExam.getExamDate();
+            final int examPeriod = currentExam.getExamSlot();
             int id = getResources().getIdentifier("idk6.csexperience:drawable/button_background_exam_date" , null, null);
 
             // change the colour of the exam days to red
@@ -57,7 +56,7 @@ public class CalendarFragment extends Fragment {
 
             dateIcon.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    showDialog("Day "+examDate, examName);
+                    showDialog("Day "+examDate, examName + " - " + examPeriodString(examPeriod));
                 }
             });
 
@@ -102,6 +101,15 @@ public class CalendarFragment extends Fragment {
         });
 
         dialog.show();
+    }
+
+    private String examPeriodString(int examPeriod){
+        if(examPeriod == 1)
+            return "Morning";
+        else if(examPeriod == 2)
+            return "Afternoon";
+        else
+            return "Evening";
     }
 
 

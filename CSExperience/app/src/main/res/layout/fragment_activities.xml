@@ -43,7 +43,9 @@
         android:id="@+id/scrollViewActivities"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="300dp">
+        android:paddingTop="300dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-16dp">
 
         <LinearLayout
             android:layout_width="match_parent"

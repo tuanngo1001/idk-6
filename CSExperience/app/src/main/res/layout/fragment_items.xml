@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="@+id/scrollViewItems">
 
         <TextView
-            android:id="@+id/loadScreen"
+            android:id="@+id/itemsScreen"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/pixellari"
@@ -67,7 +67,7 @@
                 android:layout_marginBottom="25dp"
                 android:fontFamily="@font/pixellari"
                 android:gravity="bottom|center"
-                android:text="+Energy -Food"
+                android:text="+Energy\n-Food"
                 android:textSize="24sp" />
 
             <Button
@@ -96,7 +96,7 @@
                 android:layout_marginBottom="25dp"
                 android:fontFamily="@font/pixellari"
                 android:gravity="bottom|center"
-                android:text="+Happiness -Energy -Food"
+                android:text="-Energy\n+Happiness\n-Food"
                 android:textSize="24sp" />
 
             <Button

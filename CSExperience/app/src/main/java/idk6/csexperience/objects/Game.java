@@ -28,11 +28,11 @@ public class Game{
         For more info see: https://refactoring.guru/design-patterns/singleton
      */
     public static Game getCoreGame(){
-       if(coreGame == null){
-           coreGame = new Game();
-       }
+        if(coreGame == null){
+            coreGame = new Game();
+        }
 
-       return coreGame;
+        return coreGame;
     }
 
     /* destroyGame()

@@ -69,7 +69,7 @@
                 android:layout_marginBottom="25dp"
                 android:fontFamily="@font/pixellari"
                 android:gravity="bottom|center"
-                android:text="Coins + 15\nHappiness - 20\nEnergy - 15\nFood - 8"
+                android:text="+15 Coins\n-15 Energy\n-20 Happiness\n-8 Food"
                 android:textSize="24sp" />
 
             <Button
@@ -79,7 +79,7 @@
                 android:layout_marginBottom="25dp"
                 android:background="@drawable/button_background"
                 android:fontFamily="@font/pixellari"
-                android:text="Waiter/Waitress"
+                android:text="Server"
                 android:textSize="24sp" />
 
             <TextView
@@ -98,7 +98,7 @@
                 android:layout_marginBottom="25dp"
                 android:fontFamily="@font/pixellari"
                 android:gravity="bottom|center"
-                android:text="Coins + 17\nHappiness - 15\nEnergy - 20\nFood - 8"
+                android:text="+17 Coins\n-20 Energy\n-15 Happiness\n-15 Food"
                 android:textSize="24sp" />
 
             <Button
@@ -127,7 +127,7 @@
                 android:layout_marginBottom="25dp"
                 android:fontFamily="@font/pixellari"
                 android:gravity="bottom|center"
-                android:text="Coins + 20\nHappiness - 8\nEnergy - 20\nFood - 15"
+                android:text="+20 Coins\n-20 Energy\n-8 Happiness\n-15 Food"
                 android:textSize="24sp" />
 
             <Button
@@ -137,7 +137,7 @@
                 android:layout_marginBottom="25dp"
                 android:background="@drawable/button_background"
                 android:fontFamily="@font/pixellari"
-                android:text="Deliver"
+                android:text="Delivery"
                 android:textSize="24sp" />
         </LinearLayout>
     </ScrollView>

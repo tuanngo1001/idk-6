@@ -51,30 +51,27 @@ public class ExamsPersistenceHSQLDB implements ExamsPersistence {
         return new CalendarEvent(courseName, day, period, isMidterm);
     }
 
-
     @Override
     public List<CalendarEvent> getCalEventsSequential() {
-        List<CalendarEvent> exams = null;
+        List<CalendarEvent> exams = new ArrayList<>();
 
         System.out.println("Attemptin to connect to exam db...");
-        try(Connection c = connection()) {
+        try (final Connection c = connection()){
             System.out.println("Connected to exam db!");
-            exams = new ArrayList<CalendarEvent>();
+            final PreparedStatement st = c.prepareStatement("SELECT * FROM EXAM_DATES");
 
-            PreparedStatement st = c.prepareStatement("SELECT * FROM EXAM_DATES");
-            ResultSet rs = st.executeQuery();
-
-            while(rs.next()){
+            final ResultSet rs = st.executeQuery();
+            //rs.next();
+            while(rs.next()) {
                 CalendarEvent exam = fromResultSet(rs);
                 exams.add(exam);
+                System.out.println(rs.getInt("ID"));
             }
-
+            //System.out.println((String)list.get(0));
             return exams;
-
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
-
         return exams;
     }
 

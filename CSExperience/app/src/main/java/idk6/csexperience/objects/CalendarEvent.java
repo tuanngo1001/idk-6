@@ -25,17 +25,12 @@ public class CalendarEvent
         return this.examDate;
     }
 
-    public int getExamslot()
+    public int getExamSlot()
     {
         return this.examSlot;
     }
 
     public boolean checkMid(){
-        if(examIsMid){
-            return true;
-        }
-        else{
-        return false;
-        }
+        return examIsMid;
     }
 }
