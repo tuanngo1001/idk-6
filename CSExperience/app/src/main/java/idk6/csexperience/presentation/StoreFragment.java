@@ -19,7 +19,7 @@ import idk6.csexperience.business.AdjustGame;
 import idk6.csexperience.objects.Game;
 
 public class StoreFragment extends Fragment {
-    private Button coffee, beer, chegg, computer;
+    private Button coffee, beer, chegg, snack, energyDrink;
     private Game game;
     private AdjustGame adjuster;
 
@@ -37,7 +37,8 @@ public class StoreFragment extends Fragment {
         coffee = (Button) view.findViewById(R.id.buttonCoffee);
         beer = (Button) view.findViewById(R.id.buttonBeer);
         chegg = (Button) view.findViewById(R.id.buttonChegg);
-        computer = (Button) view.findViewById(R.id.buttonComputer);
+        snack = (Button) view.findViewById(R.id.buttonSnacks);
+        energyDrink = (Button) view.findViewById(R.id.buttonEnergyDrink);
 
         // Define on-click listeners for those buttons
         // WARNING: Nasty copy-pasta code below
@@ -75,7 +76,7 @@ public class StoreFragment extends Fragment {
             public void onClick(View view) {
 
                 if (adjuster.useChegg()) {
-                    showDialog("Studying: the quick way!", "Pick a class to get ahead in!");
+                    showDialog("'Studying' the quick way!", "Pick a class to get ahead in!");
 
                     StudyFragment nextFrag = new StudyFragment(true);
                     getActivity().getSupportFragmentManager().beginTransaction()
@@ -90,18 +91,37 @@ public class StoreFragment extends Fragment {
 
         });
 
-        // COMPUTER
-        computer.setOnClickListener(new View.OnClickListener(){
+        // SNACK
+        snack.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
 
                 //TODO
                 //adjuster.sleep();
 
-                HomeFragment nextFrag = new HomeFragment();
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, nextFrag, "HomeFragment")
-                        .addToBackStack(null)
-                        .commit();
+                if (adjuster.buySnack()) {
+                    showDialog("Yum, Fries!", "They count as vegetables right?");
+                    goToHome();
+                }
+                else {
+                    showDialog("Insufficent Funds!", "How embarassing...");
+                }
+            }
+        });
+
+        // Energy Drink
+        energyDrink.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+
+                //TODO
+                //adjuster.sleep();
+
+                if (adjuster.buyEnergyDrink()) {
+                    showDialog("Gulp!", "Wow, that's genuinely disgusting.");
+                    goToHome();
+                }
+                else {
+                    showDialog("Insufficent Funds!", "How embarassing...");
+                }
             }
         });
 

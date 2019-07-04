@@ -36,11 +36,16 @@ public class StartActivity extends AppCompatActivity{
         Game.destoryGame();  // Remake the game whenever we hit play
         game = Game.getCoreGame();
         TextView textElement = (TextView) findViewById(R.id.gameName);
-        String playerName = textElement.getText().toString();
-        game.setPlayerName(playerName);  // and set it as our player's name
 
-        Intent intent = new Intent(this, NavActivity.class);
-        startActivity(intent);
+        String playerName = textElement.getText().toString();
+
+        //Only continue if a name has been entered
+        if(playerName.length() > 0) {
+            game.setPlayerName(playerName);  // and set it as our player's name
+            Intent intent = new Intent(this, NavActivity.class);
+            startActivity(intent);
+        }
+
     }
 
     protected void onLoadClick(View view){
