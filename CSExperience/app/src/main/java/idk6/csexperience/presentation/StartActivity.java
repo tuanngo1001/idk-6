@@ -33,6 +33,8 @@ public class StartActivity extends AppCompatActivity{
 
     protected void onPlayClick(View view){
         // Get the name that was input by the user
+        Game.destoryGame();  // Remake the game whenever we hit play
+        game = Game.getCoreGame();
         TextView textElement = (TextView) findViewById(R.id.gameName);
         String playerName = textElement.getText().toString();
         game.setPlayerName(playerName);  // and set it as our player's name
