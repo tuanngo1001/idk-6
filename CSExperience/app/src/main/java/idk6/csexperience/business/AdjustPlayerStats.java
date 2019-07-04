@@ -310,9 +310,7 @@ public class AdjustPlayerStats {
             happiness = 100;
         if(happiness < 0)
             happiness = 0;
-
     }
-
     private void updateStats() {
         stats.setHappiness(happiness);
         stats.setEnergy(energy);
