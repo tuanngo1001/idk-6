@@ -1,16 +1,11 @@
 package idk6.csexperience.presentation;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -26,22 +21,22 @@ import idk6.csexperience.objects.Game;
 public class CombatActivity extends AppCompatActivity{//} implements View.OnClickListener{
     private Button skill1, skill2, skill3, skill4;
     private FloatingActionButton exitCombat;
+    //private AdjustCombat adjuster;
     private Game game;
-
-//    @Override
-//    public void onClick(View view) {}
+    private ProgressBar timer;
 
     @Nullable
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         game = Game.getCoreGame();
+        //adjuster = new AdjustCombat(game);
         setContentView(R.layout.combat);
 
         skill1 = (Button) findViewById(R.id.buttonSkill1);
         skill2 = (Button) findViewById(R.id.buttonSkill2);
         skill3 = (Button) findViewById(R.id.buttonSkill3);
         skill4 = (Button) findViewById(R.id.buttonSkill4);
-        exitCombat = (FloatingActionButton) findViewById(R.id.exitCombatButton);
+        timer = (ProgressBar) findViewById(R.id.progressBarTime);
 
         energyBarCombat();
         happinessBarCombat();
@@ -50,28 +45,28 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
 
         skill1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-
+                //adjuster.getUsableSkill(0);
                 refreshScreen();
             }
         });
 
         skill2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-
+                //adjuster.getUsableSkill(1);
                 refreshScreen();
             }
         });
 
         skill3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-
+               //adjuster.getUsableSkill(2);
                 refreshScreen();
             }
         });
 
         skill4.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-
+                //adjuster.getUsableSkill(3);
                 refreshScreen();
             }
         });
@@ -88,9 +83,10 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         refreshScreen();
     }
 
+
     private void timeBar(){
-        ProgressBar progressTime = (ProgressBar) findViewById(R.id.progressBarTime);
-        progressTime.setProgress(game.getPlayer().getStats().getEnergy());
+        ProgressBar timer = (ProgressBar) findViewById(R.id.progressBarTime);
+        //timer.setProgress(game.timer...);
     }
 
 
@@ -125,38 +121,31 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         startActivity(intent);
     }
 
-//    private void showDialog(View view){
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        TextView title = new TextView(this);
-//        title.setText("Exit Combat?");
-//        title.setTextColor(getColor(R.color.colorWhite));
-//
-//        builder.setTitle(title.getText());
-//        builder.setMessage("You will receive an F");
-//
-//        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-//
-//            public void onClick(DialogInterface dialog, int which) {
-//                // Do do my action here
-//
-//                dialog.dismiss();
-//            }
-//
-//        });
-//
-//        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-//
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                // I do not need any action here you might
-//                dialog.dismiss();
-//            }
-//        });
-//
-//        AlertDialog alert = builder.create();
-//        alert.getWindow().setBackgroundDrawableResource(R.drawable.dialog_background);
-//        alert.show();
-//    }
+    private void showDialog(String dialogTitle, String dialogText){
+        final Dialog dialog = new Dialog(getApplicationContext());
+        dialog.setContentView(R.layout.dialog);
+
+        // set the custom dialog components - text, image and button
+        TextView title = (TextView) dialog.findViewById(R.id.dialogTitle);
+        title.setText(dialogTitle);
+
+        TextView text = (TextView) dialog.findViewById(R.id.dialogText);
+        text.setText(dialogText);
+
+        TextView blank = (TextView) dialog.findViewById(R.id.blankDialog);
+        blank.setText(" ");
+
+        FloatingActionButton dialogButton = (FloatingActionButton) dialog.findViewById(R.id.closeDialog);
+        // if button is clicked, close the custom dialog
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+    }
 
 
 
