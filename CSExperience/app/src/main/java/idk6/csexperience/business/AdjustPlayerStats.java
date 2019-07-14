@@ -115,33 +115,30 @@ public class AdjustPlayerStats {
     // ------------------------------------------------------
 
     public void studyDatabases(){
-        databasesKnowledge++;
-        if(databasesKnowledge > 10)
+        if (databasesKnowledge < 10)
+            stats.setDatabasesKnowledge(databasesKnowledge++);
+        else
             databasesKnowledge = 10;
 
         studyHealthCost();
-
-        stats.setDatabasesKnowledge(databasesKnowledge);
     }
 
     public void studyAi(){
-        aiKnowledge++;
-        if(aiKnowledge > 10)
+        if (aiKnowledge < 10)
+            stats.setAiKnowledge(aiKnowledge++);
+        else
             aiKnowledge = 10;
 
         studyHealthCost();
-
-        stats.setAiKnowledge(aiKnowledge);
     }
 
     public void studyGraphics(){
-        graphicsKnowledge++;
-        if(graphicsKnowledge > 10)
+        if (graphicsKnowledge < 10)
+            stats.setGraphicsKnowledge(graphicsKnowledge++);
+        else
             graphicsKnowledge = 10;
 
         studyHealthCost();
-
-        stats.setGraphicsKnowledge(graphicsKnowledge);
     }
 
     // ------------------------------------------------------
