@@ -6,9 +6,17 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 
 public class PlayerStats {
+    // Constants:
+    public static final int INITIAL_ENERGY = 50;
+    public static final int INITIAL_FOOD = 50;
+    public static final int INITIAL_HAPPINESS = 50;
+    public static final int INITIAL_MONEY = 50;
+    public static final int INITIAL_KNOWLEDGE = 1;
+
     private int energy;
     private int food;
     private int happiness;
+    private int money;
 
     // Class knowledge
     // Right now there are only 3 courses. When we add difficulty there will be 5.
@@ -23,13 +31,13 @@ public class PlayerStats {
     private CombatSkills allSkill;
 
     public PlayerStats() {
-        energy = 50;
-        food = 50;
-        happiness = 50;
-
-        databasesKnowledge = 1;
-        aiKnowledge = 1;
-        graphicsKnowledge = 1;
+        energy = INITIAL_ENERGY;
+        food = INITIAL_FOOD;
+        happiness = INITIAL_HAPPINESS;
+        money = INITIAL_MONEY;
+        databasesKnowledge = INITIAL_KNOWLEDGE;
+        aiKnowledge = INITIAL_KNOWLEDGE;
+        graphicsKnowledge = INITIAL_KNOWLEDGE;
 
         skills = new CombatSkills();
 
@@ -54,6 +62,12 @@ public class PlayerStats {
     public Skill getSkill(int courseID, int skillID){ return skills.getSkill(courseID,skillID); }
 
     public Skill getNewSkill(int cID, int skillNo){ return allSkill.getSkill(cID,skillNo); }
+
+    public int getMoney() { return money; }
+
+    public void changeMoney(int change) { money += change; }
+
+    public void setMoney(int newMoney) { money = newMoney; }
 
     public int getHappiness() {
         return happiness;
