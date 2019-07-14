@@ -18,6 +18,10 @@ public class Player {
         this.name = name;
     }
 
+    public void setPlayerStats(PlayerStats newPlayerStats) {
+        stats = newPlayerStats;
+    }
+
     public PlayerStats getStats() {
         return stats;
     }

@@ -19,18 +19,9 @@ public class AdjustGame {
         adjustCalendar = new AdjustCalendar(ourGame);
     }
 
-    // Advance time by one time slot (and roll over into the next day if need be)
-    // Note that time period is either 1 or 2.
-    // Advance time by one time slot (and roll over into the next day if need be)
-    // Note that time period is either 1 or 2.
+    // Advance time by one time slot (
     public void advanceTime() {
-        if(calendar.getPeriod() == 2) {
-            adjustCalendar.nextPeriod();
-            adjustStats.sleep();
-        }
-        else {
-            adjustCalendar.nextPeriod();
-        }
+        adjustCalendar.nextPeriod();
     }
 
     // ------------------------------------------
@@ -94,13 +85,94 @@ public class AdjustGame {
         advanceTime();
     }
 
+    public void cheggDB() {
+        adjustStats.studyDatabases();
+        adjustStats.studyDatabases();
+        adjustStats.payForChegg();
+    }
+
     public void studyAI() {
         adjustStats.studyAi();
         advanceTime();
+    }
+
+    public void cheggAI() {
+        adjustStats.studyAi();
+        adjustStats.studyAi();
+        adjustStats.payForChegg();
     }
 
     public void studyGraphics() {
         adjustStats.studyGraphics();
         advanceTime();
     }
+
+    public void cheggGraphics() {
+        adjustStats.studyGraphics();
+        adjustStats.studyGraphics();
+        adjustStats.payForChegg();
+    }
+
+
+    public boolean buyCoffee() {
+        return adjustStats.buyCoffee();
+    }
+
+    public boolean useChegg() {
+        return adjustStats.useChegg();
+    }
+
+    public boolean buyBeer() {
+        return adjustStats.buyBeer();
+    }
+
+    public boolean buySnack() {
+        return adjustStats.buySnack();
+    }
+
+    public boolean buyEnergyDrink() {
+        return adjustStats.buyEnergyDrink();
+    }
+
+    //----------------------------------------------------------------------------------------------
+    //ADDING FOR JOB:
+    public boolean waiterWaitress () {
+        boolean canDo;
+        canDo = adjustStats.doServer();
+        if(canDo){
+            this.player.getStats().changeMoney(15);
+            advanceTime();
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean cashier() {
+        boolean canDo;
+        canDo = adjustStats.doCashier();
+        if(canDo){
+            this.player.getStats().changeMoney(17);
+            advanceTime();
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean delivery() {
+        boolean canDo;
+        canDo = adjustStats.doDelivering();
+        if(canDo){
+            this.player.getStats().changeMoney(20);
+            advanceTime();
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 }

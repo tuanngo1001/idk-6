@@ -1,17 +1,12 @@
 package idk6.csexperience.business;
 
 import org.junit.Test;
-
 import static org.junit.Assert.*;
-
-import idk6.csexperience.business.AdjustPlayerStats;
-
 import idk6.csexperience.objects.Game;
 
 public class AdjustPlayerStatsTest {
-
     @Test
-    public void testAPS1(){
+    public void testEatSleepPlay0(){
         System.out.println("Starting testAdjustPlayerStat: eat, sleep, play function when all the" +
                 " stat is set to 0");
 
@@ -31,9 +26,8 @@ public class AdjustPlayerStatsTest {
         System.out.println("Finished testAdjustPlayerStat: eat, sleep, play function when all the" +
                 " stat is set to 0\n");
     }
-
     @Test
-    public void testAPS2(){
+    public void testEatSleepPlayDefault(){
         System.out.println("Starting testAdjustPlayerStat: eat, sleep, play function when all the" +
                 " stat is set to default");
 
@@ -52,9 +46,8 @@ public class AdjustPlayerStatsTest {
         System.out.println("Finished testAdjustPlayerStat: eat, sleep, play function when all the" +
                 " stat is set to default\n");
     }
-
     @Test
-    public void testAPS3(){
+    public void testNightOut(){
         System.out.println("Starting testAdjustPlayerStat: nightOut, superSleep, groceryHaul " +
                 "function when all the stat is set to 0");
 
@@ -75,7 +68,7 @@ public class AdjustPlayerStatsTest {
     }
 
     @Test
-    public void testAPS4(){
+    public void testOutSleepHaul(){
         System.out.println("Starting testAdjustPlayerStat: nightOut, superSleep, groceryHaul " +
                 "function when all the stat is set to default");
 
@@ -93,9 +86,8 @@ public class AdjustPlayerStatsTest {
         System.out.println("Finished testAdjustPlayerStat: nightOut, superSleep, groceryHaul " +
                 "function when all the stat is set to default\n");
     }
-
     @Test
-    public void testAPS5(){
+    public void testStudyAI(){
         System.out.println("Starting testAdjustPlayerStat: studyAI functions with the default stat");
 
         Game.destoryGame();
@@ -109,9 +101,8 @@ public class AdjustPlayerStatsTest {
 
         System.out.println("Finished testAdjustPlayerStat: studyAI functions with default stat\n");
     }
-
     @Test
-    public void testAPS6(){
+    public void testStudyDatabases(){
         System.out.println("Starting testAdjustPlayerStat: studyDatabases functions with the default stat");
 
         Game.destoryGame();
@@ -125,9 +116,8 @@ public class AdjustPlayerStatsTest {
 
         System.out.println("Finished testAdjustPlayerStat: studyDatabases functions with default stat\n");
     }
-
     @Test
-    public void testAPS7(){
+    public void testStudyGraphics(){
         System.out.println("Starting testAdjustPlayerStat: studyGraphics functions with the default stat");
 
         Game.destoryGame();
@@ -140,5 +130,69 @@ public class AdjustPlayerStatsTest {
         assertEquals("Graphics knowledge should 2",2,adjuster.getGraphicsKnowledge());
 
         System.out.println("Finished testAdjustPlayerStat: studyGraphics functions with default stat\n");
+    }
+    //ADDING TEST METHOD FOR JOBS===================================================================
+    @Test
+    public void testDoServer(){
+        System.out.println("Starting testDoServer");
+        Game.destoryGame();
+        Game testGame1 = Game.getCoreGame();
+        assertNotNull("Game should not be Null", testGame1);
+        testGame1.getPlayer().getStats().setEnergy(15);
+        testGame1.getPlayer().getStats().setHappiness(20);
+        testGame1.getPlayer().getStats().setFood(8);
+        AdjustPlayerStats playerStats1 = new AdjustPlayerStats(testGame1);
+        assertNotNull("AdjustGame should not be Null", playerStats1);
+        assertTrue("Energy should be 15",playerStats1.getEnergy() == 15);
+        assertTrue("Happiness should be 20", playerStats1.getHappiness() == 20);
+        assertTrue("Food should be 8", playerStats1.getFood() == 8);
+        assertTrue("Should be able to do Waitress",
+                playerStats1.doServer());
+        assertTrue("Energy should be 0",playerStats1.getEnergy() == 0);
+        assertTrue("Happiness should be 0", playerStats1.getHappiness() == 0);
+        assertTrue("Food should be 0", playerStats1.getFood() == 0);
+        System.out.println("Finished testDoServer\n");
+    }
+    @Test
+    public void testDoCashier(){
+        System.out.println("Starting testDoCashier");
+        Game.destoryGame();
+        Game testGame1 = Game.getCoreGame();
+        assertNotNull("Game should not be Null", testGame1);
+        testGame1.getPlayer().getStats().setEnergy(20);
+        testGame1.getPlayer().getStats().setHappiness(15);
+        testGame1.getPlayer().getStats().setFood(8);
+        AdjustPlayerStats playerStats1 = new AdjustPlayerStats(testGame1);
+        assertNotNull("AdjustGame should not be Null", playerStats1);
+        assertTrue("Energy should be 20",playerStats1.getEnergy() == 20);
+        assertTrue("Happiness should be 15", playerStats1.getHappiness() == 15);
+        assertTrue("Food should be 8", playerStats1.getFood() == 8);
+        assertTrue("Should be able to do Cashier",
+                playerStats1.doCashier());
+        assertTrue("Energy should be 0",playerStats1.getEnergy() == 0);
+        assertTrue("Happiness should be 0", playerStats1.getHappiness() == 0);
+        assertTrue("Food should be 0", playerStats1.getFood() == 0);
+        System.out.println("Finished testDoCashier\n");
+    }
+    @Test
+    public void testDoDelivering(){
+        System.out.println("Starting testDoDelivering");
+        Game.destoryGame();
+        Game testGame1 = Game.getCoreGame();
+        assertNotNull("Game should not be Null", testGame1);
+        testGame1.getPlayer().getStats().setEnergy(20);
+        testGame1.getPlayer().getStats().setHappiness(8);
+        testGame1.getPlayer().getStats().setFood(15);
+        AdjustPlayerStats playerStats1 = new AdjustPlayerStats(testGame1);
+        assertNotNull("AdjustGame should not be Null", playerStats1);
+        assertTrue("Energy should be 20",playerStats1.getEnergy() == 20);
+        assertTrue("Happiness should be 8", playerStats1.getHappiness() == 8);
+        assertTrue("Food should be 15", playerStats1.getFood() == 15);
+        assertTrue("Should be able to do Deliver",
+                playerStats1.doDelivering());
+        assertTrue("Energy should be 0",playerStats1.getEnergy() == 0);
+        assertTrue("Happiness should be 0", playerStats1.getHappiness() == 0);
+        assertTrue("Food should be 0", playerStats1.getFood() == 0);
+        System.out.println("Finished testDoServer\n");
     }
 }

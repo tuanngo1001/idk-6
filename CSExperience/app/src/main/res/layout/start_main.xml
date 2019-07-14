@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context=".presentation.NavActivity"
-    android:fitsSystemWindows="true">
+    android:background="@color/colorPrimary">
 
     <Button
         android:id="@+id/buttonStart"
@@ -18,10 +16,10 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/button_background"
         android:fontFamily="@font/pixellari"
+        android:onClick="onStartClick"
         android:text="START"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="30dp"
-        android:onClick="onStartClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -29,25 +27,26 @@
         app:layout_constraintTop_toTopOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.716" />
 
-    <!--<Button-->
-        <!--android:id="@+id/buttonLoad"-->
-        <!--android:layout_width="166dp"-->
-        <!--android:layout_height="67dp"-->
-        <!--android:layout_marginStart="8dp"-->
-        <!--android:layout_marginTop="8dp"-->
-        <!--android:layout_marginEnd="8dp"-->
-        <!--android:layout_marginBottom="8dp"-->
-        <!--android:background="@drawable/button_background"-->
-        <!--android:fontFamily="@font/pixellari"-->
-        <!--android:text="LOAD"-->
-        <!--android:textColor="@color/colorPrimaryDark"-->
-        <!--android:textSize="30dp"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintHorizontal_bias="0.497"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="@+id/imageView"-->
-        <!--app:layout_constraintVertical_bias="0.902" />-->
+    <Button
+        android:id="@+id/buttonLoad"
+        android:layout_width="166dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_background"
+        android:fontFamily="@font/pixellari"
+        android:onClick="onLoadClick"
+        android:text="LOAD"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.833" />
+
 
     <ImageView
         android:id="@+id/imageView"

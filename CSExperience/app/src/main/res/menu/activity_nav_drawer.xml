@@ -20,10 +20,31 @@
             android:id="@+id/nav_calendar"
             android:icon="@drawable/ic_apps_black_24dp"
             android:title="Calendar"/>
- <!--       <item
+        <item
+            android:id="@+id/nav_jobs"
+            android:icon="@drawable/ic_work_black_24dp"
+            android:title="Jobs"/>
+        <item
             android:id="@+id/nav_store"
             android:icon="@drawable/ic_shopping_cart_black_24dp"
-            android:title="Store"/> -->
+            android:title="Store"/>
     </group>
+
+    <item android:title=" ">
+        <menu>
+            <item
+                android:id="@+id/nav_load"
+                android:icon="@drawable/ic_file_download_black_24dp"
+                android:title="Load" />
+            <item
+                android:id="@+id/nav_save"
+                android:icon="@drawable/ic_save_black_24dp"
+                android:title="Save"/>
+
+
+        </menu>
+
+
+    </item>
 
 </menu>

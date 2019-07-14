@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/loadFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <include
+        android:id="@+id/include5"
+        layout="@layout/app_bar_nav"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="@+id/scrollViewLoad">
+
+        <TextView
+            android:id="@+id/loadScreen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/pixellari"
+            android:paddingTop="200dp"
+            android:gravity="center"
+            android:text="Load Game"
+            android:textColor="@color/colorAccent"
+            android:textSize="48sp" />
+    </LinearLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/backToMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/colorYellow"
+        android:clickable="true"
+        android:onClick="onReturnClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/include5"
+        app:layout_constraintVertical_bias="0.009"
+        app:srcCompat="@drawable/ic_arrow_back_black_24dp" />
+
+    <ScrollView
+        android:id="@+id/scrollViewLoad"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="300dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titleSlot1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/pixellari"
+                android:gravity="bottom|center"
+                android:text="Slot 1"
+                android:textSize="32sp" />
+
+            <Button
+                android:id="@+id/buttonLoad1"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="25dp"
+                android:onClick="onSlotClick"
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/pixellari"
+                android:text="Load Slot 1" />
+
+            <TextView
+                android:id="@+id/titleSlot2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/pixellari"
+                android:gravity="bottom|center"
+                android:text="Slot 2"
+                android:textSize="32sp" />
+
+
+            <Button
+                android:id="@+id/buttonLoad2"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="25dp"
+                android:onClick="onSlotClick"
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/pixellari"
+                android:text="Load Slot 2" />
+
+            <TextView
+                android:id="@+id/titleSlot3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/pixellari"
+                android:gravity="bottom|center"
+                android:text="Slot 3"
+                android:textSize="32sp" />
+
+
+            <Button
+                android:id="@+id/buttonLoad3"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="25dp"
+                android:onClick="onSlotClick"
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/pixellari"
+                android:text="Load Slot 3" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

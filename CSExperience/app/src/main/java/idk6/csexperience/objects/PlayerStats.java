@@ -135,9 +135,10 @@ public class PlayerStats {
             addSkill(allSkill.getSkill(2,2));
     }
 
-    protected PlayerStats(Parcel in) {
-        energy = in.readInt();
-        food = in.readInt();
-        happiness = in.readInt();
+    @Override
+    public String toString(){
+        return "Stats:\n" + energy + ", " + food + ", " + happiness;
     }
+
+
 }

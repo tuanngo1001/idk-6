@@ -13,10 +13,12 @@ public class AdjustPlayerStats {
     private int energy;     // Health stats
     private int food;
     private int happiness;
+    private int money;
 
     int databasesKnowledge; // Course stats
     int aiKnowledge;
     int graphicsKnowledge;
+    int jobSelect = 0;
 
 
     public AdjustPlayerStats(Game ourGame) {
@@ -24,6 +26,7 @@ public class AdjustPlayerStats {
         energy = stats.getEnergy();
         food = stats.getFood();
         happiness = stats.getHappiness();
+        money = stats.getMoney();
 
         databasesKnowledge = stats.getDatabasesKnowledge();
         aiKnowledge = stats.getAiKnowledge();
@@ -138,27 +141,179 @@ public class AdjustPlayerStats {
         studyHealthCost();
     }
 
+    // ------------------------------------------------------
+    // PURCHASABLE ITEM MODIFIERS
+    // ------------------------------------------------------
+
+    public boolean buyCoffee() {
+        if (money < 5) {
+            return false;
+        }
+        else {
+            money -= 5;
+            energy += 15;
+            food -= 10; //coffee makes you hungry?
+            checkValues();
+        }
+
+        updateStats();
+        return true;
+    }
+
+    public boolean buyBeer() {
+        if (money < 7) {
+            return false;
+        }
+        else {
+            money -= 7;
+            energy -= 15;
+            food -= 15;
+            happiness += 30;
+            checkValues();
+        }
+        updateStats();
+        return true;
+    }
+
+    public boolean buySnack() {
+        if(money < 5){
+            return false;
+        }
+        money -= 5;
+        food += 15;
+        checkValues();
+        updateStats();
+        return true;
+    }
+
+    public boolean buyEnergyDrink() {
+        if(money <8 ) {
+            return false;
+        }
+        money -= 8;
+        energy +=25;
+        checkValues();
+        updateStats();
+        return true;
+    }
+
+    public boolean useChegg() {
+        if (money < 25) {
+            return false;
+        }
+        else {
+            //money -= 25;
+            //some sort of study benefit;
+        }
+        updateStats();
+        return true;
+    }
+
+    public void payForChegg() {
+        money -= 25;
+        updateStats();
+    }
 
     private void studyHealthCost(){
         // Study isn't free...
 
         happiness -= 20;
-        if(happiness < 0)
-            happiness = 0;
-
         energy -= 15;
-        if(energy < 0)
-            energy = 0;
-
         food -= 8;
-        if(food < 0 )
-            food = 0;
+        checkValues();
+
 
         stats.setHappiness(happiness);
         stats.setEnergy(energy);
         stats.setFood(food);
     }
 
+    //ADDING FOR JOBS
+    public boolean doServer(){
+        if(happiness<20||energy<15||food<8){
+            return false;
+        }
+        else{
+            jobSelect = 1;
+            workHealthCost();
+            return true;
+        }
+
+    }
+
+    public boolean doCashier(){
+        if(happiness<15||energy<20||food<8){
+            return false;
+        }
+        else{
+            jobSelect = 2;
+            workHealthCost();
+            return true;
+        }
+    }
+    public boolean doDelivering(){
+        if(happiness<8||energy<20||food<15){
+            return false;
+        }
+        else{
+            jobSelect = 3;
+            workHealthCost();
+            return true;
+        }
+    }
+
+    private void workHealthCost(){
+        // Work isn't free...
+        if(jobSelect == 1) {
+            happiness -= 20;
+            energy -= 15;
+            food -= 8;
+        }
+        else if(jobSelect ==2){
+            happiness -= 15;
+            energy -= 20;
+            food -= 8;
+        }
+        else if(jobSelect == 3) {
+            happiness -= 8;
+            energy -= 20;
+            food -= 15;
+        }
+        if(happiness < 0){
+            happiness = 0;
+        }
+        if(energy < 0){
+            energy = 0;
+        }
+        if(food < 0 ){
+            food = 0;
+        }
+        stats.setHappiness(happiness);
+        stats.setEnergy(energy);
+        stats.setFood(food);
+    }
+
+    //this method makes sure no values go out of range
+    private void checkValues() {
+        if(food > 100)
+            food = 100;
+        if(food < 0)
+            food = 0;
+        if(energy > 100)
+            energy = 100;
+        if(energy < 0)
+            energy = 0;
+        if(happiness > 100)
+            happiness = 100;
+        if(happiness < 0)
+            happiness = 0;
+    }
+    private void updateStats() {
+        stats.setHappiness(happiness);
+        stats.setEnergy(energy);
+        stats.setFood(food);
+        stats.setMoney(money);
+    }
     public int getHappiness() { return happiness; }
 
     public int getFood() { return food; }

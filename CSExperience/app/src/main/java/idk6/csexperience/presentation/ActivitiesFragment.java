@@ -1,16 +1,18 @@
 package idk6.csexperience.presentation;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
-
-import java.util.zip.Inflater;
+import android.widget.TextView;
 
 import idk6.csexperience.R;
 import idk6.csexperience.business.AdjustGame;
@@ -41,104 +43,104 @@ public class ActivitiesFragment extends Fragment {
         superSleep = (Button) view.findViewById(R.id.buttonSuperSleep);
 
         // Define on-click listeners for those buttons
-        // WARNING: Nasty copy-pasta code below
 
         // STUDY
         study.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                StudyFragment nextFrag = new StudyFragment();
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, nextFrag, "StudyFragment")
-                        .addToBackStack(null)
-                        .commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new StudyFragment()).commit();
             }
         });
 
         // SLEEP
         sleep.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-
                 adjuster.sleep();
-
-                HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, nextFrag, "HomeFragment")
-                        .addToBackStack(null)
-                        .commit();
+                showDialog("Energy Increased!", "I'm not tired anymore!");
+                goToHome();
             }
         });
 
         // EAT
         eat.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-
                 adjuster.eat();
-
-                HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, nextFrag, "HomeFragment")
-                        .addToBackStack(null)
-                        .commit();
+                showDialog("Food Increased!", "That was delicious!");
+                goToHome();
             }
         });
 
         // GAME IT UP
         gameItUp.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-
                 adjuster.gameItUp();
-
-                HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, nextFrag, "HomeFragment")
-                        .addToBackStack(null)
-                        .commit();
+                showDialog("Happiness Increased!", "Too bad I can't do this all day.");
+                goToHome();
             }
         });
 
         // GROCERY HAUL
         groceryHaul.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-
                 adjuster.groceryHaul();
-
-                HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, nextFrag, "HomeFragment")
-                        .addToBackStack(null)
-                        .commit();
+                showDialog("Food Increased!", "Full stock! But I should rest now.");
+                goToHome();
             }
         });
 
         // NIGHT OUT
         nightOut.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-
                 adjuster.nightOut();
-
-                HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, nextFrag, "HomeFragment")
-                        .addToBackStack(null)
-                        .commit();
+                showDialog("Happiness Increased!", "That was fun! But I am very tired.");
+                goToHome();
             }
         });
 
         // SUPER SLEEP
         superSleep.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-
                 adjuster.superSleep();
-
-                HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, nextFrag, "HomeFragment")
-                        .addToBackStack(null)
-                        .commit();
+                showDialog("Energy Increased!", "I slept a whole day? I should eat something.");
+                goToHome();
             }
         });
 
         return view;
 
     } // end onCreateView
+
+    private void goToHome(){
+        HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, nextFrag, "HomeFragment")
+                .addToBackStack(null)
+                .commit();
+    }
+
+    private void showDialog(String dialogTitle, String dialogText){
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.setContentView(R.layout.dialog);
+
+        // set the custom dialog components - text, image and button
+        TextView title = (TextView) dialog.findViewById(R.id.dialogTitle);
+        title.setText(dialogTitle);
+
+        TextView text = (TextView) dialog.findViewById(R.id.dialogText);
+        text.setText(dialogText);
+
+        TextView blank = (TextView) dialog.findViewById(R.id.blankDialog);
+        blank.setText(" ");
+
+        FloatingActionButton dialogButton = (FloatingActionButton) dialog.findViewById(R.id.closeDialog);
+        // if button is clicked, close the custom dialog
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+    }
 }
