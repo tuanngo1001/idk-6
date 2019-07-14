@@ -1,5 +1,6 @@
 package idk6.csexperience.presentation;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -33,8 +34,10 @@ public class HomeFragment extends Fragment {
         wallet(view);
         name(view);
         changeDay(view);
+        examDate(view);
         changeProgress(view);
         arrowAnimation(view);
+
 
         // start DB testing button code
 //        Button saveStats = (Button) view.findViewById(R.id.saveStats);
@@ -81,6 +84,18 @@ public class HomeFragment extends Fragment {
         }else {
             progress.setText("Evening");
         }
+    }
+
+
+    //TODO maybe this is business logic
+    private void examDate(View view){
+        int day = game.getCalendar().getDay();
+
+        if(day == 10){
+            Intent intent = new Intent(getActivity(), CombatActivity.class);
+            startActivity(intent);
+        }
+
     }
 
     private void energyBar(View view){
