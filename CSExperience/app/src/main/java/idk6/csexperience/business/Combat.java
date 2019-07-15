@@ -12,7 +12,7 @@ public class Combat {
     private PlayerStats stats;
     private int energy;     // Health stats
     private int food;
-    private int happiness;
+    private int minSkillCost;
 
     private Game coreGame;
     private int cID;
@@ -31,7 +31,6 @@ public class Combat {
         stats = coreGame.getPlayer().getStats();
         energy = stats.getEnergy();
         food = stats.getFood();
-        happiness = stats.getHappiness();
     }
 
     private void decreaseTime(int amt){ timer -= amt; }
@@ -40,6 +39,7 @@ public class Combat {
         Skill[][] playerSkills = user.getStats().getSkillsList();
         for (int i = 0; i < MAX_SKILLS; i++)
             skillsList[i] = playerSkills[cID][i];
+        minSkillCost = skillsList[0].getTimeCost();
         return skillsList;
     }
 
@@ -68,7 +68,7 @@ public class Combat {
     }
 
     private void timeCheck(){
-        if (timer <= 0 || timer < skillsList[0].getTimeCost()) {
+        if (timer <= 0 || timer < minSkillCost) {
             //End the Combat
         }
     }
