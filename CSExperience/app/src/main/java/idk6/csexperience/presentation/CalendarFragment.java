@@ -59,7 +59,7 @@ public class CalendarFragment extends Fragment {
 
             dateIcon.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    showDialog("Day "+examDate, examName + " - " + examPeriodString(examPeriod));
+                    showDialog("Day "+examDate, examName + " - " + calendarData.examPeriodString(examPeriod));
                 }
             });
 
@@ -106,14 +106,7 @@ public class CalendarFragment extends Fragment {
         dialog.show();
     }
 
-    private String examPeriodString(int examPeriod){
-        if(examPeriod == 1)
-            return "Morning";
-        else if(examPeriod == 2)
-            return "Afternoon";
-        else
-            return "Evening";
-    }
+
 
 
 }
