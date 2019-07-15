@@ -5,12 +5,10 @@ import android.os.Parcelable;
 
 public class Player {
     private String name;
-    private int difficulty;
     private PlayerStats stats;
     //private State; This maybe to hold where the player currently is? ie studying, sleeping, etc
 
     public Player() {
-        this.difficulty = 3;  // Default difficult for now
         stats = new PlayerStats();
     }
 
@@ -28,10 +26,6 @@ public class Player {
 
     public String getName() {
         return name;
-    }
-
-    public int getDifficulty() {
-        return difficulty;
     }
 
 }

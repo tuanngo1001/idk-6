@@ -15,19 +15,10 @@ public class PlayerTest {
         assertNotNull("Should not be Null", playRole);
         //TESTING FOR getName()
         assertEquals("playerName",playRole.getName());
+        
         System.out.println("Finished testSetGetName\n");
     }
-    @Test
-    public void testSetGetDifficulty(){
-        //TESTING FOR CREATION OF PLAYER
-        Player playRole;
-        System.out.println("Starting testGetDifficulty");
-        playRole = new Player();
-        assertNotNull("Should not be Null", playRole);
-        //TESTING FOR getDifficulty()
-        assertEquals("Difficulty should be ",3, playRole.getDifficulty());
-        System.out.println("Finished testGetDifficulty\n");
-    }
+
     @Test
     public void testGetStats() {
         //TESTING FOR CREATION OF PLAYER

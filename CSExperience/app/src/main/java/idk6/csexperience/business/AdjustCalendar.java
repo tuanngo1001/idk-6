@@ -24,6 +24,14 @@ public class AdjustCalendar {
         calendar.setDay(day);
     }
 
+    public void nextPeriod() {
+        if(period == 2)
+            nextDay();
+        period = (period % 2) + 1;
+        calendar.setPeriod(period);
+    }
+
+    /*
     public void nextPeriod(){
         if(period == EVENING){
             nextDay();
@@ -36,7 +44,7 @@ public class AdjustCalendar {
         }
         calendar.setPeriod(period);
     }
-
+    */
     public void addImportantEvent(int date, String event){
         calendar.getImportantDates().put(date,event);
     }
