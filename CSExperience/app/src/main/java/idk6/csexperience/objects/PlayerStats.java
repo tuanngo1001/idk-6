@@ -104,8 +104,12 @@ public class PlayerStats {
         this.databasesKnowledge = databasesKnowledge;
         if (databasesKnowledge == 2)
             addSkill(allSkill.getSkill(0,0));
+        else if (databasesKnowledge == 3 || databasesKnowledge == 4)
+            skills.getSkill(0,0).increaseUsage();
         else if (databasesKnowledge == 5)
             addSkill(allSkill.getSkill(0,1));
+        else if (databasesKnowledge == 7)
+            skills.getSkill(0,1).increaseUsage();
         else if (databasesKnowledge == 10)
             addSkill(allSkill.getSkill(0,2));
     }
@@ -114,8 +118,12 @@ public class PlayerStats {
         this.aiKnowledge = aiKnowledge;
         if (aiKnowledge == 2)
             addSkill(allSkill.getSkill(1,0));
+        else if (aiKnowledge == 3 || aiKnowledge == 4)
+            skills.getSkill(1,0).increaseUsage();
         else if (aiKnowledge == 5)
             addSkill(allSkill.getSkill(1,1));
+        else if (aiKnowledge == 7)
+            skills.getSkill(1,1).increaseUsage();
         else if (aiKnowledge == 10)
             addSkill(allSkill.getSkill(1,2));
     }
@@ -124,8 +132,12 @@ public class PlayerStats {
         this.graphicsKnowledge = graphicsKnowledge;
         if (graphicsKnowledge == 2)
             addSkill(allSkill.getSkill(2,0));
+        else if (graphicsKnowledge == 3 || graphicsKnowledge == 4)
+            skills.getSkill(2,0).increaseUsage();
         else if (graphicsKnowledge == 5)
             addSkill(allSkill.getSkill(2,1));
+        else if (graphicsKnowledge == 7)
+            skills.getSkill(2,1).increaseUsage();
         else if (graphicsKnowledge == 10)
             addSkill(allSkill.getSkill(2,2));
     }
