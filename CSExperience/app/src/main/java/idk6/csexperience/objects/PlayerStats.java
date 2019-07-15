@@ -102,44 +102,30 @@ public class PlayerStats {
 
     public void setDatabasesKnowledge(int databasesKnowledge) {
         this.databasesKnowledge = databasesKnowledge;
-        if (databasesKnowledge == 2)
-            addSkill(allSkill.getSkill(0,0));
-        else if (databasesKnowledge == 3 || databasesKnowledge == 4)
-            skills.getSkill(0,0).increaseUsage();
-        else if (databasesKnowledge == 5)
-            addSkill(allSkill.getSkill(0,1));
-        else if (databasesKnowledge == 7)
-            skills.getSkill(0,1).increaseUsage();
-        else if (databasesKnowledge == 10)
-            addSkill(allSkill.getSkill(0,2));
+        upgradeSkill(0,this.databasesKnowledge);
     }
 
     public void setAiKnowledge(int aiKnowledge) {
         this.aiKnowledge = aiKnowledge;
-        if (aiKnowledge == 2)
-            addSkill(allSkill.getSkill(1,0));
-        else if (aiKnowledge == 3 || aiKnowledge == 4)
-            skills.getSkill(1,0).increaseUsage();
-        else if (aiKnowledge == 5)
-            addSkill(allSkill.getSkill(1,1));
-        else if (aiKnowledge == 7)
-            skills.getSkill(1,1).increaseUsage();
-        else if (aiKnowledge == 10)
-            addSkill(allSkill.getSkill(1,2));
+        upgradeSkill(1,this.aiKnowledge);
     }
 
     public void setGraphicsKnowledge(int graphicsKnowledge) {
         this.graphicsKnowledge = graphicsKnowledge;
-        if (graphicsKnowledge == 2)
-            addSkill(allSkill.getSkill(2,0));
-        else if (graphicsKnowledge == 3 || graphicsKnowledge == 4)
-            skills.getSkill(2,0).increaseUsage();
-        else if (graphicsKnowledge == 5)
-            addSkill(allSkill.getSkill(2,1));
-        else if (graphicsKnowledge == 7)
-            skills.getSkill(2,1).increaseUsage();
-        else if (graphicsKnowledge == 10)
-            addSkill(allSkill.getSkill(2,2));
+        upgradeSkill(2,this.graphicsKnowledge);
+    }
+
+    private void upgradeSkill(int cID, int knowledgeLevel){
+        if (knowledgeLevel == 2)
+            addSkill(allSkill.getSkill(cID,0));
+        else if (knowledgeLevel == 3 || knowledgeLevel == 4)
+            skills.getSkill(cID,0).increaseUsage();
+        else if (knowledgeLevel == 5)
+            addSkill(allSkill.getSkill(cID,1));
+        else if (knowledgeLevel == 7)
+            skills.getSkill(cID,1).increaseUsage();
+        else if (knowledgeLevel == 10)
+            addSkill(allSkill.getSkill(cID,2));
     }
 
     @Override
