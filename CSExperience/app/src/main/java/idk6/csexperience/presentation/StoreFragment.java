@@ -48,11 +48,10 @@ public class StoreFragment extends Fragment {
             public void onClick(View view) {
 
                 if (adjuster.buyCoffee()) {
-                    showDialog("Energy Increased!", "Jittery Yet?");
-                    goToHome();
+                    showDialog("Energy Increased!", "Jittery Yet?",true);
                 }
                 else {
-                    showDialog("Insufficent Funds!", "How embarassing...");
+                    showDialog("Insufficent Funds!", "How embarassing...",false);
                 }
             }
         });
@@ -62,11 +61,10 @@ public class StoreFragment extends Fragment {
             public void onClick(View view) {
 
                 if (adjuster.buyBeer()) {
-                    showDialog("Feeling Better!", "But at what cost?");
-                    goToHome();
+                    showDialog("Feeling Better!", "But at what cost?",true);
                 }
                 else {
-                    showDialog("Insufficent Funds!", "How embarassing...");
+                    showDialog("Insufficent Funds!", "How embarassing...",false);
                 }
             }
         });
@@ -76,7 +74,7 @@ public class StoreFragment extends Fragment {
             public void onClick(View view) {
 
                 if (adjuster.useChegg()) {
-                    showDialog("'Studying' the quick way!", "Pick a class to get ahead in!");
+                    showDialog("'Studying' the quick way!", "Pick a class to get ahead in!",false);
 
                     StudyFragment nextFrag = new StudyFragment(true);
                     getActivity().getSupportFragmentManager().beginTransaction()
@@ -85,7 +83,7 @@ public class StoreFragment extends Fragment {
                             .commit();
                 }
                 else {
-                    showDialog("Insufficent Funds!", "How embarassing...");
+                    showDialog("Insufficent Funds!", "How embarassing...",false);
                 }
             }
 
@@ -99,11 +97,10 @@ public class StoreFragment extends Fragment {
                 //adjuster.sleep();
 
                 if (adjuster.buySnack()) {
-                    showDialog("Yum, Fries!", "They count as vegetables right?");
-                    goToHome();
+                    showDialog("Yum, Fries!", "They count as vegetables right?",true);
                 }
                 else {
-                    showDialog("Insufficent Funds!", "How embarassing...");
+                    showDialog("Insufficent Funds!", "How embarassing...",false);
                 }
             }
         });
@@ -116,11 +113,10 @@ public class StoreFragment extends Fragment {
                 //adjuster.sleep();
 
                 if (adjuster.buyEnergyDrink()) {
-                    showDialog("Gulp!", "Wow, that's genuinely disgusting.");
-                    goToHome();
+                    showDialog("Gulp!", "Wow, that's genuinely disgusting.",true);
                 }
                 else {
-                    showDialog("Insufficent Funds!", "How embarassing...");
+                    showDialog("Insufficent Funds!", "How embarassing...",false);
                 }
             }
         });
@@ -129,17 +125,10 @@ public class StoreFragment extends Fragment {
 
     } // end onCreateView
 
-    private void goToHome(){
-        HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, nextFrag, "HomeFragment")
-                .addToBackStack(null)
-                .commit();
-    }
 
-
-    private void showDialog(String dialogTitle, String dialogText){
+    private void showDialog(String dialogTitle, String dialogText, boolean home){
         final Dialog dialog = new Dialog(getActivity());
+        final boolean goHome = home;
         dialog.setContentView(R.layout.dialog);
 
         // set the custom dialog components - text, image and button
@@ -158,6 +147,14 @@ public class StoreFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+
+                if(goHome) {
+                    HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container, nextFrag, "HomeFragment")
+                            .addToBackStack(null)
+                            .commit();
+                }
             }
         });
 
