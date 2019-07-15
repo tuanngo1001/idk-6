@@ -1,10 +1,5 @@
 package idk6.csexperience.objects;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-import java.util.ArrayList;
-
 public class PlayerStats {
     // Constants:
     public static final int INITIAL_ENERGY = 50;
@@ -43,15 +38,15 @@ public class PlayerStats {
 
         allSkill = new CombatSkills();
         
-        allSkill.addSkill(new Skill(0,0,"course 1 skill no 1", 100,10, 5));
-        allSkill.addSkill(new Skill(0,1,"course 1 skill no 2", 200,15, 10));
-        allSkill.addSkill(new Skill(0,2,"course 1 skill no 3", 300,25,20));
-        allSkill.addSkill(new Skill(1,0,"course 2 skill no 1", 100,10,5));
-        allSkill.addSkill(new Skill(1,1,"course 2 skill no 2", 200,15,10));
-        allSkill.addSkill(new Skill(1,2,"course 2 skill no 3", 300,25,20));
-        allSkill.addSkill(new Skill(2,0,"course 3 skill no 1", 100,10,5));
-        allSkill.addSkill(new Skill(2,1,"course 3 skill no 2", 200,15,10));
-        allSkill.addSkill(new Skill(2,2,"course 3 skill no 3", 300,25,20));
+        allSkill.addSkill(new Skill(0,0,"course 1 skill no 1", 10,10, 5,10));
+        allSkill.addSkill(new Skill(0,1,"course 1 skill no 2", 20,15, 10,15));
+        allSkill.addSkill(new Skill(0,2,"course 1 skill no 3", 50,25,20,40));
+        allSkill.addSkill(new Skill(1,0,"course 2 skill no 1", 10,10,5,10));
+        allSkill.addSkill(new Skill(1,1,"course 2 skill no 2", 20,15,10,15));
+        allSkill.addSkill(new Skill(1,2,"course 2 skill no 3", 50,25,20,40));
+        allSkill.addSkill(new Skill(2,0,"course 3 skill no 1", 10,10,5,10));
+        allSkill.addSkill(new Skill(2,1,"course 3 skill no 2", 20,15,10,15));
+        allSkill.addSkill(new Skill(2,2,"course 3 skill no 3", 50,25,20,40));
 
     }
 

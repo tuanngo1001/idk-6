@@ -1,12 +1,14 @@
 package idk6.csexperience.business;
 
-import idk6.csexperience.objects.CombatSkills;
 import idk6.csexperience.objects.Game;
 import idk6.csexperience.objects.Player;
 import idk6.csexperience.objects.PlayerStats;
 import idk6.csexperience.objects.Skill;
 
 public class Combat {
+    private static final int EXAM_TIME = 90;
+    private static final int MAX_SKILLS = 3;
+
     private PlayerStats stats;
     private int energy;     // Health stats
     private int food;
@@ -23,8 +25,8 @@ public class Combat {
         this.cID = cID;
         coreGame = Game.getCoreGame();
         user = coreGame.getPlayer();
-        timer = 90;
-        skillsList = new Skill[3];
+        timer = EXAM_TIME;
+        skillsList = new Skill[MAX_SKILLS];
 
         stats = coreGame.getPlayer().getStats();
         energy = stats.getEnergy();
@@ -32,22 +34,23 @@ public class Combat {
         happiness = stats.getHappiness();
     }
 
-    private void decreaseTime(){ timer -= 10; }
+    private void decreaseTime(int amt){ timer -= amt; }
 
     public Skill[] getUsableSkill(int cID){
         Skill[][] playerSkills = user.getStats().getSkillsList();
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < MAX_SKILLS; i++)
             skillsList[i] = playerSkills[cID][i];
         return skillsList;
     }
 
-    public void useSkill(int skillNo){
+    public void useSkill(int skillNo) {
         Skill s = skillsList[skillNo];
         s.decreaseUsage();
-        if (skillCost(s.getEnergyCost(),s.getFoodCost()))
+        if (skillCost(s.getEnergyCost(), s.getFoodCost())){
             System.out.println();
-            //End Game
-        decreaseTime();
+            //End the Combat
+        }
+        decreaseTime(s.getTimeCost());
     }
 
     private boolean skillCost(int eCost, int fCost){
@@ -62,5 +65,11 @@ public class Combat {
             return false;
         }
         return true;
+    }
+
+    private void timeCheck(){
+        if (timer <= 0 || timer < skillsList[0].getTimeCost()) {
+            //End the Combat
+        }
     }
 }

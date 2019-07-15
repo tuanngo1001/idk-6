@@ -8,8 +8,9 @@ public class Skill {
     private int usage;
     private int energyCost;
     private int foodCost;
+    private int timeCost;
 
-    public Skill(int cID, int sID,String des,int stat, int energyCost, int foodCost){
+    public Skill(int cID, int sID,String des,int stat, int energyCost, int foodCost, int timeCost){
         description = des;
         this.cID = cID;
         id = sID;
@@ -17,6 +18,7 @@ public class Skill {
         usage = 1;
         this.energyCost = energyCost;
         this.foodCost = foodCost;
+        this.timeCost = timeCost;
     }
 
     public int getCourseID(){ return cID; }
@@ -63,8 +65,12 @@ public class Skill {
 
     public void setFoodCost(int foodCost) { this.foodCost = foodCost; }
 
+    public int getTimeCost() { return timeCost; }
+
+    public void setTimeCost(int timeCost) { this.timeCost = timeCost; }
+
     public Skill copySkill(){
-        Skill newSkill = new Skill(cID, id, description, stat, energyCost, foodCost);
+        Skill newSkill = new Skill(cID, id, description, stat, energyCost, foodCost, timeCost);
         newSkill.setUsage(usage);
         return newSkill;
     }
