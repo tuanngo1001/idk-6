@@ -45,12 +45,11 @@ public class JobsFragment extends Fragment {
 
                 //TODO
                 if(adjuster.waiterWaitress()){
-                    showDialog("Hard work pays off!", "$15 Profit!");
+                    showDialog("Hard work pays off!", "$15 Profit!",true);
                 }
                 else {
-                    showDialog("Low Energy!", "Can't work now!");
+                    showDialog("Low Energy!", "Can't work now!",true);
                 }
-                goToHome();
             }
         });
 
@@ -60,12 +59,11 @@ public class JobsFragment extends Fragment {
 
                 //TODO
                 if(adjuster.cashier()){
-                    showDialog("Hard work pays off!", "$17 Profit!");
+                    showDialog("Hard work pays off!", "$17 Profit!",true);
                 }
                 else {
-                    showDialog("Low Energy!", "Can't work now!");
+                    showDialog("Low Energy!", "Can't work now!",true);
                 }
-                goToHome();
             }
         });
 
@@ -75,29 +73,21 @@ public class JobsFragment extends Fragment {
 
                 //TODO
                 if(adjuster.delivery()){
-                    showDialog("Hard work pays off!", "$20 Profit!");
+                    showDialog("Hard work pays off!", "$20 Profit!",true);
                 }
                 else {
-                    showDialog("Low Energy!", "Can't work now!");
+                    showDialog("Low Energy!", "Can't work now!",true);
                 }
-                goToHome();
             }
         });
 
         return view;
 
     } // end onCreateView
-    private void goToHome(){
-        HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, nextFrag, "HomeFragment")
-                .addToBackStack(null)
-                .commit();
-    }
 
-
-    private void showDialog(String dialogTitle, String dialogText){
+    private void showDialog(String dialogTitle, String dialogText, boolean home){
         final Dialog dialog = new Dialog(getActivity());
+        final boolean goHome = home;
         dialog.setContentView(R.layout.dialog);
 
         // set the custom dialog components - text, image and button
@@ -116,6 +106,14 @@ public class JobsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+
+                if(goHome) {
+                    HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container, nextFrag, "HomeFragment")
+                            .addToBackStack(null)
+                            .commit();
+                }
             }
         });
 

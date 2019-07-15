@@ -102,29 +102,31 @@ public class PlayerStats {
 
     public void setDatabasesKnowledge(int databasesKnowledge) {
         this.databasesKnowledge = databasesKnowledge;
-        upgradeSkill(0,this.databasesKnowledge);
+
+        combatKnowledge(0, this.databasesKnowledge);
     }
 
     public void setAiKnowledge(int aiKnowledge) {
         this.aiKnowledge = aiKnowledge;
-        upgradeSkill(1,this.aiKnowledge);
+
+        combatKnowledge(1, this.aiKnowledge);
     }
 
     public void setGraphicsKnowledge(int graphicsKnowledge) {
         this.graphicsKnowledge = graphicsKnowledge;
-        upgradeSkill(2,this.graphicsKnowledge);
+        combatKnowledge(2, this.graphicsKnowledge);
     }
 
-    private void upgradeSkill(int cID, int knowledgeLevel){
-        if (knowledgeLevel == 2)
+    private void combatKnowledge(int cID, int courseKnowledge){
+        if (courseKnowledge == 2)
             addSkill(allSkill.getSkill(cID,0));
-        else if (knowledgeLevel == 3 || knowledgeLevel == 4)
+        else if (courseKnowledge == 3 || courseKnowledge == 4)
             skills.getSkill(cID,0).increaseUsage();
-        else if (knowledgeLevel == 5)
+        else if (courseKnowledge == 5)
             addSkill(allSkill.getSkill(cID,1));
-        else if (knowledgeLevel == 7)
+        else if (courseKnowledge == 7)
             skills.getSkill(cID,1).increaseUsage();
-        else if (knowledgeLevel == 10)
+        else if (courseKnowledge == 10)
             addSkill(allSkill.getSkill(cID,2));
     }
 
