@@ -102,11 +102,13 @@ public class PlayerStats {
 
     public void setDatabasesKnowledge(int databasesKnowledge) {
         this.databasesKnowledge = databasesKnowledge;
+
         combatKnowledge(0, this.databasesKnowledge);
     }
 
     public void setAiKnowledge(int aiKnowledge) {
         this.aiKnowledge = aiKnowledge;
+
         combatKnowledge(1, this.aiKnowledge);
     }
 
