@@ -107,32 +107,26 @@ public class PlayerStats {
 
     public void setDatabasesKnowledge(int databasesKnowledge) {
         this.databasesKnowledge = databasesKnowledge;
-        if (databasesKnowledge == 2)
-            addSkill(allSkill.getSkill(0,0));
-        else if (databasesKnowledge == 5)
-            addSkill(allSkill.getSkill(0,1));
-        else if (databasesKnowledge == 10)
-            addSkill(allSkill.getSkill(0,2));
+        //courseSkills(0, this.databasesKnowledge);
     }
 
     public void setAiKnowledge(int aiKnowledge) {
         this.aiKnowledge = aiKnowledge;
-        if (aiKnowledge == 2)
-            addSkill(allSkill.getSkill(1,0));
-        else if (aiKnowledge == 5)
-            addSkill(allSkill.getSkill(1,1));
-        else if (aiKnowledge == 10)
-            addSkill(allSkill.getSkill(1,2));
+        courseSkills(1, this.aiKnowledge);
     }
 
     public void setGraphicsKnowledge(int graphicsKnowledge) {
         this.graphicsKnowledge = graphicsKnowledge;
-        if (graphicsKnowledge == 2)
-            addSkill(allSkill.getSkill(2,0));
-        else if (graphicsKnowledge == 5)
-            addSkill(allSkill.getSkill(2,1));
-        else if (graphicsKnowledge == 10)
-            addSkill(allSkill.getSkill(2,2));
+        courseSkills(2, this.graphicsKnowledge);
+    }
+
+    private void courseSkills(int cID, int courseKnowledge){
+        if (courseKnowledge == 2)
+            addSkill(allSkill.getSkill(cID,0));
+        else if (courseKnowledge == 5)
+            addSkill(allSkill.getSkill(cID,1));
+        else if (courseKnowledge == 10)
+            addSkill(allSkill.getSkill(cID,2));
     }
 
     @Override

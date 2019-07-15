@@ -35,7 +35,6 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         skill1 = (Button) findViewById(R.id.buttonSkill1);
         skill2 = (Button) findViewById(R.id.buttonSkill2);
         skill3 = (Button) findViewById(R.id.buttonSkill3);
-        skill4 = (Button) findViewById(R.id.buttonSkill4);
         timer = (ProgressBar) findViewById(R.id.progressBarTime);
 
         energyBarCombat();
@@ -64,12 +63,6 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
             }
         });
 
-        skill4.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View view) {
-                //adjuster.getUsableSkill(3);
-                refreshScreen();
-            }
-        });
 
 //        exitCombat.setOnClickListener(new View.OnClickListener(){
 //            public void onClick(View view) {
