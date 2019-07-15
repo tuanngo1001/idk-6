@@ -116,7 +116,7 @@ public class AdjustPlayerStats {
 
     public void studyDatabases(){
         if (databasesKnowledge < 10)
-            stats.setDatabasesKnowledge(databasesKnowledge++);
+            stats.setDatabasesKnowledge(++databasesKnowledge);
         else
             databasesKnowledge = 10;
 
@@ -125,7 +125,7 @@ public class AdjustPlayerStats {
 
     public void studyAi(){
         if (aiKnowledge < 10)
-            stats.setAiKnowledge(aiKnowledge++);
+            stats.setAiKnowledge(++aiKnowledge);
         else
             aiKnowledge = 10;
 
@@ -134,7 +134,7 @@ public class AdjustPlayerStats {
 
     public void studyGraphics(){
         if (graphicsKnowledge < 10)
-            stats.setGraphicsKnowledge(graphicsKnowledge++);
+            stats.setGraphicsKnowledge(++graphicsKnowledge);
         else
             graphicsKnowledge = 10;
 
