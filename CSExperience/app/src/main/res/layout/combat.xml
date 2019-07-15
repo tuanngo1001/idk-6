@@ -109,41 +109,159 @@
         app:layout_constraintVertical_bias="0.24000001"
         app:srcCompat="@drawable/exam" />
 
-    <TextView
-        android:id="@+id/gradeText"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:fontFamily="@font/pixellari"
-        android:gravity="top|center"
-        android:text="F\t\tD\t\tC\t\tC+\t\tB\t\tB+\t\tA\t\tA+"
-        android:textColor="@color/colorAccent"
-        android:textSize="48sp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/progressBarGrade"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/examImage"
-        app:layout_constraintVertical_bias="0.74" />
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/gradeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/pixellari"
+            android:gravity="top|center"
+            android:text="F"
+            android:textColor="@color/colorAccent"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/gradeText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pixellari"
+            android:gravity="top|center"
+            android:text="D"
+            android:textColor="@color/colorAccent"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/gradeText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pixellari"
+            android:gravity="top|center"
+            android:text="C"
+            android:textColor="@color/colorAccent"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/gradeText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pixellari"
+            android:gravity="top|center"
+            android:text="C+"
+            android:textColor="@color/colorAccent"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/gradeText5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pixellari"
+            android:gravity="top|center"
+            android:text="B"
+            android:textColor="@color/colorAccent"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/gradeText6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pixellari"
+            android:gravity="top|center"
+            android:text="B+"
+            android:textColor="@color/colorAccent"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/gradeText7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pixellari"
+            android:gravity="top|center"
+            android:text="A"
+            android:textColor="@color/colorAccent"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/gradeText8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pixellari"
+            android:gravity="top|center"
+            android:text="A+"
+            android:textColor="@color/colorAccent"
+            android:textSize="21sp" />
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progressBarGrade"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="489dp"
         android:layout_height="25dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:progress="30"
         android:progressTint="@color/colorPrimaryDark"
         android:scaleY="5"
         android:scrollbarSize="5dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
-        app:layout_constraintEnd_toEndOf="@+id/gradeText"
-        app:layout_constraintStart_toStartOf="@+id/gradeText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/examImage"
-        app:layout_constraintVertical_bias="0.87" />
+        app:layout_constraintVertical_bias="0.757" />
 
     <LinearLayout
         android:id="@+id/linearLayout4"
