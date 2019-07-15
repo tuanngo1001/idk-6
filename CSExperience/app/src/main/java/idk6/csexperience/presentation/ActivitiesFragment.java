@@ -56,8 +56,7 @@ public class ActivitiesFragment extends Fragment {
         sleep.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 adjuster.sleep();
-                showDialog("Energy Increased!", "I'm not tired anymore!");
-                goToHome();
+                showDialog("Energy Increased!", "I'm not tired anymore!",true);
             }
         });
 
@@ -65,8 +64,7 @@ public class ActivitiesFragment extends Fragment {
         eat.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 adjuster.eat();
-                showDialog("Food Increased!", "That was delicious!");
-                goToHome();
+                showDialog("Food Increased!", "That was delicious!",true);
             }
         });
 
@@ -74,8 +72,7 @@ public class ActivitiesFragment extends Fragment {
         gameItUp.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 adjuster.gameItUp();
-                showDialog("Happiness Increased!", "Too bad I can't do this all day.");
-                goToHome();
+                showDialog("Happiness Increased!", "Too bad I can't do this all day.",true);
             }
         });
 
@@ -83,8 +80,7 @@ public class ActivitiesFragment extends Fragment {
         groceryHaul.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 adjuster.groceryHaul();
-                showDialog("Food Increased!", "Full stock! But I should rest now.");
-                goToHome();
+                showDialog("Food Increased!", "Full stock! But I should rest now.",true);
             }
         });
 
@@ -92,8 +88,7 @@ public class ActivitiesFragment extends Fragment {
         nightOut.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 adjuster.nightOut();
-                showDialog("Happiness Increased!", "That was fun! But I am very tired.");
-                goToHome();
+                showDialog("Happiness Increased!", "That was fun! But I am very tired.",true);
             }
         });
 
@@ -101,8 +96,7 @@ public class ActivitiesFragment extends Fragment {
         superSleep.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 adjuster.superSleep();
-                showDialog("Energy Increased!", "I slept a whole day? I should eat something.");
-                goToHome();
+                showDialog("Energy Increased!", "I slept a whole day? I should eat something.",true);
             }
         });
 
@@ -110,16 +104,9 @@ public class ActivitiesFragment extends Fragment {
 
     } // end onCreateView
 
-    private void goToHome(){
-        HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, nextFrag, "HomeFragment")
-                .addToBackStack(null)
-                .commit();
-    }
-
-    private void showDialog(String dialogTitle, String dialogText){
+    private void showDialog(String dialogTitle, String dialogText, boolean home){
         final Dialog dialog = new Dialog(getActivity());
+        final boolean goHome = home;
         dialog.setContentView(R.layout.dialog);
 
         // set the custom dialog components - text, image and button
@@ -138,6 +125,14 @@ public class ActivitiesFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+
+                if(goHome) {
+                    HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container, nextFrag, "HomeFragment")
+                            .addToBackStack(null)
+                            .commit();
+                }
             }
         });
 
