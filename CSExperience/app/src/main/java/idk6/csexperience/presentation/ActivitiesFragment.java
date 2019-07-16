@@ -105,6 +105,7 @@ public class ActivitiesFragment extends Fragment {
     } // end onCreateView
 
     private void showDialog(String dialogTitle, String dialogText, boolean home){
+
         final Dialog dialog = new Dialog(getActivity());
         final boolean goHome = home;
         dialog.setContentView(R.layout.dialog);
@@ -135,7 +136,8 @@ public class ActivitiesFragment extends Fragment {
                 }
             }
         });
-
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
         dialog.show();
     }
 }

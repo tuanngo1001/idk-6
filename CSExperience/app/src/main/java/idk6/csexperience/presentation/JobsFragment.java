@@ -117,6 +117,8 @@ public class JobsFragment extends Fragment {
             }
         });
 
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
         dialog.show();
     }
 }

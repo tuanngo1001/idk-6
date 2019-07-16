@@ -69,6 +69,8 @@ public class StartActivity extends AppCompatActivity{
                 }
             });
 
+            dialog.setCancelable(false);
+            dialog.setCanceledOnTouchOutside(false);
             dialog.show();
         }
 
