@@ -47,6 +47,9 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         foodBarCombat();
         examAnimation();
         timeBar();
+        changeUses(R.id.textUsesSkill1,0);
+        changeUses(R.id.textUsesSkill2,1);
+        changeUses(R.id.textUsesSkill3,2);
 
         skill1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
@@ -81,10 +84,18 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
 //        });
     }
 
+
+
     public void onExitCombatClick(View view){
         refreshScreen();
     }
 
+
+    private void changeUses(int use,int skill){
+        TextView uses = (TextView) findViewById(use);
+        uses.setText("Uses: "+adjuster.getSkillUses(skill));
+
+    }
 
     private void timeBar(){
         ProgressBar timer = (ProgressBar) findViewById(R.id.progressBarTime);
