@@ -163,6 +163,8 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
             }
         });
 
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
         dialog.show();
     }
 

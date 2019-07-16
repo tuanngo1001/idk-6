@@ -155,6 +155,8 @@ public class StudyFragment extends Fragment {
             }
         });
 
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
         dialog.show();
     }
 

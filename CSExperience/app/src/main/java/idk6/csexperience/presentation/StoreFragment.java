@@ -158,6 +158,8 @@ public class StoreFragment extends Fragment {
             }
         });
 
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
         dialog.show();
     }
 }
