@@ -35,7 +35,7 @@ public class Combat {
 
     private void decreaseTime(int amt){ timer -= amt; }
 
-    public Skill[] getUsableSkill(int cID){
+    public Skill[] getUsableSkill(){
         Skill[][] playerSkills = user.getStats().getSkillsList();
         for (int i = 0; i < MAX_SKILLS; i++)
             skillsList[i] = playerSkills[cID][i];

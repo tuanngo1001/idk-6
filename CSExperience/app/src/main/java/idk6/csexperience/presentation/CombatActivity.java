@@ -15,21 +15,26 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import idk6.csexperience.R;
+import idk6.csexperience.business.Combat;
 import idk6.csexperience.objects.Game;
 
 
 public class CombatActivity extends AppCompatActivity{//} implements View.OnClickListener{
     private Button skill1, skill2, skill3, skill4;
     private FloatingActionButton exitCombat;
-    //private AdjustCombat adjuster;
+    private Combat adjuster;
     private Game game;
     private ProgressBar timer;
+    public static int cID = 0;
 
     @Nullable
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         game = Game.getCoreGame();
-        //adjuster = new AdjustCombat(game);
+        if (cID == 2) cID = 0;
+        adjuster = new Combat(cID++);
+        adjuster.getUsableSkill();
+
         setContentView(R.layout.combat);
 
         skill1 = (Button) findViewById(R.id.buttonSkill1);
@@ -44,21 +49,21 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
 
         skill1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                //adjuster.getUsableSkill(0);
+                adjuster.useSkill(0);
                 refreshScreen();
             }
         });
 
         skill2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                //adjuster.getUsableSkill(1);
+                adjuster.useSkill(1);
                 refreshScreen();
             }
         });
 
         skill3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-               //adjuster.getUsableSkill(2);
+                adjuster.useSkill(2);
                 refreshScreen();
             }
         });
