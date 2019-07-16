@@ -19,19 +19,23 @@ import idk6.csexperience.business.Combat;
 import idk6.csexperience.objects.Game;
 
 
-public class CombatActivity extends AppCompatActivity{//} implements View.OnClickListener{
+public class CombatActivity extends AppCompatActivity{
+    //} implements View.OnClickListener{
     private Button skill1, skill2, skill3, skill4;
     private FloatingActionButton exitCombat;
     private Combat adjuster;
     private Game game;
     private ProgressBar timer;
-    public static int cID = 0;
+    public int cID = 0;
 
-    @Nullable
+//    @Nullable
+//    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         game = Game.getCoreGame();
-        if (cID == 2) cID = 0;
+        if (cID == 2){
+            cID = 0;
+        }
         adjuster = new Combat(cID++);
         adjuster.getUsableSkill();
 

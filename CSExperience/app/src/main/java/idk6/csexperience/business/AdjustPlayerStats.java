@@ -229,7 +229,7 @@ public class AdjustPlayerStats {
     }
 
     //ADDING FOR JOBS
-    public boolean doServer(){
+    public boolean adjustServer(){
         if(happiness<20||energy<15||food<8){
             return false;
         }
@@ -241,7 +241,7 @@ public class AdjustPlayerStats {
 
     }
 
-    public boolean doCashier(){
+    public boolean adjustCashier(){
         if(happiness<15||energy<20||food<8){
             return false;
         }
@@ -251,7 +251,7 @@ public class AdjustPlayerStats {
             return true;
         }
     }
-    public boolean doDelivering(){
+    public boolean adjustDelivering(){
         if(happiness<8||energy<20||food<15){
             return false;
         }
