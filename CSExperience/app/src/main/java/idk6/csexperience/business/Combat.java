@@ -33,13 +33,13 @@ public class Combat {
         food = stats.getFood();
     }
 
-    private void decreaseTime(int amt){ timer -= amt; }
+    public void decreaseTime(int amt){ timer -= amt; }
 
     public Skill[] getUsableSkill(){
         Skill[][] playerSkills = user.getStats().getSkillsList();
         for (int i = 0; i < MAX_SKILLS; i++)
             skillsList[i] = playerSkills[cID][i];
-        minSkillCost = skillsList[0].getTimeCost();
+        //minSkillCost = skillsList[0].getTimeCost();
         return skillsList;
     }
 
@@ -67,9 +67,24 @@ public class Combat {
         return true;
     }
 
-    private void timeCheck(){
+    private boolean timeCheck(){
         if (timer <= 0 || timer < minSkillCost) {
-            //End the Combat
+            return false;
         }
+        return true;
+    }
+
+    public void setcID(int cID) { this.cID = cID; }
+
+    public int getTimeRemaining() {
+        return timer;
+    }
+
+    public void setUser(Player user) { this.user = user; }
+
+    public Skill[] getSkillsList(){ return skillsList; }
+
+    public int getSkillUses(int skillID){
+        return skillsList[skillID].getUsage();
     }
 }

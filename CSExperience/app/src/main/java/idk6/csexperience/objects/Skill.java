@@ -53,6 +53,8 @@ public class Skill {
 
     public void setUsage(int amount){ usage = amount; }
 
+    public int getUsage() { return usage; }
+
     public void increaseUsage() { usage++; }
 
     public void decreaseUsage() { usage--; }
@@ -69,9 +71,9 @@ public class Skill {
 
     public void setTimeCost(int timeCost) { this.timeCost = timeCost; }
 
-    public Skill copySkill(){
-        Skill newSkill = new Skill(cID, id, description, stat, energyCost, foodCost, timeCost);
-        newSkill.setUsage(usage);
-        return newSkill;
-    }
+//    public Skill copySkill(){
+//        Skill newSkill = new Skill(cID, id, description, stat, energyCost, foodCost, timeCost);
+//        newSkill.setUsage(usage);
+//        return newSkill;
+//    }
 }

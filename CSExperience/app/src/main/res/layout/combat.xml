@@ -391,7 +391,7 @@
                 android:background="@drawable/button_background"
                 android:fontFamily="@font/pixellari"
                 android:padding="20dp"
-                android:text="Logic"
+                android:text="Math"
                 android:textSize="24sp" />
 
             <TextView
@@ -420,7 +420,7 @@
                 android:background="@drawable/button_background"
                 android:fontFamily="@font/pixellari"
                 android:padding="20dp"
-                android:text="Code"
+                android:text="Logic"
                 android:textSize="24sp" />
 
             <TextView
@@ -429,7 +429,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pixellari"
                 android:padding="20sp"
-                android:text="Uses: 1"
+                android:text="Uses: 2"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -449,7 +449,7 @@
                 android:background="@drawable/button_background"
                 android:fontFamily="@font/pixellari"
                 android:padding="20dp"
-                android:text="Math"
+                android:text="Code"
                 android:textSize="24sp" />
 
             <TextView
@@ -458,7 +458,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pixellari"
                 android:padding="20sp"
-                android:text="Uses: 2"
+                android:text="Uses: 1"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent" />

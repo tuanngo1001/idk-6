@@ -46,10 +46,12 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         happinessBarCombat();
         foodBarCombat();
         examAnimation();
+        timeBar();
 
         skill1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 adjuster.useSkill(0);
+                //showDialog("Skill is used!","you get 10% more in your exam!");
                 refreshScreen();
             }
         });
@@ -57,6 +59,7 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         skill2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 adjuster.useSkill(1);
+                //showDialog("Skill is used!","you get 20% more in your exam!");
                 refreshScreen();
             }
         });
@@ -64,6 +67,7 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         skill3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 adjuster.useSkill(2);
+                //showDialog("Skill is used!","you get 50% more in your exam!");
                 refreshScreen();
             }
         });
@@ -84,7 +88,7 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
 
     private void timeBar(){
         ProgressBar timer = (ProgressBar) findViewById(R.id.progressBarTime);
-        //timer.setProgress(game.timer...);
+        timer.setProgress(adjuster.getTimeRemaining());
     }
 
 

@@ -128,6 +128,10 @@ public class PlayerStats {
             addSkill(allSkill.getSkill(cID,2));
     }
 
+    public void acquireAllSkills(){
+        skills = allSkill;
+    }
+
     @Override
     public String toString(){
         return "Stats:\n" + energy + ", " + food + ", " + happiness;
