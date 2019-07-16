@@ -96,4 +96,25 @@ public class Combat {
     public PlayerStats getStats(){ return stats; }
 
     public int getProgressGrade() { return progressGrade; }
+
+    private String getGrade(){
+        String grade = "F";
+        if(progressGrade > 50 && progressGrade <= 60){
+            grade = "D";
+        }else if(progressGrade > 60 && progressGrade <= 65){
+            grade = "C";
+        }else if(progressGrade > 65 && progressGrade <= 70) {
+            grade = "C+";
+        }else if(progressGrade > 70 && progressGrade <= 75) {
+            grade = "B";
+        }else if(progressGrade > 75 && progressGrade <= 80) {
+            grade = "B+";
+        }else if(progressGrade > 80 && progressGrade <= 90) {
+            grade = "A";
+        }else if(progressGrade > 90) {
+            grade = "A+";
+        }
+
+        return grade;
+    }
 }
