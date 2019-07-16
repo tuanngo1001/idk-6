@@ -50,6 +50,7 @@ public class Combat {
     public void useSkill(int skillNo) {
         Skill s = skillsList[skillNo];
         s.decreaseUsage();
+        progressGrade += s.getStat();
         if (skillCost(s.getEnergyCost(), s.getFoodCost())){
             System.out.println();
             //End the Combat

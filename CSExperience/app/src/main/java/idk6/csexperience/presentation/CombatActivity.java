@@ -55,24 +55,25 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         skill1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 adjuster.useSkill(0);
-                //showDialog("Skill is used!","you get 10% more in your exam!");
-                refreshScreen();
+//                showDialog("Math Skill is used!","you get 10% more in your exam!");
+                refresh(R.id.textUsesSkill1,0);
+//                refreshScreen();
             }
         });
 
         skill2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 adjuster.useSkill(1);
-                //showDialog("Skill is used!","you get 20% more in your exam!");
-                refreshScreen();
+//                showDialog("Logic Skill is used!","you get 20% more in your exam!");
+                refresh(R.id.textUsesSkill2,1);
             }
         });
 
         skill3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 adjuster.useSkill(2);
-                //showDialog("Skill is used!","you get 50% more in your exam!");
-                refreshScreen();
+//                showDialog("Code Skill is used!","you get 50% more in your exam!");
+                refresh(R.id.textUsesSkill3,2);
             }
         });
 
@@ -91,6 +92,15 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         refreshScreen();
     }
 
+    private void refresh(int buttonID,int id){
+        energyBarCombat();
+        happinessBarCombat();
+        foodBarCombat();
+        examAnimation();
+        timeBar();
+        progressGrade();
+        changeUses(buttonID,id);
+    }
 
     private void changeUses(int use,int skill){
         TextView uses = (TextView) findViewById(use);
