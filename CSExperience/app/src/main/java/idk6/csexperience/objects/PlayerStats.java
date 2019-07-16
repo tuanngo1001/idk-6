@@ -39,13 +39,13 @@ public class PlayerStats {
         allSkill = new CombatSkills();
         
         allSkill.addSkill(new Skill(0,0,"course 1 skill no 1", 10,10, 5,10));
-        allSkill.addSkill(new Skill(0,1,"course 1 skill no 2", 20,15, 10,15));
+        allSkill.addSkill(new Skill(0,1,"course 1 skill no 2", 20,15, 10,20));
         allSkill.addSkill(new Skill(0,2,"course 1 skill no 3", 50,25,20,40));
         allSkill.addSkill(new Skill(1,0,"course 2 skill no 1", 10,10,5,10));
-        allSkill.addSkill(new Skill(1,1,"course 2 skill no 2", 20,15,10,15));
+        allSkill.addSkill(new Skill(1,1,"course 2 skill no 2", 20,15,10,20));
         allSkill.addSkill(new Skill(1,2,"course 2 skill no 3", 50,25,20,40));
         allSkill.addSkill(new Skill(2,0,"course 3 skill no 1", 10,10,5,10));
-        allSkill.addSkill(new Skill(2,1,"course 3 skill no 2", 20,15,10,15));
+        allSkill.addSkill(new Skill(2,1,"course 3 skill no 2", 20,15,10,20));
         allSkill.addSkill(new Skill(2,2,"course 3 skill no 3", 50,25,20,40));
 
     }

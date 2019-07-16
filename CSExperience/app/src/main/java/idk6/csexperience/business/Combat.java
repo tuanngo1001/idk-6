@@ -6,7 +6,7 @@ import idk6.csexperience.objects.PlayerStats;
 import idk6.csexperience.objects.Skill;
 
 public class Combat {
-    private static final int EXAM_TIME = 90;
+    private static final int EXAM_TIME = 100;
     private static final int MAX_SKILLS = 3;
 
     private PlayerStats stats;
@@ -17,6 +17,7 @@ public class Combat {
     private Game coreGame;
     private int cID;
     private int timer;
+    private int progressGrade;
     private Player user;
 
     private Skill[] skillsList;
@@ -26,6 +27,7 @@ public class Combat {
         coreGame = Game.getCoreGame();
         user = coreGame.getPlayer();
         timer = EXAM_TIME;
+        progressGrade = 0;
         skillsList = new Skill[MAX_SKILLS];
 
         stats = coreGame.getPlayer().getStats();
@@ -38,7 +40,9 @@ public class Combat {
     public Skill[] getUsableSkill(){
         Skill[][] playerSkills = user.getStats().getSkillsList();
         for (int i = 0; i < MAX_SKILLS; i++)
-            skillsList[i] = playerSkills[cID][i];
+            if (playerSkills[cID][i] != null)
+                skillsList[i] = playerSkills[cID][i];
+            else break;
         //minSkillCost = skillsList[0].getTimeCost();
         return skillsList;
     }
@@ -87,4 +91,8 @@ public class Combat {
     public int getSkillUses(int skillID){
         return skillsList[skillID].getUsage();
     }
+
+    public PlayerStats getStats(){ return stats; }
+
+    public int getProgressGrade() { return progressGrade; }
 }

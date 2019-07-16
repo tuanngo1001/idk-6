@@ -400,7 +400,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pixellari"
                 android:padding="20sp"
-                android:text="Uses: 3"
+                android:text="Uses: "
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -429,7 +429,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pixellari"
                 android:padding="20sp"
-                android:text="Uses: 2"
+                android:text="Uses: "
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -458,7 +458,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pixellari"
                 android:padding="20sp"
-                android:text="Uses: 1"
+                android:text="Uses: "
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent" />

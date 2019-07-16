@@ -47,6 +47,7 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         foodBarCombat();
         examAnimation();
         timeBar();
+        progressGrade();
         changeUses(R.id.textUsesSkill1,0);
         changeUses(R.id.textUsesSkill2,1);
         changeUses(R.id.textUsesSkill3,2);
@@ -93,8 +94,13 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
 
     private void changeUses(int use,int skill){
         TextView uses = (TextView) findViewById(use);
-        uses.setText("Uses: "+adjuster.getSkillUses(skill));
+        uses.setText("Uses: " + adjuster.getSkillUses(skill));
 
+    }
+
+    private void progressGrade(){
+        ProgressBar grade = (ProgressBar) findViewById(R.id.progressBarGrade);
+        grade.setProgress(adjuster.getProgressGrade());
     }
 
     private void timeBar(){
