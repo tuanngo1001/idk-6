@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -54,26 +55,37 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
 
         skill1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                adjuster.useSkill(0);
-//                showDialog("Math Skill is used!","you get 10% more in your exam!");
-                refresh(R.id.textUsesSkill1,0);
-//                refreshScreen();
+                if(adjuster.getSkillUses(0) <= 0){
+                    showDialog("Can't Use Math Skill","Too bad you can't use a calculator.");
+                }else {
+                    adjuster.useSkill(0);
+                    showDialog("Used Math Skill!","You practiced your calc skills! 10% more in your exam!");
+                    refresh(R.id.textUsesSkill1,0);
+                }
             }
         });
 
         skill2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                adjuster.useSkill(1);
-//                showDialog("Logic Skill is used!","you get 20% more in your exam!");
-                refresh(R.id.textUsesSkill2,1);
+                if(adjuster.getSkillUses(1) <= 0){
+                    showDialog("Can't Use Logic Skill","DeMorgan's laws will hunt you forever.");
+                }else {
+                    adjuster.useSkill(1);
+                    showDialog("Used Logic Skill!","Still remember that truth table?! 20% more in your exam!");
+                    refresh(R.id.textUsesSkill2, 1);
+            }
             }
         });
 
         skill3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                adjuster.useSkill(2);
-//                showDialog("Code Skill is used!","you get 50% more in your exam!");
-                refresh(R.id.textUsesSkill3,2);
+                if(adjuster.getSkillUses(2) <= 0){
+                    showDialog("Can't Use Code Skill","How do pointers work?");
+                }else {
+                    adjuster.useSkill(2);
+                    showDialog("Used Code Skill!","That was a hard question! 50% more in your exam!");
+                    refresh(R.id.textUsesSkill3, 2);
+                }
             }
         });
 
@@ -84,12 +96,6 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
 //                showDialog(view);
 //            }
 //        });
-    }
-
-
-
-    public void onExitCombatClick(View view){
-        refreshScreen();
     }
 
     private void refresh(int buttonID,int id){
@@ -116,6 +122,11 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
     private void timeBar(){
         ProgressBar timer = (ProgressBar) findViewById(R.id.progressBarTime);
         timer.setProgress(adjuster.getTimeRemaining());
+        if(adjuster.getTimeRemaining() <= 0){
+            showDialog("Finished Exam", "Grade :"+adjuster.getGrade());
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new HomeFragment()).commit();
+        }
     }
 
 

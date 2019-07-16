@@ -97,7 +97,7 @@ public class Combat {
 
     public int getProgressGrade() { return progressGrade; }
 
-    private String getGrade(){
+    public String getGrade(){
         String grade = "F";
         if(progressGrade > 50 && progressGrade <= 60){
             grade = "D";
