@@ -34,8 +34,10 @@ public class PlayerStats {
         aiKnowledge = INITIAL_KNOWLEDGE;
         graphicsKnowledge = INITIAL_KNOWLEDGE;
 
+        // skills that user has acquired during studying
         skills = new CombatSkills();
 
+        // add all skill into a skills list
         allSkill = new CombatSkills();
         
         allSkill.addSkill(new Skill(0,0,"course 1 skill no 1", 10,10, 5,10));
@@ -124,6 +126,7 @@ public class PlayerStats {
         upgradeSkill(2, this.graphicsKnowledge);
     }
 
+    // pull out skills from skill list and add into the player skills or increase the player skill uses
     private void upgradeSkill(int cID, int knowledgeLevel){
         if (knowledgeLevel == 2)
             addSkill(allSkill.getSkill(cID,0));
