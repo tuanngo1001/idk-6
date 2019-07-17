@@ -2,6 +2,7 @@ package idk6.csexperience.presentation;
 
 
 import android.support.test.espresso.ViewInteraction;
+import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.filters.LargeTest;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -22,7 +23,9 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static android.support.test.espresso.action.ViewActions.replaceText;
+import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static android.support.test.espresso.matcher.ViewMatchers.withHint;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
@@ -36,16 +39,11 @@ public class StartActivityTest {
 
     @Test
     public void startActivityTest() {
-        ViewInteraction appCompatButton = onView(
-                allOf(withId(R.id.buttonStart), withText("START"),
-                        childAtPosition(
-                                allOf(withId(R.id.startScreen),
-                                        childAtPosition(
-                                                withId(android.R.id.content),
-                                                0)),
-                                0),
-                        isDisplayed()));
-        appCompatButton.perform(click());
+
+        onView(allOf(withId(R.id.startScreen), isDisplayed()));
+        onView(withId(R.id.startScreen)).check(matches(isDisplayed()));
+        onView(withId(R.id.buttonStart)).perform(click());
+
 
         ViewInteraction appCompatEditText = onView(
                 allOf(withId(R.id.gameName),
@@ -58,7 +56,7 @@ public class StartActivityTest {
         appCompatEditText.perform(replaceText("Rob"), closeSoftKeyboard());
 
         ViewInteraction appCompatButton2 = onView(
-                allOf(withId(R.id.button), withText("PLAY"),
+                allOf(withId(R.id.buttonPlay), withText("PLAY"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
