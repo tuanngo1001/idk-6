@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import idk6.csexperience.R;
@@ -15,24 +16,47 @@ import idk6.csexperience.objects.Game;
 public class StartActivity extends AppCompatActivity{
     private Game game;
     private static boolean loaded = false;
+    private Button start, load, play;
 
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         game = Game.getCoreGame();
         System.out.println("onCREATE");
         System.out.println(game);
         System.out.println("postCREATE");
         setContentView(R.layout.start_main);
+        start = findViewById(R.id.buttonStart);
+        load = findViewById(R.id.buttonLoad);
+
+
         if(!loaded) {
             DatabaseSetupHelper.copyDatabaseToDevice(getApplicationContext());
             loaded = true;
         }
-    }
 
-    protected void onStartClick(View view){
-        setContentView(R.layout.name_main);
-    }
+        start.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                setContentView(R.layout.name_main);
+                play = findViewById(R.id.buttonPlay);
 
+                play.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        onPlayClick(view);
+                    }
+                });
+
+            }
+        });
+
+        load.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onLoadClick(view);
+            }
+        });
+    }
     protected void onPlayClick(View view){
         // Get the name that was input by the user
         Game.destoryGame();  // Remake the game whenever we hit play

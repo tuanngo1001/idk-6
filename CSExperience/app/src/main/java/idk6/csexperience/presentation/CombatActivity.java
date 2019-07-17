@@ -25,10 +25,13 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
     private Game game;
     public static int cID = 0;
 
-    @Nullable
+
+//    @Nullable
+//    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         game = Game.getCoreGame();
+
         adjuster = new Combat(cID++);
         adjuster.getUsableSkill();
 

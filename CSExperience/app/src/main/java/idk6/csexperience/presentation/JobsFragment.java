@@ -44,7 +44,7 @@ public class JobsFragment extends Fragment {
             public void onClick(View view) {
 
                 //TODO
-                if(adjuster.waiterWaitress()){
+                if(adjuster.doServer()){
                     showDialog("Hard work pays off!", "$15 Profit!",true);
                 }
                 else {
@@ -58,7 +58,7 @@ public class JobsFragment extends Fragment {
             public void onClick(View view) {
 
                 //TODO
-                if(adjuster.cashier()){
+                if(adjuster.doCashier()){
                     showDialog("Hard work pays off!", "$17 Profit!",true);
                 }
                 else {
@@ -72,7 +72,7 @@ public class JobsFragment extends Fragment {
             public void onClick(View view) {
 
                 //TODO
-                if(adjuster.delivery()){
+                if(adjuster.doDelivery()){
                     showDialog("Hard work pays off!", "$20 Profit!",true);
                 }
                 else {
