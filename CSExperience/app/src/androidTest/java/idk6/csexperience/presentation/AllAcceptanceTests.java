@@ -10,6 +10,8 @@ import org.junit.runners.Suite;
         SaveLoadTest.class,
         DoJobTest.class,
         PurchasableItemTest.class,
+        StudyActivityTest.class,
+        StatusActivityTest.class,
 
 })
 

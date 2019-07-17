@@ -34,16 +34,16 @@ import static org.hamcrest.Matchers.is;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class DoJobTest {
+public class StudyActivityTest {
 
     @Rule
     public ActivityTestRule<NavActivity> mActivityTestRule = new ActivityTestRule<>(NavActivity.class);
 
     @Test
-    public void doJobTest() {
-
+    public void studyActivityTest() {
         ViewInteraction appCompatImageButton = onView(
-                allOf(withContentDescription("Open navigation drawer"),                        childAtPosition(
+                allOf(withContentDescription("Open navigation drawer"),
+                        childAtPosition(
                                 allOf(withId(R.id.toolbar),
                                         childAtPosition(
                                                 withClassName(is("android.widget.LinearLayout")),
@@ -58,18 +58,27 @@ public class DoJobTest {
                                 childAtPosition(
                                         withId(R.id.nav_view),
                                         0)),
-                        4),
+                        2),
                         isDisplayed()));
         navigationMenuItemView.perform(click());
 
         ViewInteraction appCompatButton3 = onView(
-                allOf(withId(R.id.buttonCafeteria), withText("Server"),
+                allOf(withId(R.id.buttonStudy), withText("Study"),
                         childAtPosition(
                                 childAtPosition(
-                                        withId(R.id.scrollViewJobs),
+                                        withId(R.id.scrollViewActivities),
+                                        0),
+                                0)));
+        appCompatButton3.perform(scrollTo(), click());
+
+        ViewInteraction appCompatButton4 = onView(
+                allOf(withId(R.id.studyDB), withText("Study!"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(R.id.scrollViewStudy),
                                         0),
                                 2)));
-        appCompatButton3.perform(scrollTo(), click());
+        appCompatButton4.perform(scrollTo(), click());
 
         ViewInteraction floatingActionButton = onView(
                 allOf(withId(R.id.closeDialog),
@@ -98,18 +107,27 @@ public class DoJobTest {
                                 childAtPosition(
                                         withId(R.id.nav_view),
                                         0)),
-                        4),
+                        2),
                         isDisplayed()));
         navigationMenuItemView2.perform(click());
 
-        ViewInteraction appCompatButton4 = onView(
-                allOf(withId(R.id.buttonBookStore), withText("Cashier"),
+        ViewInteraction appCompatButton5 = onView(
+                allOf(withId(R.id.buttonStudy), withText("Study"),
                         childAtPosition(
                                 childAtPosition(
-                                        withId(R.id.scrollViewJobs),
+                                        withId(R.id.scrollViewActivities),
+                                        0),
+                                0)));
+        appCompatButton5.perform(scrollTo(), click());
+
+        ViewInteraction appCompatButton6 = onView(
+                allOf(withId(R.id.studyAI), withText("Study!"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(R.id.scrollViewStudy),
                                         0),
                                 5)));
-        appCompatButton4.perform(scrollTo(), click());
+        appCompatButton6.perform(scrollTo(), click());
 
         ViewInteraction floatingActionButton2 = onView(
                 allOf(withId(R.id.closeDialog),
@@ -138,18 +156,27 @@ public class DoJobTest {
                                 childAtPosition(
                                         withId(R.id.nav_view),
                                         0)),
-                        4),
+                        2),
                         isDisplayed()));
         navigationMenuItemView3.perform(click());
 
-        ViewInteraction appCompatButton5 = onView(
-                allOf(withId(R.id.buttonDelivery), withText("Delivery"),
+        ViewInteraction appCompatButton7 = onView(
+                allOf(withId(R.id.buttonStudy), withText("Study"),
                         childAtPosition(
                                 childAtPosition(
-                                        withId(R.id.scrollViewJobs),
+                                        withId(R.id.scrollViewActivities),
+                                        0),
+                                0)));
+        appCompatButton7.perform(scrollTo(), click());
+
+        ViewInteraction appCompatButton8 = onView(
+                allOf(withId(R.id.studyGraphics), withText("Study!"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(R.id.scrollViewStudy),
                                         0),
                                 8)));
-        appCompatButton5.perform(scrollTo(), click());
+        appCompatButton8.perform(scrollTo(), click());
 
         ViewInteraction floatingActionButton3 = onView(
                 allOf(withId(R.id.closeDialog),
