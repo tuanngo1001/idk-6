@@ -4,7 +4,7 @@ import idk6.csexperience.objects.Calendar;
 import idk6.csexperience.objects.Game;
 
 public class AdjustCalendar {
-    private int AFTERNOON = 1;
+    private int AFTERNOON = 1; //TODO morning
     private int EVENING = 2;
 
     private int day;

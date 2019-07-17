@@ -53,10 +53,10 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         skill1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 if(adjuster.getSkillsList()[0] == null || adjuster.getSkillUses(0) <= 0){
-                    showDialog("Can't Use Math Skill","Too bad you can't use a calculator.");
+                    showDialog("Can't Use Math Skill","Too bad you can't use a calculator.",false);
                 }else {
                     adjuster.useSkill(0);
-                    showDialog("Used Math Skill!","You practiced your calc skills! 10% more in your exam!");
+                    showDialog("Used Math Skill!","You practiced your calc skills! 10% more in your exam!",false);
                     refresh(R.id.textUsesSkill1,0);
                 }
             }
@@ -65,10 +65,10 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         skill2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 if(adjuster.getSkillsList()[1] == null || adjuster.getSkillUses(1) <= 0){
-                    showDialog("Can't Use Logic Skill","DeMorgan's laws will hunt you forever.");
+                    showDialog("Can't Use Logic Skill","DeMorgan's laws will hunt you forever.",false);
                 }else {
                     adjuster.useSkill(1);
-                    showDialog("Used Logic Skill!","Still remember that truth table?! 20% more in your exam!");
+                    showDialog("Used Logic Skill!","Still remember that truth table?! 20% more in your exam!",false);
                     refresh(R.id.textUsesSkill2, 1);
             }
             }
@@ -77,10 +77,10 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         skill3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
                 if(adjuster.getSkillsList()[2] == null || adjuster.getSkillUses(2) <= 0){
-                    showDialog("Can't Use Code Skill","How do pointers work?");
+                    showDialog("Can't Use Code Skill","How do pointers work?",false);
                 }else {
                     adjuster.useSkill(2);
-                    showDialog("Used Code Skill!","That was a hard question! 50% more in your exam!");
+                    showDialog("Used Code Skill!","That was a hard question! 50% more in your exam!",false);
                     refresh(R.id.textUsesSkill3, 2);
                 }
             }
@@ -114,20 +114,30 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
             TextView uses = (TextView) findViewById(use);
             uses.setText("Uses: " + 0);
         }
+
+        if(adjuster.getSkillUses(0) == 0
+            && adjuster.getSkillUses(1) == 0
+            && adjuster.getSkillUses(2) == 0){
+            showDialog("Finished Exam", "Grade: "+adjuster.getGrade(),true);
+        }
+
+
     }
 
     private void progressGrade(){
         ProgressBar grade = (ProgressBar) findViewById(R.id.progressBarGrade);
         grade.setProgress(adjuster.getProgressGrade());
+
+        if(adjuster.getProgressGrade() >= 100){
+            showDialog("Finished Exam", "Grade: "+adjuster.getGrade(),true);
+        }
     }
 
     private void timeBar(){
         ProgressBar timer = (ProgressBar) findViewById(R.id.progressBarTime);
         timer.setProgress(adjuster.getTimeRemaining());
         if(adjuster.getTimeRemaining() <= 0){
-            showDialog("Finished Exam", "Grade :"+adjuster.getGrade());
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new HomeFragment()).commit();
+            showDialog("Finished Exam", "Grade: "+adjuster.getGrade(),true);
         }
     }
 
@@ -158,8 +168,14 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
 
     }
 
-    private void showDialog(String dialogTitle, String dialogText){
+    private void exitCombat(){
+        Intent intent = new Intent(this, NavActivity.class);
+        startActivity(intent);
+    }
+
+    private void showDialog(String dialogTitle, String dialogText, boolean finished){
         final Dialog dialog = new Dialog(this);
+        final boolean done = finished;
         dialog.setContentView(R.layout.dialog);
 
         // set the custom dialog components - text, image and button
@@ -178,6 +194,10 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+
+                if(done) {
+                    exitCombat();
+                }
             }
         });
 

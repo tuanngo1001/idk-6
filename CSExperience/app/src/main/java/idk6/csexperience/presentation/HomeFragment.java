@@ -1,6 +1,6 @@
 package idk6.csexperience.presentation;
 
-import android.app.AlertDialog;
+
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,6 +23,7 @@ import java.util.List;
 
 import idk6.csexperience.R;
 import idk6.csexperience.application.Services;
+import idk6.csexperience.business.AdjustGame;
 import idk6.csexperience.business.CalendarPersistenceAccessor;
 import idk6.csexperience.objects.CalendarEvent;
 import idk6.csexperience.objects.Game;
@@ -31,6 +32,7 @@ import idk6.csexperience.objects.Game;
 public class HomeFragment extends Fragment {
     private Game game;
     private CalendarPersistenceAccessor calendarData;
+    private AdjustGame adjuster;
 
     @Nullable
     @Override
@@ -39,6 +41,7 @@ public class HomeFragment extends Fragment {
         calendarData = new CalendarPersistenceAccessor(Services.getPlayerExamsPersistence());
         List<CalendarEvent> events = calendarData.getListOfExams();
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+        adjuster = new AdjustGame(game);
 
         energyBar(view);
         happinessBar(view);
@@ -50,24 +53,6 @@ public class HomeFragment extends Fragment {
         changeProgress(view);
         arrowAnimation(view);
 
-
-        // start DB testing button code
-//        Button saveStats = (Button) view.findViewById(R.id.saveStats);
-//
-//        saveStats.setOnClickListener(new View.OnClickListener(){
-//            public void onClick(View view) {
-
-//                System.out.println("Attempting to save game...");
-//                GameServices gs = new GameServices();
-//                gs.save();
-//                //PlayerStatsPersistence persistence = Services.getPlayerStatsPersistence();
-//                //persistence.insertNewPlayer(game.getPlayer().getName());
-
-//                System.out.println("Attempting to save stats...");
-//                PlayerStatsPersistence persistence = Services.getPlayerStatsPersistence();
-//                persistence.insertNewPlayer(game.getPlayer().getName());
-//
-//        // end DB testing code
         return view;
     }
 
@@ -87,11 +72,9 @@ public class HomeFragment extends Fragment {
 
     private void changeProgress(View view){
         TextView progress = (TextView) view.findViewById(R.id.periodViewCounter);
-        int checkProgress;
 
-        checkProgress = game.getCalendar().getPeriod();
-
-        if(checkProgress == 1){
+        //TODO morning
+        if(game.getCalendar().getPeriod() == 1){
             progress.setText("Afternoon");
         }else {
             progress.setText("Evening");
@@ -104,15 +87,17 @@ public class HomeFragment extends Fragment {
         Iterator i =  examList.iterator();
         String exam = "";
         int day = game.getCalendar().getDay();
+        int period = game.getCalendar().getPeriod();
 
         while(i.hasNext()) {
             CalendarEvent currentExam = (CalendarEvent) i.next();
             final String examName = getExamType(currentExam);
+            final int examPeriod = currentExam.getExamSlot();
             final int examDate = currentExam.getExamDate();
             exam = examName;
 
             if(day == examDate){
-
+                adjuster.advanceTime();
                 Intent intent = new Intent(getActivity(), CombatActivity.class);
                 showDialog("Exam time!", exam, intent);
 

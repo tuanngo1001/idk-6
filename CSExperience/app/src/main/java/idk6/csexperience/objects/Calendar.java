@@ -3,7 +3,7 @@ package idk6.csexperience.objects;
 import java.util.HashMap;
 
 public class Calendar {
-    public static final int AFTERNOON = 1;
+    public static final int AFTERNOON = 1; //TODO morning
     public static final int EVENING = 2;
 
     private int day;
