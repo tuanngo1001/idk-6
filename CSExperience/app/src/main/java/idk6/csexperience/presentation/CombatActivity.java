@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -21,11 +20,10 @@ import idk6.csexperience.objects.Game;
 
 
 public class CombatActivity extends AppCompatActivity{//} implements View.OnClickListener{
-    private Button skill1, skill2, skill3, skill4;
+    private Button skill1, skill2, skill3;
     private FloatingActionButton exitCombat;
     private Combat adjuster;
     private Game game;
-    private ProgressBar timer;
     public static int cID = 0;
 
     @Nullable
@@ -41,7 +39,6 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         skill1 = (Button) findViewById(R.id.buttonSkill1);
         skill2 = (Button) findViewById(R.id.buttonSkill2);
         skill3 = (Button) findViewById(R.id.buttonSkill3);
-        timer = (ProgressBar) findViewById(R.id.progressBarTime);
 
         energyBarCombat();
         happinessBarCombat();
@@ -161,13 +158,8 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
 
     }
 
-    private void refreshScreen(){
-        Intent intent = new Intent(this, CombatActivity.class);
-        startActivity(intent);
-    }
-
     private void showDialog(String dialogTitle, String dialogText){
-        final Dialog dialog = new Dialog(getApplicationContext());
+        final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialog);
 
         // set the custom dialog components - text, image and button
