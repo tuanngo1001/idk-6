@@ -73,7 +73,6 @@ public class HomeFragment extends Fragment {
     private void changeProgress(View view){
         TextView progress = (TextView) view.findViewById(R.id.periodViewCounter);
 
-        //TODO morning
         if(game.getCalendar().getPeriod() == 1){
             progress.setText("Afternoon");
         }else {
@@ -82,7 +81,6 @@ public class HomeFragment extends Fragment {
     }
 
 
-    //TODO maybe this is business logic
     private void examDate(View view, List<CalendarEvent> examList){
         Iterator i =  examList.iterator();
         String exam = "";
@@ -92,12 +90,17 @@ public class HomeFragment extends Fragment {
         while(i.hasNext()) {
             CalendarEvent currentExam = (CalendarEvent) i.next();
             final String examName = getExamType(currentExam);
-            final int examPeriod = currentExam.getExamSlot();
             final int examDate = currentExam.getExamDate();
             exam = examName;
 
             if(day == examDate){
-                adjuster.advanceTime();
+                if(period == 1){
+                    adjuster.advanceTime();
+                    adjuster.advanceTime();
+                }else{
+                    adjuster.advanceTime();
+                }
+
                 Intent intent = new Intent(getActivity(), CombatActivity.class);
                 showDialog("Exam time!", exam, intent);
 
