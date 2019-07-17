@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/combatScreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+
+    <include
+        android:id="@+id/include6"
+        layout="@layout/app_bar_nav"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/pixellari"
+        android:gravity="top|center"
+        android:text="Time Remaining"
+        android:textColor="@color/colorAccent"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include6"
+        app:layout_constraintVertical_bias="0.07" />
+
+
+    <ProgressBar
+        android:id="@+id/progressBarTime"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="489dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:progress="50"
+        android:progressTint="@android:color/holo_red_dark"
+        android:scaleY="10"
+        android:scrollbarSize="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/timeText"
+        app:layout_constraintStart_toStartOf="@+id/timeText"
+        app:layout_constraintTop_toBottomOf="@+id/timeText"
+        app:layout_constraintVertical_bias="0.01" />
+
+    <ImageView
+        android:id="@+id/examImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarTime"
+        app:layout_constraintVertical_bias="0.24000001"
+        app:srcCompat="@drawable/exam" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/progressBarGrade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/examImage"
+        app:layout_constraintVertical_bias="1.0">
+
+        <TextView
+            android:id="@+id/gradeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/pixellari"
+            android:gravity="top|center"
+            android:text="F"
+            android:textColor="@color/colorAccent"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/gradeText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pixellari"
+            android:gravity="top|center"
+            android:text="D"
+            android:textColor="@color/colorAccent"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/gradeText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pixellari"
+            android:gravity="top|center"
+            android:text="C"
+            android:textColor="@color/colorAccent"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/gradeText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pixellari"
+            android:gravity="top|center"
+            android:text="C+"
+            android:textColor="@color/colorAccent"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/gradeText5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pixellari"
+            android:gravity="top|center"
+            android:text="B"
+            android:textColor="@color/colorAccent"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/gradeText6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pixellari"
+            android:gravity="top|center"
+            android:text="B+"
+            android:textColor="@color/colorAccent"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/gradeText7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pixellari"
+            android:gravity="top|center"
+            android:text="A"
+            android:textColor="@color/colorAccent"
+            android:textSize="21sp" />
+
+        <TextView
+            android:id="@+id/gradeText8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/pixellari"
+            android:gravity="top|center"
+            android:text="A+"
+            android:textColor="@color/colorAccent"
+            android:textSize="21sp" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBarGrade"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="489dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:progress="30"
+        android:progressTint="@color/colorPrimaryDark"
+        android:scaleY="5"
+        android:scrollbarSize="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/examImage"
+        app:layout_constraintVertical_bias="0.757" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.77">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/energyTextCombat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/pixellari"
+                android:padding="15sp"
+                android:text="Energy"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="30sp"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/progressBarEnergyCombat"
+                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:max="100"
+                android:progressTint="@color/colorYellow" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/foodTextCombat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/pixellari"
+                android:padding="15sp"
+                android:text="Food"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="30sp"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ProgressBar
+                android:id="@+id/progressBarHappinessCombat"
+                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="61dp"
+                android:layout_marginEnd="61dp"
+                android:max="100"
+                android:progress="80"
+                android:progressTint="@color/colorYellow" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/happinessTextCombat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawableTint="@color/colorYellow"
+                android:fontFamily="@font/pixellari"
+                android:padding="15sp"
+                android:text="Happiness"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="30sp" />
+
+            <ProgressBar
+                android:id="@+id/progressBarfoodCombat"
+                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="61dp"
+                android:layout_marginEnd="61dp"
+                android:max="100"
+                android:progress="20"
+                android:progressTint="@color/colorYellow" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout4"
+        app:layout_constraintVertical_bias="0.86">
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/buttonSkill1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/pixellari"
+                android:padding="20dp"
+                android:text="Math"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textUsesSkill1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixellari"
+                android:padding="20sp"
+                android:text="Uses: "
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/buttonSkill2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/pixellari"
+                android:padding="20dp"
+                android:text="Logic"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textUsesSkill2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixellari"
+                android:padding="20sp"
+                android:text="Uses: "
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/buttonSkill3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/pixellari"
+                android:padding="20dp"
+                android:text="Code"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textUsesSkill3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixellari"
+                android:padding="20sp"
+                android:text="Uses: "
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</android.support.constraint.ConstraintLayout>

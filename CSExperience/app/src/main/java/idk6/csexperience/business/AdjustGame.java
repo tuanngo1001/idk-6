@@ -79,7 +79,9 @@ public class AdjustGame {
         advanceTime();
         advanceTime();
     }
+    //=========================================
 
+    //STUDY ACTIVITIES ========================
     public void studyDB() {
         adjustStats.studyDatabases();
         advanceTime();
@@ -112,8 +114,54 @@ public class AdjustGame {
         adjustStats.studyGraphics();
         adjustStats.payForChegg();
     }
+    //========================================
 
+    //WORK ACTIVITIES ========================
+    //Similar as study activities but need
+    //health status to check if player is
+    //able to work
 
+    public boolean doServer () {
+        boolean canDo;
+        canDo = adjustStats.adjustServer();
+        if(canDo){
+            this.player.getStats().changeMoney(15);
+            advanceTime();
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean doCashier() {
+        boolean canDo;
+        canDo = adjustStats.adjustCashier();
+        if(canDo){
+            this.player.getStats().changeMoney(17);
+            advanceTime();
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean doDelivery() {
+        boolean canDo;
+        canDo = adjustStats.adjustDelivering();
+        if(canDo){
+            this.player.getStats().changeMoney(20);
+            advanceTime();
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    //==========================================
+
+    //PURCHASE ACTIVITIES ======================
     public boolean buyCoffee() {
         return adjustStats.buyCoffee();
     }
@@ -126,49 +174,18 @@ public class AdjustGame {
         return adjustStats.buyBeer();
     }
 
-    public boolean buySnack() { return adjustStats.buySnack(); }
+    public boolean buySnack() {
+        return adjustStats.buySnack();
+    }
 
-    public boolean buyEnergyDrink() { return adjustStats.buyEnergyDrink(); }
+    public boolean buyEnergyDrink() {
+        return adjustStats.buyEnergyDrink();
+    }
+    //========================================
+    //
 
     //----------------------------------------------------------------------------------------------
     //ADDING FOR JOB:
-    public boolean waiterWaitress () {
-        boolean canDo;
-        canDo = adjustStats.doServer();
-        if(canDo){
-            this.player.getStats().changeMoney(15);
-            advanceTime();
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
 
-    public boolean cashier() {
-        boolean canDo;
-        canDo = adjustStats.doCashier();
-        if(canDo){
-            this.player.getStats().changeMoney(17);
-            advanceTime();
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-
-    public boolean delivery() {
-        boolean canDo;
-        canDo = adjustStats.doDelivering();
-        if(canDo){
-            this.player.getStats().changeMoney(20);
-            advanceTime();
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
 
 }

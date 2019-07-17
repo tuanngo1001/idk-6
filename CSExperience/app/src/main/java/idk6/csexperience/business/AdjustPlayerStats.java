@@ -115,33 +115,30 @@ public class AdjustPlayerStats {
     // ------------------------------------------------------
 
     public void studyDatabases(){
-        databasesKnowledge++;
-        if(databasesKnowledge > 10)
+        if (databasesKnowledge < 10)
+            stats.setDatabasesKnowledge(++databasesKnowledge);
+        else
             databasesKnowledge = 10;
 
         studyHealthCost();
-
-        stats.setDatabasesKnowledge(databasesKnowledge);
     }
 
     public void studyAi(){
-        aiKnowledge++;
-        if(aiKnowledge > 10)
+        if (aiKnowledge < 10)
+            stats.setAiKnowledge(++aiKnowledge);
+        else
             aiKnowledge = 10;
 
         studyHealthCost();
-
-        stats.setAiKnowledge(aiKnowledge);
     }
 
     public void studyGraphics(){
-        graphicsKnowledge++;
-        if(graphicsKnowledge > 10)
+        if (graphicsKnowledge < 10)
+            stats.setGraphicsKnowledge(++graphicsKnowledge);
+        else
             graphicsKnowledge = 10;
 
         studyHealthCost();
-
-        stats.setGraphicsKnowledge(graphicsKnowledge);
     }
 
     // ------------------------------------------------------
@@ -232,7 +229,7 @@ public class AdjustPlayerStats {
     }
 
     //ADDING FOR JOBS
-    public boolean doServer(){
+    public boolean adjustServer(){
         if(happiness<20||energy<15||food<8){
             return false;
         }
@@ -244,7 +241,7 @@ public class AdjustPlayerStats {
 
     }
 
-    public boolean doCashier(){
+    public boolean adjustCashier(){
         if(happiness<15||energy<20||food<8){
             return false;
         }
@@ -254,7 +251,7 @@ public class AdjustPlayerStats {
             return true;
         }
     }
-    public boolean doDelivering(){
+    public boolean adjustDelivering(){
         if(happiness<8||energy<20||food<15){
             return false;
         }
@@ -310,9 +307,7 @@ public class AdjustPlayerStats {
             happiness = 100;
         if(happiness < 0)
             happiness = 0;
-
     }
-
     private void updateStats() {
         stats.setHappiness(happiness);
         stats.setEnergy(energy);

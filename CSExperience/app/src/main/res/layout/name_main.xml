@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/nameMain"
     tools:context=".presentation.NavActivity">
 
     <include
@@ -11,7 +12,7 @@
         layout="@layout/base_layout" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/backToMain"
+        android:id="@+id/nameBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -20,7 +21,6 @@
         android:layout_marginBottom="8dp"
         android:backgroundTint="@color/colorYellow"
         android:clickable="true"
-        android:onClick="onReturnClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.058"
@@ -52,7 +52,7 @@
         app:layout_constraintVertical_bias="0.283" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonPlay"
         android:layout_width="193dp"
         android:layout_height="85dp"
         android:layout_marginEnd="8dp"
@@ -62,7 +62,6 @@
         android:text="PLAY"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="30dp"
-        android:onClick="onPlayClick"
         app:layout_constraintBottom_toBottomOf="@+id/include"
         app:layout_constraintEnd_toEndOf="@+id/include"
         app:layout_constraintStart_toStartOf="@+id/include"
