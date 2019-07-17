@@ -21,7 +21,6 @@ import idk6.csexperience.objects.Game;
 
 public class CombatActivity extends AppCompatActivity{//} implements View.OnClickListener{
     private Button skill1, skill2, skill3;
-    private FloatingActionButton exitCombat;
     private Combat adjuster;
     private Game game;
     public static int cID = 0;
@@ -84,14 +83,6 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
                 }
             }
         });
-
-
-//        exitCombat.setOnClickListener(new View.OnClickListener(){
-//            public void onClick(View view) {
-//
-//                showDialog(view);
-//            }
-//        });
     }
 
     private void refresh(int buttonID,int skillID){
