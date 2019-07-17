@@ -5,7 +5,7 @@ public class Skill {
     private int id;
     private String description;
     private int stat;
-    private int usage;
+    private int uses;
     private int energyCost;
     private int foodCost;
     private int timeCost;
@@ -15,7 +15,7 @@ public class Skill {
         this.cID = cID;
         id = sID;
         this.stat = stat;
-        usage = 1;
+        uses = 1;
         this.energyCost = energyCost;
         this.foodCost = foodCost;
         this.timeCost = timeCost;
@@ -51,13 +51,13 @@ public class Skill {
         stat += value;
     }
 
-    public void setUsage(int amount){ usage = amount; }
+    public void setUses(int amount){ uses = amount; }
 
-    public int getUsage() { return usage; }
+    public int getUses() { return uses; }
 
-    public void increaseUsage() { usage++; }
+    public void increaseUsage() { uses++; }
 
-    public void decreaseUsage() { usage--; }
+    public void decreaseUsage() { uses--; }
 
     public int getEnergyCost() { return energyCost; }
 
@@ -73,7 +73,7 @@ public class Skill {
 
     public Skill copySkill(){
         Skill newSkill = new Skill(cID, id, description, stat, energyCost, foodCost, timeCost);
-        newSkill.setUsage(usage);
+        newSkill.setUses(uses);
         return newSkill;
     }
 }

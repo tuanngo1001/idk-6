@@ -10,8 +10,6 @@ public class Combat {
     private static final int MAX_SKILLS = 3;
 
     private PlayerStats stats;
-    private int energy;     // Health stats
-    private int food;
 
     private Game coreGame;
     private int cID;
@@ -34,8 +32,6 @@ public class Combat {
         skillsList = new Skill[MAX_SKILLS];
 
         stats = coreGame.getPlayer().getStats();
-        energy = stats.getEnergy();
-        food = stats.getFood();
     }
 
     public void decreaseTime(int amt){ timer -= amt; }
@@ -60,12 +56,15 @@ public class Combat {
     }
 
     private void skillCost(int eCost, int fCost){
-        energy -= eCost;
+        int energy = coreGame.getPlayer().getStats().getEnergy() - eCost;
         if (energy < 0)
             energy = 0;
-        food -= fCost;
+        coreGame.getPlayer().getStats().setEnergy(energy);
+
+        int food = coreGame.getPlayer().getStats().getFood() - fCost;
         if (food < 0)
             food = 0;
+        coreGame.getPlayer().getStats().setFood(food);
     }
 
     public void setcID(int cID) { this.cID = cID; }
@@ -79,7 +78,9 @@ public class Combat {
     public Skill[] getSkillsList(){ return skillsList; }
 
     public int getSkillUses(int skillID){
-        return skillsList[skillID].getUsage();
+        if (skillsList[skillID] != null)
+            return skillsList[skillID].getUses();
+        return 0;
     }
 
     public PlayerStats getStats(){ return stats; }
@@ -107,9 +108,11 @@ public class Combat {
         return grade;
     }
 
-    public int getSkillStat(int skillID){
-        return skillsList[skillID].getStat();
-    }
+    public int getSkillStat(int skillID){ return skillsList[skillID].getStat(); }
+
+    public int getSkillEnergyCost(int skillID){ return skillsList[skillID].getEnergyCost(); }
+
+    public int getSkillFoodCost(int skillID){ return skillsList[skillID].getFoodCost(); }
 
     public void increaseMidtermSkill(){
         int knowledge = stats.getKnowledge(cID);
@@ -119,13 +122,24 @@ public class Combat {
             skillsList[0].setEnergyCost(20);
             skillsList[0].setFoodCost(10);
         }
-        else if (knowledge < 10){
+        else if (knowledge < 7){
             skillsList[0].setStat(18);
             skillsList[0].setTimeCost(20);
             skillsList[0].setEnergyCost(15);
             skillsList[0].setFoodCost(8);
 
             skillsList[1].setStat(30);
+            skillsList[1].setTimeCost(25);
+            skillsList[1].setEnergyCost(20);
+            skillsList[1].setFoodCost(15);
+        }
+        else if (knowledge < 10) {
+            skillsList[0].setStat(15);
+            skillsList[0].setTimeCost(18);
+            skillsList[0].setEnergyCost(12);
+            skillsList[0].setFoodCost(5);
+
+            skillsList[1].setStat(20);
             skillsList[1].setTimeCost(25);
             skillsList[1].setEnergyCost(20);
             skillsList[1].setFoodCost(15);

@@ -50,11 +50,12 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
 
         skill1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                if(adjuster.getSkillsList()[0] == null || adjuster.getSkillUses(0) <= 0){
+                if(adjuster.getSkillUses(0) <= 0){
                     showDialog("Can't Use Math Skill","Too bad you can't use a calculator.",false);
                 }else {
                     adjuster.useSkill(0);
-                    showDialog("Used Math Skill!","You practiced your calc skills!"+ adjuster.getSkillStat(0)+"% more in your exam!",false);
+                    showDialog("Used Math Skill!","You practiced your calc skills!"+ adjuster.getSkillStat(0)+"% more in your exam!\n" +
+                            adjuster.getSkillEnergyCost(0)+"% cost of energy & "+adjuster.getSkillFoodCost(0)+"% cost of food",false);
                     refresh(R.id.textUsesSkill1,0);
                 }
             }
@@ -62,11 +63,12 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
 
         skill2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                if(adjuster.getSkillsList()[1] == null || adjuster.getSkillUses(1) <= 0){
+                if(adjuster.getSkillUses(1) <= 0){
                     showDialog("Can't Use Logic Skill","DeMorgan's laws will hunt you forever.",false);
                 }else {
                     adjuster.useSkill(1);
-                    showDialog("Used Logic Skill!","Still remember that truth table?!"+ adjuster.getSkillStat(1)+"% more in your exam!",false);
+                    showDialog("Used Logic Skill!","Still remember that truth table?!"+ adjuster.getSkillStat(1)+"% more in your exam!\n" +
+                            adjuster.getSkillEnergyCost(1)+"% cost of energy & "+adjuster.getSkillFoodCost(1)+"% cost of food",false);
                     refresh(R.id.textUsesSkill2, 1);
             }
             }
@@ -74,11 +76,12 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
 
         skill3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                if(adjuster.getSkillsList()[2] == null || adjuster.getSkillUses(2) <= 0){
+                if(adjuster.getSkillUses(2) <= 0){
                     showDialog("Can't Use Code Skill","How do pointers work?",false);
                 }else {
                     adjuster.useSkill(2);
-                    showDialog("Used Code Skill!","That was a hard question!"+ adjuster.getSkillStat(2)+"% more in your exam!",false);
+                    showDialog("Used Code Skill!","That was a hard question!"+ adjuster.getSkillStat(2)+"% more in your exam!\n" +
+                            adjuster.getSkillEnergyCost(2)+"% cost of energy & "+adjuster.getSkillFoodCost(2)+"% cost of food",false);
                     refresh(R.id.textUsesSkill3, 2);
                 }
             }
