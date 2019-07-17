@@ -55,7 +55,7 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
 
         skill1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                if(adjuster.getSkillUses(0) <= 0){
+                if(adjuster.getSkillsList()[0] == null || adjuster.getSkillUses(0) <= 0){
                     showDialog("Can't Use Math Skill","Too bad you can't use a calculator.");
                 }else {
                     adjuster.useSkill(0);
@@ -67,7 +67,7 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
 
         skill2.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                if(adjuster.getSkillUses(1) <= 0){
+                if(adjuster.getSkillsList()[1] == null || adjuster.getSkillUses(1) <= 0){
                     showDialog("Can't Use Logic Skill","DeMorgan's laws will hunt you forever.");
                 }else {
                     adjuster.useSkill(1);
@@ -79,7 +79,7 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
 
         skill3.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                if(adjuster.getSkillUses(2) <= 0){
+                if(adjuster.getSkillsList()[2] == null || adjuster.getSkillUses(2) <= 0){
                     showDialog("Can't Use Code Skill","How do pointers work?");
                 }else {
                     adjuster.useSkill(2);
@@ -98,20 +98,25 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
 //        });
     }
 
-    private void refresh(int buttonID,int id){
+    private void refresh(int buttonID,int skillID){
         energyBarCombat();
         happinessBarCombat();
         foodBarCombat();
         examAnimation();
         timeBar();
         progressGrade();
-        changeUses(buttonID,id);
+        changeUses(buttonID,skillID);
     }
 
     private void changeUses(int use,int skill){
-        TextView uses = (TextView) findViewById(use);
-        uses.setText("Uses: " + adjuster.getSkillUses(skill));
-
+        if (adjuster.getSkillsList()[skill] != null) {
+            TextView uses = (TextView) findViewById(use);
+            uses.setText("Uses: " + adjuster.getSkillUses(skill));
+        }
+        else {
+            TextView uses = (TextView) findViewById(use);
+            uses.setText("Uses: " + 0);
+        }
     }
 
     private void progressGrade(){

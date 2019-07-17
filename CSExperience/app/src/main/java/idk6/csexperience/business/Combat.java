@@ -12,7 +12,6 @@ public class Combat {
     private PlayerStats stats;
     private int energy;     // Health stats
     private int food;
-    private int minSkillCost;
 
     private Game coreGame;
     private int cID;
@@ -72,13 +71,6 @@ public class Combat {
         return true;
     }
 
-    private boolean timeCheck(){
-        if (timer <= 0 || timer < minSkillCost) {
-            return false;
-        }
-        return true;
-    }
-
     public void setcID(int cID) { this.cID = cID; }
 
     public int getTimeRemaining() {
@@ -116,5 +108,15 @@ public class Combat {
         }
 
         return grade;
+    }
+
+    // Use to exit Exam when no skill uses left
+    public boolean skillUsesLeft(){
+        for (Skill s : skillsList)
+            if (s != null) {
+                if (s.getUsage() > 0)
+                    return true;
+            }
+        return false;
     }
 }
