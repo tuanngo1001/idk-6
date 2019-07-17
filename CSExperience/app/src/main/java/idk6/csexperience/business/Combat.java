@@ -18,11 +18,15 @@ public class Combat {
     private int timer;
     private int progressGrade;
     private Player user;
+    private boolean midterm;
 
     private Skill[] skillsList;
 
     public Combat(int cID){
-        this.cID = cID;
+        if (cID <= 2) midterm = true;
+        else midterm = false;
+
+        this.cID = cID % 3;
         coreGame = Game.getCoreGame();
         user = coreGame.getPlayer();
         timer = EXAM_TIME;
@@ -40,9 +44,10 @@ public class Combat {
         Skill[][] playerSkills = user.getStats().getSkillsList();
         for (int i = 0; i < MAX_SKILLS; i++)
             if (playerSkills[cID][i] != null)
-                skillsList[i] = playerSkills[cID][i];
+                skillsList[i] = playerSkills[cID][i].copySkill();
             else break;
-        //minSkillCost = skillsList[0].getTimeCost();
+        if (midterm)
+            increaseMidtermSkill();
         return skillsList;
     }
 
@@ -50,25 +55,17 @@ public class Combat {
         Skill s = skillsList[skillNo];
         s.decreaseUsage();
         progressGrade += s.getStat();
-        if (skillCost(s.getEnergyCost(), s.getFoodCost())){
-            System.out.println();
-            //End the Combat
-        }
+        skillCost(s.getEnergyCost(), s.getFoodCost());
         decreaseTime(s.getTimeCost());
     }
 
-    private boolean skillCost(int eCost, int fCost){
+    private void skillCost(int eCost, int fCost){
         energy -= eCost;
-        if (energy < 0) {
+        if (energy < 0)
             energy = 0;
-            return false;
-        }
         food -= fCost;
-        if (food < 0){
+        if (food < 0)
             food = 0;
-            return false;
-        }
-        return true;
     }
 
     public void setcID(int cID) { this.cID = cID; }
@@ -110,13 +107,28 @@ public class Combat {
         return grade;
     }
 
-    // Use to exit Exam when no skill uses left
-    public boolean skillUsesLeft(){
-        for (Skill s : skillsList)
-            if (s != null) {
-                if (s.getUsage() > 0)
-                    return true;
-            }
-        return false;
+    public int getSkillStat(int skillID){
+        return skillsList[skillID].getStat();
+    }
+
+    public void increaseMidtermSkill(){
+        int knowledge = stats.getKnowledge(cID);
+        if (knowledge < 5) {
+            skillsList[0].setStat(25);
+            skillsList[0].setTimeCost(30);
+            skillsList[0].setEnergyCost(20);
+            skillsList[0].setFoodCost(10);
+        }
+        else if (knowledge < 10){
+            skillsList[0].setStat(18);
+            skillsList[0].setTimeCost(20);
+            skillsList[0].setEnergyCost(15);
+            skillsList[0].setFoodCost(8);
+
+            skillsList[1].setStat(30);
+            skillsList[1].setTimeCost(25);
+            skillsList[1].setEnergyCost(20);
+            skillsList[1].setFoodCost(15);
+        }
     }
 }

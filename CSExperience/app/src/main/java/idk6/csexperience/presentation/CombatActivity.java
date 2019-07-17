@@ -30,7 +30,6 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         game = Game.getCoreGame();
-        if (cID == 2) cID = 0;
         adjuster = new Combat(cID++);
         adjuster.getUsableSkill();
 
@@ -56,7 +55,7 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
                     showDialog("Can't Use Math Skill","Too bad you can't use a calculator.",false);
                 }else {
                     adjuster.useSkill(0);
-                    showDialog("Used Math Skill!","You practiced your calc skills! 10% more in your exam!",false);
+                    showDialog("Used Math Skill!","You practiced your calc skills!"+ adjuster.getSkillStat(0)+"% more in your exam!",false);
                     refresh(R.id.textUsesSkill1,0);
                 }
             }
@@ -68,7 +67,7 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
                     showDialog("Can't Use Logic Skill","DeMorgan's laws will hunt you forever.",false);
                 }else {
                     adjuster.useSkill(1);
-                    showDialog("Used Logic Skill!","Still remember that truth table?! 20% more in your exam!",false);
+                    showDialog("Used Logic Skill!","Still remember that truth table?!"+ adjuster.getSkillStat(1)+"% more in your exam!",false);
                     refresh(R.id.textUsesSkill2, 1);
             }
             }
@@ -80,7 +79,7 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
                     showDialog("Can't Use Code Skill","How do pointers work?",false);
                 }else {
                     adjuster.useSkill(2);
-                    showDialog("Used Code Skill!","That was a hard question! 50% more in your exam!",false);
+                    showDialog("Used Code Skill!","That was a hard question!"+ adjuster.getSkillStat(2)+"% more in your exam!",false);
                     refresh(R.id.textUsesSkill3, 2);
                 }
             }

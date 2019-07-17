@@ -71,9 +71,9 @@ public class Skill {
 
     public void setTimeCost(int timeCost) { this.timeCost = timeCost; }
 
-//    public Skill copySkill(){
-//        Skill newSkill = new Skill(cID, id, description, stat, energyCost, foodCost, timeCost);
-//        newSkill.setUsage(usage);
-//        return newSkill;
-//    }
+    public Skill copySkill(){
+        Skill newSkill = new Skill(cID, id, description, stat, energyCost, foodCost, timeCost);
+        newSkill.setUsage(usage);
+        return newSkill;
+    }
 }

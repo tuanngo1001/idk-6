@@ -88,6 +88,15 @@ public class PlayerStats {
         food = newFood;
     }
 
+    public int getKnowledge(int cID){
+        if (cID == 0)
+            return databasesKnowledge;
+        else if (cID == 1)
+            return aiKnowledge;
+        else
+            return graphicsKnowledge;
+    }
+
     public int getDatabasesKnowledge() {
         return databasesKnowledge;
     }
