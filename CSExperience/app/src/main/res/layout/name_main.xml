@@ -12,7 +12,7 @@
         layout="@layout/base_layout" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/backToMain"
+        android:id="@+id/nameBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -21,7 +21,6 @@
         android:layout_marginBottom="8dp"
         android:backgroundTint="@color/colorYellow"
         android:clickable="true"
-        android:onClick="onReturnClick"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.058"
