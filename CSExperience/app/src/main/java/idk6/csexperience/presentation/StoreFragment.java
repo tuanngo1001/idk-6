@@ -47,13 +47,9 @@ public class StoreFragment extends Fragment {
         coffee.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
 
-                if (adjuster.buyCoffee()) {
-                    showDialog("Energy Increased!", "Jittery Yet?");
-                    goToHome();
-                }
-                else {
-                    showDialog("Insufficent Funds!", "How embarassing...");
-                }
+                String[] result = adjuster.buyCoffee();
+                showDialog(result[0], result[1], true);
+
             }
         });
 
@@ -61,13 +57,9 @@ public class StoreFragment extends Fragment {
         beer.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
 
-                if (adjuster.buyBeer()) {
-                    showDialog("Feeling Better!", "But at what cost?");
-                    goToHome();
-                }
-                else {
-                    showDialog("Insufficent Funds!", "How embarassing...");
-                }
+                String[] result = adjuster.buyBeer();
+                showDialog(result[0], result[1], true);
+
             }
         });
 
@@ -75,17 +67,14 @@ public class StoreFragment extends Fragment {
         chegg.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
 
-                if (adjuster.useChegg()) {
-                    showDialog("'Studying' the quick way!", "Pick a class to get ahead in!");
-
+                String[] result = adjuster.useChegg();
+                showDialog(result[0], result[1], false);
+                if(result[0] != "Insufficent Funds!") {
                     StudyFragment nextFrag = new StudyFragment(true);
                     getActivity().getSupportFragmentManager().beginTransaction()
                             .replace(R.id.fragment_container, nextFrag, "StudyFragment")
                             .addToBackStack(null)
                             .commit();
-                }
-                else {
-                    showDialog("Insufficent Funds!", "How embarassing...");
                 }
             }
 
@@ -95,16 +84,9 @@ public class StoreFragment extends Fragment {
         snack.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
 
-                //TODO
-                //adjuster.sleep();
+                String[] result = adjuster.buySnack();
+                showDialog(result[0], result[1], true);
 
-                if (adjuster.buySnack()) {
-                    showDialog("Yum, Fries!", "They count as vegetables right?");
-                    goToHome();
-                }
-                else {
-                    showDialog("Insufficent Funds!", "How embarassing...");
-                }
             }
         });
 
@@ -112,16 +94,9 @@ public class StoreFragment extends Fragment {
         energyDrink.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
 
-                //TODO
-                //adjuster.sleep();
+                String[] result = adjuster.buyEnergyDrink();
+                showDialog(result[0], result[1], true);
 
-                if (adjuster.buyEnergyDrink()) {
-                    showDialog("Gulp!", "Wow, that's genuinely disgusting.");
-                    goToHome();
-                }
-                else {
-                    showDialog("Insufficent Funds!", "How embarassing...");
-                }
             }
         });
 
@@ -129,17 +104,10 @@ public class StoreFragment extends Fragment {
 
     } // end onCreateView
 
-    private void goToHome(){
-        HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, nextFrag, "HomeFragment")
-                .addToBackStack(null)
-                .commit();
-    }
 
-
-    private void showDialog(String dialogTitle, String dialogText){
+    private void showDialog(String dialogTitle, String dialogText, boolean home){
         final Dialog dialog = new Dialog(getActivity());
+        final boolean goHome = home;
         dialog.setContentView(R.layout.dialog);
 
         // set the custom dialog components - text, image and button
@@ -158,9 +126,19 @@ public class StoreFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+
+                if(goHome) {
+                    HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container, nextFrag, "HomeFragment")
+                            .addToBackStack(null)
+                            .commit();
+                }
             }
         });
 
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
         dialog.show();
     }
 }

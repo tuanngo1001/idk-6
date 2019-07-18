@@ -2,6 +2,7 @@ package idk6.csexperience.presentation;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,7 @@ public class LoadActivity extends AppCompatActivity {
     final private int SLOT1 = 0;
     final private int SLOT2 = 1;
     final private int SLOT3 = 2;
+    private FloatingActionButton exit;
 
 
     @Override
@@ -33,6 +35,7 @@ public class LoadActivity extends AppCompatActivity {
         TextView slot1 = (TextView) findViewById(R.id.titleSlot1);
         TextView slot2 = (TextView) findViewById(R.id.titleSlot2);
         TextView slot3 = (TextView) findViewById(R.id.titleSlot3);
+        exit = (FloatingActionButton) findViewById(R.id.loadBack);
 
         // Set slot names (only use the last 3 to appear in the db)
         if(names.size() > 0) {
@@ -44,11 +47,6 @@ public class LoadActivity extends AppCompatActivity {
         if(names.size() > 2) {
             slot3.setText(names.get(2));
         }
-
-//        System.out.println(names.size());
-//        System.out.println(names.get(SLOT1));
-//        System.out.println(names.get(SLOT2));
-//        System.out.println(names.get(SLOT3));
 
         //bare bones initial implementation to just get something from the db on screen
         if(names.size() > SLOT1) {
@@ -69,6 +67,14 @@ public class LoadActivity extends AppCompatActivity {
         Button load3 = (Button) findViewById(R.id.buttonLoad3);
 
         final GameServices gs = new GameServices();
+
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent newIntent = new Intent(getBaseContext(), StartActivity.class);
+                startActivity(newIntent);
+            }
+        });
 
         load1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
@@ -91,12 +97,6 @@ public class LoadActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-
-    protected void onReturnClick(View view) {
-        Intent newIntent = new Intent(getBaseContext(), StartActivity.class);
-        startActivity(newIntent);
     }
 
     private void getKey(int listSize, int size, GameServices gs, String name){

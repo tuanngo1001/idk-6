@@ -79,7 +79,9 @@ public class AdjustGame {
         advanceTime();
         advanceTime();
     }
+    //=========================================
 
+    //STUDY ACTIVITIES ========================
     public void studyDB() {
         adjustStats.studyDatabases();
         advanceTime();
@@ -112,33 +114,16 @@ public class AdjustGame {
         adjustStats.studyGraphics();
         adjustStats.payForChegg();
     }
+    //========================================
 
+    //WORK ACTIVITIES ========================
+    //Similar as study activities but need
+    //health status to check if player is
+    //able to work
 
-    public boolean buyCoffee() {
-        return adjustStats.buyCoffee();
-    }
-
-    public boolean useChegg() {
-        return adjustStats.useChegg();
-    }
-
-    public boolean buyBeer() {
-        return adjustStats.buyBeer();
-    }
-
-    public boolean buySnack() {
-        return adjustStats.buySnack();
-    }
-
-    public boolean buyEnergyDrink() {
-        return adjustStats.buyEnergyDrink();
-    }
-
-    //----------------------------------------------------------------------------------------------
-    //ADDING FOR JOB:
-    public boolean waiterWaitress () {
+    public boolean doServer () {
         boolean canDo;
-        canDo = adjustStats.doServer();
+        canDo = adjustStats.adjustServer();
         if(canDo){
             this.player.getStats().changeMoney(15);
             advanceTime();
@@ -149,9 +134,9 @@ public class AdjustGame {
         }
     }
 
-    public boolean cashier() {
+    public boolean doCashier() {
         boolean canDo;
-        canDo = adjustStats.doCashier();
+        canDo = adjustStats.adjustCashier();
         if(canDo){
             this.player.getStats().changeMoney(17);
             advanceTime();
@@ -162,9 +147,9 @@ public class AdjustGame {
         }
     }
 
-    public boolean delivery() {
+    public boolean doDelivery() {
         boolean canDo;
-        canDo = adjustStats.doDelivering();
+        canDo = adjustStats.adjustDelivering();
         if(canDo){
             this.player.getStats().changeMoney(20);
             advanceTime();
@@ -174,5 +159,31 @@ public class AdjustGame {
             return false;
         }
     }
+    //==========================================
+
+    //PURCHASE ACTIVITIES ======================
+    public String[] buyCoffee() {
+        return adjustStats.buyCoffee();
+    }
+
+    public String[] useChegg() {
+        return adjustStats.useChegg();
+    }
+
+    public String[] buyBeer() {
+        return adjustStats.buyBeer();
+    }
+
+    public String[] buySnack() {
+        return adjustStats.buySnack();
+    }
+
+    public String[] buyEnergyDrink() { return adjustStats.buyEnergyDrink(); }
+    //========================================
+    //
+
+    //----------------------------------------------------------------------------------------------
+    //ADDING FOR JOB:
+
 
 }

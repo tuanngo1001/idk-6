@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    android:id="@+id/startScreen">
 
     <Button
         android:id="@+id/buttonStart"
@@ -16,7 +17,6 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/button_background"
         android:fontFamily="@font/pixellari"
-        android:onClick="onStartClick"
         android:text="START"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="30dp"
@@ -37,7 +37,6 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/button_background"
         android:fontFamily="@font/pixellari"
-        android:onClick="onLoadClick"
         android:text="LOAD"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="30dp"
@@ -58,6 +57,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/pc_on" />
+        app:srcCompat="@drawable/pc_on"
+        android:contentDescription="TODO" />
 
 </android.support.constraint.ConstraintLayout>

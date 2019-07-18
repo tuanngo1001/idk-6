@@ -68,8 +68,7 @@ public class StudyFragment extends Fragment {
                     adjuster.studyDB();
                 }
 
-                showDialog("Database Knowledge Increased!", "I'm level " + game.getPlayer().getStats().getDatabasesKnowledge() + " now!");
-                goToHome();
+                showDialog("Database Knowledge Increased!", "I'm level " + game.getPlayer().getStats().getDatabasesKnowledge() + " now!",true);
             }
         });
 
@@ -82,8 +81,7 @@ public class StudyFragment extends Fragment {
                 else {
                     adjuster.studyAI();
                 }
-                showDialog("AI Knowledge Increased!", "I'm level " + game.getPlayer().getStats().getAiKnowledge() + " now!");
-                goToHome();
+                showDialog("AI Knowledge Increased!", "I'm level " + game.getPlayer().getStats().getAiKnowledge() + " now!",true);
             }
         });
 
@@ -97,8 +95,7 @@ public class StudyFragment extends Fragment {
                 else {
                     adjuster.studyGraphics();
                 }
-                showDialog("Graphics Knowledge Increased!", "I'm level " + game.getPlayer().getStats().getGraphicsKnowledge() + " now!");
-                goToHome();
+                showDialog("Graphics Knowledge Increased!", "I'm level " + game.getPlayer().getStats().getGraphicsKnowledge() + " now!",true);
             }
         });
 
@@ -126,16 +123,14 @@ public class StudyFragment extends Fragment {
         ratingGraphics.setRating(game.getPlayer().getStats().getGraphicsKnowledge());
     }
 
-    private void showDialog(String dialogTitle, String dialogText) {
-
+    private void showDialog(String dialogTitle, String dialogText, boolean home){
         final Dialog dialog = new Dialog(getActivity());
-
+        final boolean goHome = home;
         dialog.setContentView(R.layout.dialog);
 
         // set the custom dialog components - text, image and button
         TextView title = (TextView) dialog.findViewById(R.id.dialogTitle);
         title.setText(dialogTitle);
-
 
         TextView text = (TextView) dialog.findViewById(R.id.dialogText);
         text.setText(dialogText);
@@ -149,19 +144,20 @@ public class StudyFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+
+                if(goHome) {
+                    HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
+                    getActivity().getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.fragment_container, nextFrag, "HomeFragment")
+                            .addToBackStack(null)
+                            .commit();
+                }
             }
         });
 
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
         dialog.show();
     }
-
-    private void goToHome(){
-        HomeFragment nextFrag = new HomeFragment();      // After sleeping, go to home to see stat changes
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, nextFrag, "HomeFragment")
-                .addToBackStack(null)
-                .commit();
-    }
-
 
 } // end StudyFragment

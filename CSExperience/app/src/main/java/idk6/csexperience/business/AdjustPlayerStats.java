@@ -115,42 +115,42 @@ public class AdjustPlayerStats {
     // ------------------------------------------------------
 
     public void studyDatabases(){
-        databasesKnowledge++;
-        if(databasesKnowledge > 10)
+        if (databasesKnowledge < 10)
+            stats.setDatabasesKnowledge(++databasesKnowledge);
+        else
             databasesKnowledge = 10;
 
         studyHealthCost();
-
-        stats.setDatabasesKnowledge(databasesKnowledge);
     }
 
     public void studyAi(){
-        aiKnowledge++;
-        if(aiKnowledge > 10)
+        if (aiKnowledge < 10)
+            stats.setAiKnowledge(++aiKnowledge);
+        else
             aiKnowledge = 10;
 
         studyHealthCost();
-
-        stats.setAiKnowledge(aiKnowledge);
     }
 
     public void studyGraphics(){
-        graphicsKnowledge++;
-        if(graphicsKnowledge > 10)
+        if (graphicsKnowledge < 10)
+            stats.setGraphicsKnowledge(++graphicsKnowledge);
+        else
             graphicsKnowledge = 10;
 
         studyHealthCost();
-
-        stats.setGraphicsKnowledge(graphicsKnowledge);
     }
 
     // ------------------------------------------------------
     // PURCHASABLE ITEM MODIFIERS
     // ------------------------------------------------------
 
-    public boolean buyCoffee() {
+    public String[] buyCoffee() {
+        String[] display = new String[2];
+        display[0] = "Insufficent Funds!";
+        display[1] = "How embarassing...";
         if (money < 5) {
-            return false;
+            return display;
         }
         else {
             money -= 5;
@@ -160,12 +160,17 @@ public class AdjustPlayerStats {
         }
 
         updateStats();
-        return true;
+        display[0] = "Energy Increased!";
+        display[1] = "Jittery Yet?";
+        return display;
     }
 
-    public boolean buyBeer() {
+    public String[] buyBeer() {
+        String[] display = new String[2];
+        display[0] = "Insufficent Funds!";
+        display[1] = "How embarassing...";
         if (money < 7) {
-            return false;
+            return display;
         }
         else {
             money -= 7;
@@ -175,41 +180,58 @@ public class AdjustPlayerStats {
             checkValues();
         }
         updateStats();
-        return true;
+        display[0] = "Feeling Better!";
+        display[1] = "But at what cost?";
+        return display;
     }
 
-    public boolean buySnack() {
+    public String[] buySnack() {
+        String[] display = new String[2];
+        display[0] = "Insufficent Funds!";
+        display[1] = "How embarassing...";
         if(money < 5){
-            return false;
+            return display;
         }
         money -= 5;
         food += 15;
         checkValues();
         updateStats();
-        return true;
+        display[0] = "Yum, Fries!";
+        display[1] = "They count as vegetables right?";
+        return display;
     }
 
-    public boolean buyEnergyDrink() {
+    public String[] buyEnergyDrink() {
+        String[] display = new String[2];
+        display[0] = "Insufficent Funds!";
+        display[1] = "How embarassing...";
         if(money <8 ) {
-            return false;
+            return display;
         }
         money -= 8;
         energy +=25;
         checkValues();
         updateStats();
-        return true;
+        display[0] = "Gulp!";
+        display[1] = "Wow, that's genuinely disgusting.";
+        return display;
     }
 
-    public boolean useChegg() {
+    public String[] useChegg() {
+        String[] display = new String[2];
+        display[0] = "Insufficent Funds!";
+        display[1] = "How embarassing...";
         if (money < 25) {
-            return false;
+            return display;
         }
         else {
             //money -= 25;
             //some sort of study benefit;
         }
         updateStats();
-        return true;
+        display[0] = "'Studying' the quick way!";
+        display[1] = "Pick a class to get ahead in!";
+        return display;
     }
 
     public void payForChegg() {
@@ -232,7 +254,7 @@ public class AdjustPlayerStats {
     }
 
     //ADDING FOR JOBS
-    public boolean doServer(){
+    public boolean adjustServer(){
         if(happiness<20||energy<15||food<8){
             return false;
         }
@@ -244,7 +266,7 @@ public class AdjustPlayerStats {
 
     }
 
-    public boolean doCashier(){
+    public boolean adjustCashier(){
         if(happiness<15||energy<20||food<8){
             return false;
         }
@@ -254,7 +276,7 @@ public class AdjustPlayerStats {
             return true;
         }
     }
-    public boolean doDelivering(){
+    public boolean adjustDelivering(){
         if(happiness<8||energy<20||food<15){
             return false;
         }

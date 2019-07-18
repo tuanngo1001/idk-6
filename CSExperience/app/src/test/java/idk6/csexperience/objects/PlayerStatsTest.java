@@ -25,11 +25,11 @@ public class PlayerStatsTest {
         PlayerStats stats = new PlayerStats();
         assertNotNull("Should not be Null",stats);
         stats.setAiKnowledge(5);
-        stats.setDatabasesKnowledge(6);
-        stats.setGraphicsKnowledge(7);
+        stats.setDatabasesKnowledge(2);
+        stats.setGraphicsKnowledge(10);
         assertEquals("AiKnowledge should be 5",5,stats.getAiKnowledge());
-        assertEquals("GraphicsKnowledge should be 7",7,stats.getGraphicsKnowledge());
-        assertEquals("DatabasesKnowledge should be 6",6,stats.getDatabasesKnowledge());
+        assertEquals("GraphicsKnowledge should be 10",10,stats.getGraphicsKnowledge());
+        assertEquals("DatabasesKnowledge should be 2",2,stats.getDatabasesKnowledge());
         System.out.println("Finished testSetGetKnowledge\n");
     }
     @Test

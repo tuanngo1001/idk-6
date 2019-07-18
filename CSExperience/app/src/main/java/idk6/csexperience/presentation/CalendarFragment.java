@@ -1,6 +1,7 @@
 package idk6.csexperience.presentation;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,9 +20,10 @@ import idk6.csexperience.R;
 import idk6.csexperience.application.Services;
 import idk6.csexperience.business.CalendarPersistenceAccessor;
 import idk6.csexperience.objects.CalendarEvent;
+import idk6.csexperience.objects.Game;
 
 public class CalendarFragment extends Fragment {
-
+    private Game game;
     private CalendarPersistenceAccessor calendarData;
 
     @Nullable
@@ -30,6 +32,7 @@ public class CalendarFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_calendar,container,false);
         CalendarEvent currentExam;
         calendarData = new CalendarPersistenceAccessor(Services.getPlayerExamsPersistence());  // Use the REAL db via dependency injection
+        game = Game.getCoreGame();
 
 
         // Fetch the list of exams and get ready to iterate through them
@@ -56,7 +59,7 @@ public class CalendarFragment extends Fragment {
 
             dateIcon.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    showDialog("Day "+examDate, examName + " - " + examPeriodString(examPeriod));
+                    showDialog("Day "+examDate, examName + " - " + calendarData.examPeriodString(examPeriod));
                 }
             });
 
@@ -83,8 +86,6 @@ public class CalendarFragment extends Fragment {
         TextView title = (TextView) dialog.findViewById(R.id.dialogTitle);
         title.setText(dialogTitle);
 
-
-
         TextView text = (TextView) dialog.findViewById(R.id.dialogText);
         text.setText(dialogText);
 
@@ -100,17 +101,12 @@ public class CalendarFragment extends Fragment {
             }
         });
 
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
         dialog.show();
     }
 
-    private String examPeriodString(int examPeriod){
-        if(examPeriod == 1)
-            return "Morning";
-        else if(examPeriod == 2)
-            return "Afternoon";
-        else
-            return "Evening";
-    }
+
 
 
 }

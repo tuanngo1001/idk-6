@@ -28,5 +28,13 @@ public class CalendarPersistenceAccessor {
         calendarData.deleteCalEvents();
     }
 
+    public String examPeriodString(int examPeriod){
+        if(examPeriod == 1)
+            return "Morning";
+        else if(examPeriod == 2)
+            return "Afternoon";
+        else
+            return "Evening";
+    }
 
 }

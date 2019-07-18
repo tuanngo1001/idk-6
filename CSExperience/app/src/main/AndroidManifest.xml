@@ -10,14 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".presentation.LoadActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".presentation.LoadActivity"></activity>
         <activity
-            android:name=".presentation.NavActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".presentation.NavActivity"></activity>
         <activity
-            android:name=".presentation.StartActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".presentation.CombatActivity"></activity>
+        <activity
+            android:name=".presentation.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
