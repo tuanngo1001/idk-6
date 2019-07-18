@@ -31,6 +31,17 @@ public class Calendar {
         return period;
     }
 
+    public String getPeriodString() {
+        if (period == 1) {
+            return "Afternoon";
+        }
+        else {
+            return "Evening";
+        }
+    }
+
+
+
     public void setPeriod(int period) {
         this.period = period;
     }

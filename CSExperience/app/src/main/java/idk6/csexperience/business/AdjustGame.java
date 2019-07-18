@@ -162,25 +162,23 @@ public class AdjustGame {
     //==========================================
 
     //PURCHASE ACTIVITIES ======================
-    public boolean buyCoffee() {
+    public String[] buyCoffee() {
         return adjustStats.buyCoffee();
     }
 
-    public boolean useChegg() {
+    public String[] useChegg() {
         return adjustStats.useChegg();
     }
 
-    public boolean buyBeer() {
+    public String[] buyBeer() {
         return adjustStats.buyBeer();
     }
 
-    public boolean buySnack() {
+    public String[] buySnack() {
         return adjustStats.buySnack();
     }
 
-    public boolean buyEnergyDrink() {
-        return adjustStats.buyEnergyDrink();
-    }
+    public String[] buyEnergyDrink() { return adjustStats.buyEnergyDrink(); }
     //========================================
     //
 

@@ -72,12 +72,8 @@ public class HomeFragment extends Fragment {
 
     private void changeProgress(View view){
         TextView progress = (TextView) view.findViewById(R.id.periodViewCounter);
+        progress.setText(game.getCalendar().getPeriodString());
 
-        if(game.getCalendar().getPeriod() == 1){
-            progress.setText("Afternoon");
-        }else {
-            progress.setText("Evening");
-        }
     }
 
 
