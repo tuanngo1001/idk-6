@@ -20,6 +20,7 @@ public class CombatSkills {
 
     // Get a specific skill in the skills list by its ID
     public Skill getSkill(int cID,int sID){
+
         return skillsList[cID][sID];
     }
 
