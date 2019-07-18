@@ -1,5 +1,8 @@
 # README
 
+## A note for the Marker Regarding Iteration 3:
+This iteration added combat mechanics and a suite a of unit, integration, and acceptance tests.
+
 ## A Note for the Marker Regarding Iteration 2:
 This iteration has greatly expanded the gameplay possible. We are leaving combat or 'exam taking' until version 3. At this point, the game cannot be won or lost, but the 30 day month will still end the game. 
 
