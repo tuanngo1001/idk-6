@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import idk6.csexperience.objects.PlayerStats;
+import idk6.csexperience.objects.PlayerStatsBuilder;
 import idk6.csexperience.persistence.PlayerStatsPersistence;
 
 /*
@@ -45,24 +46,8 @@ public class PlayerStatsPersistenceHSQLDB implements PlayerStatsPersistence {
         Returns: A PlayerStats object
      */
     private PlayerStats fromResultSet(final ResultSet rs) throws SQLException {
-        final int energy = rs.getInt("ENERGY");
-        final int food = rs.getInt("FOOD");
-        final int happiness = rs.getInt("HAPPINESS");
-        final int money = rs.getInt("MONEY");
-        final int dbKnowledge = rs.getInt("DB_KNOWLEDGE");
-        final int aiKnowledge = rs.getInt("AI_KNOWLEDGE");
-        final int graphicsKnowledge = rs.getInt("GRAPHICS_KNOWLEDGE");
-
-        PlayerStats statsBundle = new PlayerStats();
-
-        statsBundle.setEnergy(energy);
-        statsBundle.setFood(food);
-        statsBundle.setHappiness(happiness);
-        statsBundle.setMoney(money);
-        statsBundle.setDatabasesKnowledge(dbKnowledge);
-        statsBundle.setAiKnowledge(aiKnowledge);
-        statsBundle.setGraphicsKnowledge(graphicsKnowledge);
-
+        PlayerStatsBuilder statsBuilder = new PlayerStatsBuilder();
+        PlayerStats statsBundle = statsBuilder.build(rs);
         return statsBundle;
     }
 
