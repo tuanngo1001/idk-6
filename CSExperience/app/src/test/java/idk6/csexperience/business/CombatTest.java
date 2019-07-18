@@ -1,12 +1,6 @@
 package idk6.csexperience.business;
 
-import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import idk6.csexperience.business.Combat;
-import idk6.csexperience.objects.Player;
-import idk6.csexperience.objects.Skill;
-
 import static org.mockito.Mockito.*;
 
 public class CombatTest {

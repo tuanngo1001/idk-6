@@ -13,6 +13,6 @@ import idk6.csexperience.Persistence.PlayerTimeTest;
         ExamsPersistenceTest.class,
         PlayerTimeTest.class,
 })
-public class IntegrationTests {
+public class AllIntegrationTests {
 
 }

@@ -27,4 +27,4 @@ import idk6.csexperience.objects.PlayerTest;
         CalendarTest.class
 })
 
-public class AllTests {}
+public class AllUnitTests {}
