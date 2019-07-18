@@ -39,17 +39,7 @@ public class PlayerStats {
 
         // add all skill into a skills list
         allSkill = new CombatSkills();
-        
-        allSkill.addSkill(new Skill(0,0,"course 1 skill no 1", 10,10, 5,10));
-        allSkill.addSkill(new Skill(0,1,"course 1 skill no 2", 20,15, 10,20));
-        allSkill.addSkill(new Skill(0,2,"course 1 skill no 3", 30,25,20,40));
-        allSkill.addSkill(new Skill(1,0,"course 2 skill no 1", 10,10,5,10));
-        allSkill.addSkill(new Skill(1,1,"course 2 skill no 2", 20,15,10,20));
-        allSkill.addSkill(new Skill(1,2,"course 2 skill no 3", 30,25,20,40));
-        allSkill.addSkill(new Skill(2,0,"course 3 skill no 1", 10,10,5,10));
-        allSkill.addSkill(new Skill(2,1,"course 3 skill no 2", 20,15,10,20));
-        allSkill.addSkill(new Skill(2,2,"course 3 skill no 3", 30,25,20,40));
-
+        setupAllSkill();
     }
 
     public Skill[][] getSkillsList(){ return skills.getSkillsList(); }
@@ -113,17 +103,17 @@ public class PlayerStats {
 
     public void setDatabasesKnowledge(int databasesKnowledge) {
         this.databasesKnowledge = databasesKnowledge;
-        //upgradeSkill(0, this.databasesKnowledge);
+        upgradeSkill(0, this.databasesKnowledge);
     }
 
     public void setAiKnowledge(int aiKnowledge) {
         this.aiKnowledge = aiKnowledge;
-        //upgradeSkill(1, this.aiKnowledge);
+        upgradeSkill(1, this.aiKnowledge);
     }
 
     public void setGraphicsKnowledge(int graphicsKnowledge) {
         this.graphicsKnowledge = graphicsKnowledge;
-        //upgradeSkill(2, this.graphicsKnowledge);
+        upgradeSkill(2, this.graphicsKnowledge);
     }
 
     // pull out skills from skill list and add into the player skills or increase the player skill uses
@@ -140,8 +130,16 @@ public class PlayerStats {
             addSkill(allSkill.getSkill(cID,2));
     }
 
-    public void acquireAllSkills(){
-        skills = allSkill;
+    private void setupAllSkill(){
+        allSkill.addSkill(new Skill(0,0,"course DB - Math skill", 10,10, 5,10));
+        allSkill.addSkill(new Skill(0,1,"course DB - Logic skill", 20,15, 10,20));
+        allSkill.addSkill(new Skill(0,2,"course DB - Code skill", 30,25,20,40));
+        allSkill.addSkill(new Skill(1,0,"course AI - Math skill", 10,10,5,10));
+        allSkill.addSkill(new Skill(1,1,"course AI - Logic skill", 20,15,10,20));
+        allSkill.addSkill(new Skill(1,2,"course AI - Code skill", 30,25,20,40));
+        allSkill.addSkill(new Skill(2,0,"course GP - Math skill", 10,10,5,10));
+        allSkill.addSkill(new Skill(2,1,"course GP - Logic skill", 20,15,10,20));
+        allSkill.addSkill(new Skill(2,2,"course GP - Code skill", 30,25,20,40));
     }
 
     @Override

@@ -47,7 +47,6 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         examAnimation();
         timeBar();
         progressGrade();
-        endExamCheck();
         changeUses(R.id.textUsesSkill1,0);
         changeUses(R.id.textUsesSkill2,1);
         changeUses(R.id.textUsesSkill3,2);
