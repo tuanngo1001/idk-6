@@ -1,50 +1,72 @@
 package idk6.csexperience.business;
 
-import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import idk6.csexperience.business.Combat;
-import idk6.csexperience.objects.Player;
+import static org.mockito.Mockito.*;
 
 public class CombatTest {
-    private Combat combat;
-
-    @Before
-    public void initial(){
-        combat = new Combat(0);
-    }
 
     @Test
     public void testTimeRemaining(){
         System.out.println("Starting testTimeRemaining: ");
-        combat.decreaseTime(20);
-        assertEquals("Time remaining should be 70",70,combat.getTimeRemaining());
-
+        Combat mockCombat = mock(Combat.class);
+        int timeRemain = mockCombat.getTimeRemaining();
+        mockCombat.decreaseTime(20);
+        verify(mockCombat).decreaseTime(20);
+        when(mockCombat.getTimeRemaining()).thenReturn(timeRemain-20);
         System.out.println("Finished testTimeRemaining.\n");
     }
 
+
     @Test
-    public void testGetSkills(){
-        System.out.println("Starting testGetSkills:");
-        Player testUser = new Player();
-        testUser.getStats().acquireAllSkills();
-        combat.setUser(testUser);
-        combat.getUsableSkill();
-        assertEquals("Skills number should be 3",3,combat.getSkillsList().length);
-        System.out.println("Finished testGetSkills.\n");
+    public void testGetUsableSkill(){
+        System.out.println("Starting testGetUsableSkills:");
+        Combat mockCombat = mock(Combat.class);
+        mockCombat.getUsableSkill();
+        verify(mockCombat).getUsableSkill();
+        System.out.println("Finished testGetUsableSkills.\n");
+    }
+    @Test
+    public void testUseSkill(){
+        System.out.println("Starting testUseSkills:");
+        Combat mockCombat = mock(Combat.class);
+        mockCombat.useSkill(1);
+        verify(mockCombat).useSkill(1);
+        System.out.println("Finished testUseSkills.\n");
     }
 
     @Test
-    public void testUseSkill(){
-        System.out.println("Starting testUseSkill:");
-
-        Player testUser = new Player();
-        testUser.getStats().acquireAllSkills();
-        combat.setUser(testUser);
-
-        combat.getUsableSkill();
-        combat.useSkill(0);
-
-        System.out.println("Finished testUseSkill\n");
+    public void testGetGrade(){
+        System.out.println("Starting testGetGrade:");
+        Combat mockCombat = mock(Combat.class);
+        int progressGrade = mockCombat.getProgressGrade();
+        mockCombat.getGrade();
+        verify(mockCombat).getGrade();
+        verify(mockCombat).getProgressGrade();
+        if(progressGrade > 50 && progressGrade <= 60){
+            when(mockCombat.getGrade()).thenReturn("D");
+        }else if(progressGrade > 60 && progressGrade <= 65){
+            when(mockCombat.getGrade()).thenReturn("C");
+        }else if(progressGrade > 65 && progressGrade <= 70) {
+            when(mockCombat.getGrade()).thenReturn("C+");
+        }else if(progressGrade > 70 && progressGrade <= 75) {
+            when(mockCombat.getGrade()).thenReturn("B");
+        }else if(progressGrade > 75 && progressGrade <= 80) {
+            when(mockCombat.getGrade()).thenReturn("B+");
+        }else if(progressGrade > 80 && progressGrade <= 90) {
+            when(mockCombat.getGrade()).thenReturn("A");
+        }else if(progressGrade > 90) {
+            when(mockCombat.getGrade()).thenReturn("A+");
+        }
+        System.out.println("Finished testGetGrade.\n");
+    }
+    @Test
+    public void testGetSkillUses(){
+        System.out.println("Starting testGetSkillUses:");
+        Combat mockCombat = mock(Combat.class);
+        mockCombat.useSkill(1);
+        verify(mockCombat).useSkill(1);
+        //No skill ID is 10000
+        when(mockCombat.getSkillUses(0)).thenReturn(0);
+        System.out.println("Finished testUseSkills.\n");
     }
 }
