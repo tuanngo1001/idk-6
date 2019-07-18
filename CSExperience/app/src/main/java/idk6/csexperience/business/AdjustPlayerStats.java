@@ -145,9 +145,12 @@ public class AdjustPlayerStats {
     // PURCHASABLE ITEM MODIFIERS
     // ------------------------------------------------------
 
-    public boolean buyCoffee() {
+    public String[] buyCoffee() {
+        String[] display = new String[2];
+        display[0] = "Insufficent Funds!";
+        display[1] = "How embarassing...";
         if (money < 5) {
-            return false;
+            return display;
         }
         else {
             money -= 5;
@@ -157,12 +160,17 @@ public class AdjustPlayerStats {
         }
 
         updateStats();
-        return true;
+        display[0] = "Energy Increased!";
+        display[1] = "Jittery Yet?";
+        return display;
     }
 
-    public boolean buyBeer() {
+    public String[] buyBeer() {
+        String[] display = new String[2];
+        display[0] = "Insufficent Funds!";
+        display[1] = "How embarassing...";
         if (money < 7) {
-            return false;
+            return display;
         }
         else {
             money -= 7;
@@ -172,41 +180,58 @@ public class AdjustPlayerStats {
             checkValues();
         }
         updateStats();
-        return true;
+        display[0] = "Feeling Better!";
+        display[1] = "But at what cost?";
+        return display;
     }
 
-    public boolean buySnack() {
+    public String[] buySnack() {
+        String[] display = new String[2];
+        display[0] = "Insufficent Funds!";
+        display[1] = "How embarassing...";
         if(money < 5){
-            return false;
+            return display;
         }
         money -= 5;
         food += 15;
         checkValues();
         updateStats();
-        return true;
+        display[0] = "Yum, Fries!";
+        display[1] = "They count as vegetables right?";
+        return display;
     }
 
-    public boolean buyEnergyDrink() {
+    public String[] buyEnergyDrink() {
+        String[] display = new String[2];
+        display[0] = "Insufficent Funds!";
+        display[1] = "How embarassing...";
         if(money <8 ) {
-            return false;
+            return display;
         }
         money -= 8;
         energy +=25;
         checkValues();
         updateStats();
-        return true;
+        display[0] = "Gulp!";
+        display[1] = "Wow, that's genuinely disgusting.";
+        return display;
     }
 
-    public boolean useChegg() {
+    public String[] useChegg() {
+        String[] display = new String[2];
+        display[0] = "Insufficent Funds!";
+        display[1] = "How embarassing...";
         if (money < 25) {
-            return false;
+            return display;
         }
         else {
             //money -= 25;
             //some sort of study benefit;
         }
         updateStats();
-        return true;
+        display[0] = "'Studying' the quick way!";
+        display[1] = "Pick a class to get ahead in!";
+        return display;
     }
 
     public void payForChegg() {
