@@ -168,7 +168,7 @@ public class AdjustPlayerStatsTest {
         assertTrue("Happiness should be 15", playerStats1.getHappiness() == 15);
         assertTrue("Food should be 8", playerStats1.getFood() == 8);
         assertTrue("Should be able to do Cashier",
-                playerStats1.adjustServer());
+                playerStats1.adjustCashier());
         assertTrue("Energy should be 0",playerStats1.getEnergy() == 0);
         assertTrue("Happiness should be 0", playerStats1.getHappiness() == 0);
         assertTrue("Food should be 0", playerStats1.getFood() == 0);
