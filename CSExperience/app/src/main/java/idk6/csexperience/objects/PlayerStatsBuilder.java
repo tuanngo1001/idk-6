@@ -10,7 +10,7 @@ public class PlayerStatsBuilder implements PlayerStatsBuilderInt {
     }
 
     public PlayerStats build(ResultSet rs) throws SQLException {
-        final int energy = rs.getInt("ENERGY");gi
+        final int energy = rs.getInt("ENERGY");
         final int food = rs.getInt("FOOD");
         final int happiness = rs.getInt("HAPPINESS");
         final int money = rs.getInt("MONEY");
