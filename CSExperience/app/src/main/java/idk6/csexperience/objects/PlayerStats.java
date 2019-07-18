@@ -113,17 +113,17 @@ public class PlayerStats {
 
     public void setDatabasesKnowledge(int databasesKnowledge) {
         this.databasesKnowledge = databasesKnowledge;
-        upgradeSkill(0, this.databasesKnowledge);
+        //upgradeSkill(0, this.databasesKnowledge);
     }
 
     public void setAiKnowledge(int aiKnowledge) {
         this.aiKnowledge = aiKnowledge;
-        upgradeSkill(1, this.aiKnowledge);
+        //upgradeSkill(1, this.aiKnowledge);
     }
 
     public void setGraphicsKnowledge(int graphicsKnowledge) {
         this.graphicsKnowledge = graphicsKnowledge;
-        upgradeSkill(2, this.graphicsKnowledge);
+        //upgradeSkill(2, this.graphicsKnowledge);
     }
 
     // pull out skills from skill list and add into the player skills or increase the player skill uses

@@ -41,8 +41,14 @@ public class PlayerTimePersistenceHSQLDB implements PlayerTimePersistence {
     Returns: A short array
  */
     private List<Integer> fromResultSet(final ResultSet rs) throws SQLException {
-        final int day = rs.getInt("DAY");
-        final int timePeriod = rs.getInt("PERIOD");
+        int day;
+        int timePeriod;
+        try {
+            day = rs.getInt("DAY");
+            timePeriod = rs.getInt("PERIOD");
+        }catch(Exception e){
+            return null;
+        }
 
         final List<Integer> result = new ArrayList<Integer>();
         result.add(day);
@@ -63,7 +69,6 @@ public class PlayerTimePersistenceHSQLDB implements PlayerTimePersistence {
 
             final ResultSet rs = st.executeQuery();
             rs.next();
-
             dateTime = fromResultSet(rs);
 
             return dateTime;

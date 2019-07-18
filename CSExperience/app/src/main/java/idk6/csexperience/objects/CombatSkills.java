@@ -6,6 +6,13 @@ public class CombatSkills {
 
     public CombatSkills(){
         skillsList = new Skill[3][3];
+
+        for(int i = 0; i< 3;i++) {
+            for(int j = 0;j<3;j++) {
+                skillsList[i][j] = new Skill();
+            }
+        }
+        skillsList = new Skill[3][3];
         totalSkill = 0;
     }
 

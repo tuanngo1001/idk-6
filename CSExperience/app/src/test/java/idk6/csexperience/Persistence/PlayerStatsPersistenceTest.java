@@ -1,5 +1,7 @@
 package idk6.csexperience.Persistence;
 
+import android.net.wifi.p2p.WifiP2pManager;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -59,7 +61,9 @@ public class PlayerStatsPersistenceTest {
 
         PlayerStats stats = this.Player.getPlayerStats("PLAYER");
         System.out.println(stats);
+        assertNotNull(stats);
         //start with only the one player in list
+
         assertTrue(stats.getMoney() == 50);
         assertTrue(stats.getFood() == 55);
         assertTrue(stats.getEnergy() == 25);
@@ -68,10 +72,72 @@ public class PlayerStatsPersistenceTest {
         assertTrue(stats.getAiKnowledge() == 2);
         assertTrue(stats.getGraphicsKnowledge() == 1);
 
-
         System.out.println("Finishing testGetPlayerStats test");
-
     }
+
+    @Test
+    public void testAddPlayer() {
+        System.out.println("\nStarting testAddPlayer test");
+
+        PlayerStats stats = new PlayerStats();
+
+        Player.insertPlayer("JIMBO", stats);
+
+        // Check if big boi JIMBO exists in our dank db
+        assertTrue(Player.doesExist("JIMBO"));
+
+        PlayerStats ANOTHAONE = this.Player.getPlayerStats("JIMBO");
+        assertNotNull(ANOTHAONE);
+        //start with only the one player in list
+
+        assertTrue(ANOTHAONE.getMoney() == 50);
+        assertTrue(ANOTHAONE.getFood() == 50);
+        assertTrue(ANOTHAONE.getEnergy() == 50);
+        assertTrue(ANOTHAONE.getHappiness() == 50);
+        assertTrue(ANOTHAONE.getDatabasesKnowledge() == 1);
+        assertTrue(ANOTHAONE.getAiKnowledge() == 1);
+        assertTrue(ANOTHAONE.getGraphicsKnowledge() == 1);
+
+        System.out.println("Finishing testAddPlayer test");
+    }
+
+
+    @Test
+    public void testUpdatePlayerStats() {
+        System.out.println("\nStarting testUpdatePlayerStats test");
+        //initialize generic stats
+        PlayerStats stats = new PlayerStats();
+        //update
+        Player.updatePlayerStats("PLAYER", stats);
+        //check buddy still exists
+        assertTrue(Player.doesExist("PLAYER"));
+        PlayerStats BLESSUP = this.Player.getPlayerStats("PLAYER");
+        assertNotNull(BLESSUP);
+        //check em
+        assertTrue(BLESSUP.getMoney() == 50);
+        assertTrue(BLESSUP.getFood() == 50);
+        assertTrue(BLESSUP.getEnergy() == 50);
+        assertTrue(BLESSUP.getHappiness() == 50);
+        assertTrue(BLESSUP.getDatabasesKnowledge() == 1);
+        assertTrue(BLESSUP.getAiKnowledge() == 1);
+        assertTrue(BLESSUP.getGraphicsKnowledge() == 1);
+
+        System.out.println("Finishing testUpdatPlayerStats test");
+    }
+
+    @Test
+    public void testDeletePlayer() {
+        System.out.println("\nStarting testDeletePlayer test");
+
+        Player.deletePlayer("JIMBO");
+        //BOOM GOT EM
+        assertFalse(Player.doesExist("JIMBO"));
+        //RIP JIMBO
+        assertTrue(Player.doesExist("PLAYER"));
+
+        System.out.println("Finishing testDeletePlayer test");
+    }
+
 
     @After
     public void tearDown() {

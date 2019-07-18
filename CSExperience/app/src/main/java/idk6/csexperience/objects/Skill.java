@@ -10,6 +10,17 @@ public class Skill {
     private int foodCost;
     private int timeCost;
 
+    public Skill() {
+        cID=0;
+        id=0;
+        stat=0;
+        uses=0;
+        energyCost=0;
+        foodCost=0;
+        timeCost=0;
+        description="";
+    }
+
     public Skill(int cID, int sID,String des,int stat, int energyCost, int foodCost, int timeCost){
         description = des;
         this.cID = cID;
