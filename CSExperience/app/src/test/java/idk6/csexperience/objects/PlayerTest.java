@@ -15,7 +15,7 @@ public class PlayerTest {
         assertNotNull("Should not be Null", playRole);
         //TESTING FOR getName()
         assertEquals("playerName",playRole.getName());
-        
+
         System.out.println("Finished testSetGetName\n");
     }
 
