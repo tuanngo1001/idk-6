@@ -3,9 +3,9 @@ package idk6.csexperience;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
-import idk6.csexperience.Persistence.ExamsPersistenceTest;
-import idk6.csexperience.Persistence.PlayerStatsPersistenceTest;
-import idk6.csexperience.Persistence.PlayerTimeTest;
+import idk6.csexperience.persistence.ExamsPersistenceTest;
+import idk6.csexperience.persistence.PlayerStatsPersistenceTest;
+import idk6.csexperience.persistence.PlayerTimeTest;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
