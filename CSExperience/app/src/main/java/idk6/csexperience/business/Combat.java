@@ -108,11 +108,23 @@ public class Combat {
         return grade;
     }
 
-    public int getSkillStat(int skillID){ return skillsList[skillID].getStat(); }
+    public int getSkillStat(int skillID) {
+        if (skillsList[skillID] != null)
+            return skillsList[skillID].getStat();
+        else return 0;
+    }
 
-    public int getSkillEnergyCost(int skillID){ return skillsList[skillID].getEnergyCost(); }
+    public int getSkillEnergyCost(int skillID){
+        if (skillsList[skillID] != null)
+            return skillsList[skillID].getEnergyCost();
+        else return 0;
+    }
 
-    public int getSkillFoodCost(int skillID){ return skillsList[skillID].getFoodCost(); }
+    public int getSkillFoodCost(int skillID){
+        if (skillsList[skillID] != null)
+            return skillsList[skillID].getFoodCost();
+        else return 0;
+    }
 
     public void increaseMidtermSkill(){
         int knowledge = stats.getKnowledge(cID);
