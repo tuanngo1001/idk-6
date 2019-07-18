@@ -36,7 +36,7 @@ public class Combat {
 
     public void decreaseTime(int amt){ timer -= amt; }
 
-    public void getUsableSkill(){
+    public Skill[] getUsableSkill(){
         Skill[][] playerSkills = user.getStats().getSkillsList();
         for (int i = 0; i < MAX_SKILLS; i++)
             if (playerSkills[cID][i] != null)
@@ -44,6 +44,7 @@ public class Combat {
             else break;
         if (midterm)
             increaseMidtermSkill();
+        return skillsList;
     }
 
     public void useSkill(int skillNo) {
@@ -79,7 +80,7 @@ public class Combat {
     public int getSkillUses(int skillID){
         if (skillsList[skillID] != null)
             return skillsList[skillID].getUses();
-        else return 0;
+        return 0;
     }
 
     public PlayerStats getStats(){ return stats; }
