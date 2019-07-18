@@ -127,13 +127,13 @@ public class Combat {
 
     public void increaseMidtermSkill(){
         int knowledge = stats.getKnowledge(cID);
-        if (knowledge < 5) {
+        if (knowledge > 1 && knowledge < 5) {
             skillsList[0].upgradeStat(13);
             skillsList[0].setTimeCost(30);
             skillsList[0].setEnergyCost(20);
             skillsList[0].setFoodCost(10);
         }
-        else if (knowledge < 7){
+        else if (knowledge >= 5 && knowledge < 7){
             skillsList[0].upgradeStat(8);
             skillsList[0].setTimeCost(20);
             skillsList[0].setEnergyCost(15);
@@ -144,7 +144,7 @@ public class Combat {
             skillsList[1].setEnergyCost(20);
             skillsList[1].setFoodCost(15);
         }
-        else if (knowledge < 10) {
+        else if (knowledge >= 7 && knowledge < 10) {
             skillsList[0].upgradeStat(2);
             skillsList[0].setTimeCost(18);
             skillsList[0].setEnergyCost(12);

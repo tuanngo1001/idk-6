@@ -47,6 +47,7 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         examAnimation();
         timeBar();
         progressGrade();
+        endExamCheck();
         changeUses(R.id.textUsesSkill1,0);
         changeUses(R.id.textUsesSkill2,1);
         changeUses(R.id.textUsesSkill3,2);
@@ -110,14 +111,15 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
             TextView uses = (TextView) findViewById(use);
             uses.setText("Uses: " + 0);
         }
+        endExamCheck();
+    }
 
+    private void endExamCheck(){
         if(adjuster.getSkillUses(0) == 0
             && adjuster.getSkillUses(1) == 0
             && adjuster.getSkillUses(2) == 0){
             showDialog("You have used all your skills!", "Finished exam with grade: "+adjuster.getGrade(),true);
         }
-
-
     }
 
     private void progressGrade(){
