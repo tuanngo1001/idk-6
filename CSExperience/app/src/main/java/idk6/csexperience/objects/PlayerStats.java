@@ -120,12 +120,20 @@ public class PlayerStats {
     private void upgradeSkill(int cID, int knowledgeLevel){
         if (knowledgeLevel == 2)
             addSkill(allSkill.getSkill(cID,0));
-        else if (knowledgeLevel == 3 || knowledgeLevel == 4)
-            skills.getSkill(cID,0).increaseUsage();
+
+        else if (knowledgeLevel == 3 || knowledgeLevel == 4) {
+            if (skills.getSkill(cID, 0) != null)
+                skills.getSkill(cID, 0).increaseUsage();
+        }
+
         else if (knowledgeLevel == 5)
             addSkill(allSkill.getSkill(cID,1));
-        else if (knowledgeLevel == 7)
-            skills.getSkill(cID,1).increaseUsage();
+
+        else if (knowledgeLevel == 7) {
+            if (skills.getSkill(cID, 1) != null)
+                skills.getSkill(cID, 1).increaseUsage();
+        }
+
         else if (knowledgeLevel == 10)
             addSkill(allSkill.getSkill(cID,2));
     }
