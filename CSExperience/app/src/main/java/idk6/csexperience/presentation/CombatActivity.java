@@ -125,7 +125,7 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         grade.setProgress(adjuster.getProgressGrade());
 
         if(adjuster.getProgressGrade() >= 100){
-            showDialog("You nailed it!", "Finished exam with grade: "+adjuster.getGrade(),true);
+            showDialog("Nailed it!", "Finished exam with grade: "+adjuster.getGrade(),true);
         }
     }
 
