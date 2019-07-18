@@ -1,4 +1,4 @@
-package idk6.csexperience.Persistence;
+package idk6.csexperience.persistence;
 
 import org.junit.After;
 import org.junit.Before;
@@ -8,13 +8,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import idk6.csexperience.objects.Calendar;
 import idk6.csexperience.objects.CalendarEvent;
-import idk6.csexperience.objects.PlayerStats;
-import idk6.csexperience.persistence.ExamsPersistence;
-import idk6.csexperience.persistence.PlayerStatsPersistence;
 import idk6.csexperience.persistence.hsqldb.ExamsPersistenceHSQLDB;
-import idk6.csexperience.persistence.hsqldb.PlayerStatsPersistenceHSQLDB;
 import idk6.csexperience.utils.TestUtils;
 
 import static org.junit.Assert.assertFalse;
