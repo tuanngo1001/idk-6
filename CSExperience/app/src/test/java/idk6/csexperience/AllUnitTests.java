@@ -7,7 +7,9 @@ import idk6.csexperience.business.AdjustPlayerStatsTest;
 import idk6.csexperience.business.AdjustGameTest;
 import idk6.csexperience.business.AdjustCalendarTest;
 
+import idk6.csexperience.business.CalendarPersistenceAccessorTest;
 import idk6.csexperience.business.CombatTest;
+import idk6.csexperience.business.GameServicesTest;
 import idk6.csexperience.objects.CalendarTest;
 import idk6.csexperience.objects.GameTest;
 import idk6.csexperience.objects.PlayerStatsTest;
@@ -20,6 +22,8 @@ import idk6.csexperience.objects.PlayerTest;
         AdjustPlayerStatsTest.class,
         AdjustCalendarTest.class,
         CombatTest.class,
+        CalendarPersistenceAccessorTest.class,
+        GameServicesTest.class,
 
         GameTest.class,
         PlayerTest.class,
