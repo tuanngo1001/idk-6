@@ -114,7 +114,7 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         if(adjuster.getSkillUses(0) == 0
             && adjuster.getSkillUses(1) == 0
             && adjuster.getSkillUses(2) == 0){
-            showDialog("Finished Exam", "Grade: "+adjuster.getGrade(),true);
+            showDialog("You have used all your skills!", "Finished exam with grade: "+adjuster.getGrade(),true);
         }
 
 
@@ -125,7 +125,7 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         grade.setProgress(adjuster.getProgressGrade());
 
         if(adjuster.getProgressGrade() >= 100){
-            showDialog("Finished Exam", "Grade: "+adjuster.getGrade(),true);
+            showDialog("You nailed it!", "Finished exam with grade: "+adjuster.getGrade(),true);
         }
     }
 
@@ -133,7 +133,7 @@ public class CombatActivity extends AppCompatActivity{//} implements View.OnClic
         ProgressBar timer = (ProgressBar) findViewById(R.id.progressBarTime);
         timer.setProgress(adjuster.getTimeRemaining());
         if(adjuster.getTimeRemaining() <= 0){
-            showDialog("Finished Exam", "Grade: "+adjuster.getGrade(),true);
+            showDialog("Time is up!", "Finished exam with grade: "+adjuster.getGrade(),true);
         }
     }
 
