@@ -14,3 +14,6 @@ Some user stories we had flagged for iteration 1 have been pushed back to iterat
 ## A Note for the Marker Regarding Iteration 0:
 Please note that the issues section of this repo contains _all_ of the user stories for this project. The ones to be implementated in iteration 1 are labelled with the tag `Iteration-1`. All others are works in progress that will be revisited  following iteration 1.
 
+## Docs
+- [Vision Statment](VISION.md)
+- [Architecture](ARCHITECTURE.md)
