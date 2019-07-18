@@ -36,7 +36,7 @@ public class Combat {
 
     public void decreaseTime(int amt){ timer -= amt; }
 
-    public Skill[] getUsableSkill(){
+    public void getUsableSkill(){
         Skill[][] playerSkills = user.getStats().getSkillsList();
         for (int i = 0; i < MAX_SKILLS; i++)
             if (playerSkills[cID][i] != null)
@@ -44,7 +44,6 @@ public class Combat {
             else break;
         if (midterm)
             increaseMidtermSkill();
-        return skillsList;
     }
 
     public void useSkill(int skillNo) {
@@ -80,7 +79,7 @@ public class Combat {
     public int getSkillUses(int skillID){
         if (skillsList[skillID] != null)
             return skillsList[skillID].getUses();
-        return 0;
+        else return 0;
     }
 
     public PlayerStats getStats(){ return stats; }
@@ -108,16 +107,28 @@ public class Combat {
         return grade;
     }
 
-    public int getSkillStat(int skillID){ return skillsList[skillID].getStat(); }
+    public int getSkillStat(int skillID) {
+        if (skillsList[skillID] != null)
+            return skillsList[skillID].getStat();
+        else return 0;
+    }
 
-    public int getSkillEnergyCost(int skillID){ return skillsList[skillID].getEnergyCost(); }
+    public int getSkillEnergyCost(int skillID){
+        if (skillsList[skillID] != null)
+            return skillsList[skillID].getEnergyCost();
+        else return 0;
+    }
 
-    public int getSkillFoodCost(int skillID){ return skillsList[skillID].getFoodCost(); }
+    public int getSkillFoodCost(int skillID){
+        if (skillsList[skillID] != null)
+            return skillsList[skillID].getFoodCost();
+        else return 0;
+    }
 
     public void increaseMidtermSkill(){
         int knowledge = stats.getKnowledge(cID);
         if (knowledge < 5) {
-            skillsList[0].setStat(25);
+            skillsList[0].setStat(23);
             skillsList[0].setTimeCost(30);
             skillsList[0].setEnergyCost(20);
             skillsList[0].setFoodCost(10);
@@ -128,18 +139,18 @@ public class Combat {
             skillsList[0].setEnergyCost(15);
             skillsList[0].setFoodCost(8);
 
-            skillsList[1].setStat(30);
+            skillsList[1].setStat(22);
             skillsList[1].setTimeCost(25);
             skillsList[1].setEnergyCost(20);
             skillsList[1].setFoodCost(15);
         }
         else if (knowledge < 10) {
-            skillsList[0].setStat(15);
+            skillsList[0].setStat(12);
             skillsList[0].setTimeCost(18);
             skillsList[0].setEnergyCost(12);
             skillsList[0].setFoodCost(5);
 
-            skillsList[1].setStat(20);
+            skillsList[1].setStat(30);
             skillsList[1].setTimeCost(25);
             skillsList[1].setEnergyCost(20);
             skillsList[1].setFoodCost(15);
