@@ -147,7 +147,7 @@ public class AdjustPlayerStatsTest {
         assertTrue("Happiness should be 20", playerStats1.getHappiness() == 20);
         assertTrue("Food should be 8", playerStats1.getFood() == 8);
         assertTrue("Should be able to do Waitress",
-                playerStats1.doServer());
+                playerStats1.adjustServer());
         assertTrue("Energy should be 0",playerStats1.getEnergy() == 0);
         assertTrue("Happiness should be 0", playerStats1.getHappiness() == 0);
         assertTrue("Food should be 0", playerStats1.getFood() == 0);
@@ -168,7 +168,7 @@ public class AdjustPlayerStatsTest {
         assertTrue("Happiness should be 15", playerStats1.getHappiness() == 15);
         assertTrue("Food should be 8", playerStats1.getFood() == 8);
         assertTrue("Should be able to do Cashier",
-                playerStats1.doCashier());
+                playerStats1.adjustServer());
         assertTrue("Energy should be 0",playerStats1.getEnergy() == 0);
         assertTrue("Happiness should be 0", playerStats1.getHappiness() == 0);
         assertTrue("Food should be 0", playerStats1.getFood() == 0);
@@ -189,7 +189,7 @@ public class AdjustPlayerStatsTest {
         assertTrue("Happiness should be 8", playerStats1.getHappiness() == 8);
         assertTrue("Food should be 15", playerStats1.getFood() == 15);
         assertTrue("Should be able to do Deliver",
-                playerStats1.doDelivering());
+                playerStats1.adjustDelivering());
         assertTrue("Energy should be 0",playerStats1.getEnergy() == 0);
         assertTrue("Happiness should be 0", playerStats1.getHappiness() == 0);
         assertTrue("Food should be 0", playerStats1.getFood() == 0);
